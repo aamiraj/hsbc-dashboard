@@ -3,14 +3,15 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  padding: 10px 20px 10px 0px;
+  padding: 6px 6px 6px 0px;
 }
 
 .icon_menus {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+  color: #595959;
 }
 
 .icon_menus::before {
@@ -25,10 +26,14 @@
   color: #fff;
 }
 
+.menu_container:hover span {
+  color: #fff;
+}
+
 .menu_container:hover .icon_menus::before {
   background-color: #fff;
 }
 
 .menu_container:hover path {
-  fill: #FFF;
+  fill: #fff;
 }

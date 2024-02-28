@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import SideMenu from "@/sections/SideMenu/SideMenu";
+import HeaderMenu from "@/sections/HeaderMenu/HeaderMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
@@ -16,7 +17,10 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <main className="flex">
           <SideMenu />
-          {children}
+          <section className="bg-[#FAFBFF] w-full">
+            <HeaderMenu />
+            {children}
+          </section>
         </main>
       </body>
     </html>

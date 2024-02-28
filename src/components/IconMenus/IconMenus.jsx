@@ -7,7 +7,7 @@ const IconMenus = ({ text, icon, link }) => {
     <Link href={link} className={styles.menu_container}>
       <div className={`${styles.icon_menus}`}>
         <span>{icon}</span>
-        <span className="text-sm font-bold" style={{color: "#595959"}}>{text}</span>
+        <span className="text-sm font-bold">{text}</span>
       </div>
       <div>
         <RightAngle w={24} h={24} c={'#595959'}/>

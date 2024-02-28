@@ -11,6 +11,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
+  color: #9197B3;
 }
 
 .icon_menus::before {
@@ -20,7 +21,7 @@
   background-color: transparent;
 }
 
-.menu_container:hover {
+.menu_container:hover span{
   color: #0F993E;
 }
 
