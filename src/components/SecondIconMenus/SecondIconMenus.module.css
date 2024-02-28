@@ -1,0 +1,33 @@
+.menu_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px 20px 10px 0px;
+}
+
+.icon_menus {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon_menus::before {
+  content: "";
+  width: 4px;
+  height: 32px;
+  background-color: transparent;
+}
+
+.menu_container:hover {
+  color: #0F993E;
+}
+
+.menu_container:hover .icon_menus::before {
+  background-color: #0F993E;
+}
+
+.menu_container:hover path {
+  fill: #0F993E;
+}

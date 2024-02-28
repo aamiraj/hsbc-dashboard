@@ -1,12 +1,9 @@
-
 export default function Home() {
   return (
-    <main>
-      <section>
-        <div>
-          <h1>Hello world!!!</h1>
-        </div>
-      </section>
-    </main>
-  )
+    <section className="bg-[#FAFBFF] w-full">
+      <div>
+        <h1>Hello world!!!</h1>
+      </div>
+    </section>
+  );
 }
