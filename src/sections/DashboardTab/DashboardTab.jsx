@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./DashboardTab.module.css";
-import Barchart from "@/components/Charts/barchart";
 import ArrowDown from "@/components/Icons/ArrowDown";
 import Dougnutchart from "@/components/Charts/Dougnutchart";
 import Image from "next/image";
@@ -11,6 +10,7 @@ import TimeClock from "@/components/Icons/TimeClock";
 import Award from "@/components/Icons/Award";
 import Goal from "@/components/Icons/Goal";
 import Edit from "@/components/Icons/Edit";
+import Barchart from "@/components/Charts/Barchart";
 
 const DashboardTab = () => {
   const [openFirstTab, setOpenFirstTab] = useState(true);
@@ -62,7 +62,7 @@ const DashboardTab = () => {
                   <h3 className="font-bold text-xl">Online</h3>
                   <p className="text-sm text-[#ACACAC]">Customers Activity</p>
                 </div>
-                {/* <Dougnutchart /> */}
+                <Dougnutchart />
               </div>
               <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
                 <div>
