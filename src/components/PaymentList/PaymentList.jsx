@@ -34,29 +34,35 @@ const PaymentList = ({ title, payments }) => {
       </div>
       <div className="py-4">
         <table className="table">
-          <tr>
-            {thead.map((text, i) => (
-              <th key={i} className="th">
-                <div className="flex justify-center items-center gap-2">
-                  <p className="text-center">{text}</p>
-                  <span className="rotate-90 text-center text-[10px]">{"<>"}</span>
-                </div>
-              </th>
-            ))}
-          </tr>
-          {payments.map((payment, i) => (
-            <tr key={i}>
-              <td className="td">{payment.date}</td>
-              <td className="td">{payment.fullname}</td>
-              <td className="td">{payment.attribution}</td>
-              <td className="td">{payment.plan}</td>
-              <td className="td">{payment.price}</td>
-              <td className="td">{payment.bonuses}</td>
-              <td className="td">
-                {payment.payment ? <PayButton /> : <PayButton />}
-              </td>
+          <thead>
+            <tr>
+              {thead.map((text, i) => (
+                <th key={i} className="th">
+                  <div className="flex justify-center items-center gap-2">
+                    <p className="text-center">{text}</p>
+                    <span className="rotate-90 text-center text-[10px]">
+                      {"<>"}
+                    </span>
+                  </div>
+                </th>
+              ))}
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {payments.map((payment, i) => (
+              <tr key={i}>
+                <td className="td">{payment.date}</td>
+                <td className="td">{payment.fullname}</td>
+                <td className="td">{payment.attribution}</td>
+                <td className="td">{payment.plan}</td>
+                <td className="td">{payment.price}</td>
+                <td className="td">{payment.bonuses}</td>
+                <td className="td">
+                  {payment.payment ? <PayButton /> : <PayButton />}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
       <div className="flex justify-center items-center gap-4">

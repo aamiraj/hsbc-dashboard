@@ -30,42 +30,42 @@ const iconMenus = [
   {
     text: "Dashboard",
     icon: <KeySquare w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Client/Prospect",
     icon: <ThreeDSquare w={24} h={24} />,
-    link: "/",
+    link: "/dashboard/client_prospect",
   },
   {
     text: "Get Over Yourself",
     icon: <UserProfile w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Collection",
     icon: <WalletMoney w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Paiment",
     icon: <Discount w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Transaction",
     icon: <ShoppingBag w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Contract",
     icon: <CycleUser w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Current Conversation",
     icon: <ChatDot w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
 ];
 
@@ -73,32 +73,32 @@ const secondIconMenus = [
   {
     text: "Invitation Of Leads",
     icon: <Briefcase w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Collaboration",
     icon: <UsersTwo w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Product",
     icon: <AddProduct w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Negosiation",
     icon: <Chat w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Personalisation",
     icon: <Eye w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
   {
     text: "Company",
     icon: <ThreeUsers w={24} h={24} />,
-    link: "/",
+    link: "/dashboard",
   },
 ];
 
