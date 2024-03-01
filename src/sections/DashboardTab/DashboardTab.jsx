@@ -13,6 +13,10 @@ import Edit from "@/components/Icons/Edit";
 import Barchart from "@/components/Charts/Barchart";
 import OverallFundStat from "@/components/OverallFundStat/OverallFundStat";
 import EarningStat from "@/components/EarningStat/EarningStat";
+import PaymentList from "@/components/PaymentList/PaymentList";
+import Selectbox from "@/components/Selectbox/Selectbox";
+import { optionList } from "@/options/optionList";
+import { payments } from "@/dummydata/payments";
 
 const getToday = () => {
   const date = new Date();
@@ -64,7 +68,7 @@ const DashboardTab = () => {
         </button>
       </div>
 
-      {/* <!-- Tab content --> */}
+      {/* <!-- Call diary tab --> */}
       {openFirstTab && (
         <div className={styles.tabcontent}>
           <div className="grid grid-cols-2 gap-8">
@@ -74,23 +78,7 @@ const DashboardTab = () => {
                   <h3 className="font-bold text-xl">Reminder Of The Day</h3>
                   <p className="text-sm text-[#ACACAC]">{today}</p>
                 </div>
-                <div>
-                  <select
-                    name="timerange"
-                    id="timerange"
-                    className="flex items-center justify-between gap-2 p-2 bg-[#F9FBFF]"
-                  >
-                    <option value="weekly" className="text-sm text-[#7E7E7E]">
-                      Weekly
-                    </option>
-                    <option value="monthly" className="text-sm text-[#7E7E7E]">
-                      Monthly
-                    </option>
-                    <option value="daily" className="text-sm text-[#7E7E7E]">
-                      Daily
-                    </option>
-                  </select>
-                </div>
+                <Selectbox optionList={optionList} defaultOption="" />
               </div>
               <Barchart />
             </div>
@@ -235,7 +223,7 @@ const DashboardTab = () => {
           </div>
         </div>
       )}
-
+      {/* General statistic tab  */}
       {!openFirstTab && (
         <div className={styles.tabcontent}>
           {/* top stat cards with leafy background */}
@@ -263,9 +251,15 @@ const DashboardTab = () => {
                 <div className="w-full border-b  flex justify-between items-center gap-4 ">
                   <p className="font-bold text-sm">Statistics</p>
                   <div className="flex items-center justify-center gap-2">
-                    <p className="font-bold text-sm p-2 border-b-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">Now</p>
-                    <p className="font-bold text-sm p-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">Today</p>
-                    <p className="font-bold text-sm p-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">Month</p>
+                    <p className="font-bold text-sm p-2 border-b-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">
+                      Now
+                    </p>
+                    <p className="font-bold text-sm p-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">
+                      Today
+                    </p>
+                    <p className="font-bold text-sm p-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">
+                      Month
+                    </p>
                   </div>
                   <span>:</span>
                 </div>
@@ -274,6 +268,25 @@ const DashboardTab = () => {
                 <p>There will be a chart.</p>
               </div>
             </div>
+          </div>
+          {/* list of payments in several boxes */}
+          <div>
+            <PaymentList
+              title={"PAYMENTS BY SELLERS / ADMINISTRATOR/ MANAGERS"}
+              payments={payments}
+            />
+            <PaymentList
+              title={"PAYMENTS BY CAMPAIGNS "}
+              payments={payments}
+            />
+            <PaymentList
+              title={"EVALUATIONS"}
+              payments={payments}
+            />
+            <PaymentList
+              title={"CAMPAIGNS"}
+              payments={payments}
+            />
           </div>
         </div>
       )}

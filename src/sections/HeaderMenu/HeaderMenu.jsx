@@ -8,6 +8,7 @@ import Sun from "@/components/Icons/Sun";
 import Image from "next/image";
 import React from "react";
 import UK from "../../../public/assets/uk.svg";
+import Searchbox from "@/components/Searchbox/Searchbox";
 
 const language = {
   country: "UK",
@@ -27,16 +28,7 @@ const HeaderMenu = () => {
         <span>{location}</span>
       </div>
       <div className="flex items-center justify-evenly gap-4">
-        <div className="w-48 rounded-lg flex items-center justify-between bg-[#1C1C1C0D] p-2">
-          <div className="flex items-center">
-            <SearchGlass w={24} h={24} />
-            <span className="text-[#1C1C1C33]">Search</span>
-          </div>
-          <div className="flex items-center">
-            <Command w={24} h={24} />
-            <span className="text-[#1C1C1C33]">/</span>
-          </div>
-        </div>
+        <Searchbox withCommand={true} />
         <div className="flex justify-evenly gap-4 items-center">
           <Sun w={24} h={24} />
           <AntiClock w={24} h={24} />

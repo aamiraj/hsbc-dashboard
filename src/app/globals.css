@@ -50,5 +50,19 @@
   border-left: 16px solid rgba(40, 199, 111, 1);
   border-bottom: 16px solid rgba(40, 199, 111, 0.25);
   transform: rotate(30deg);
+}
 
+.table {
+  width: 100%;
+}
+.th {
+  color: #878790;
+  font-size: 0.5rem;
+  font-weight: 700;
+}
+.th,
+.td {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.75rem;
 }
