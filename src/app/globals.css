@@ -40,12 +40,15 @@
 
 .donut {
   background: #fff;
-  display: block;
-  width: 600px;
-  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 84px;
+  height: 84px;
   border-radius: 100%;
-  border: 20px solid #ff6188;
-  
-  border-left: 40px solid #78dcdc;
-  border-bottom: 50px solid #ffd862;
+  border: 16px solid rgba(40, 199, 111, 0.5);
+  border-left: 16px solid rgba(40, 199, 111, 1);
+  border-bottom: 16px solid rgba(40, 199, 111, 0.25);
+  transform: rotate(30deg);
+
 }

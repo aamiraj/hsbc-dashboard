@@ -28,7 +28,7 @@ export const data = {
         "rgba(54, 162, 235)",
         "rgba(255, 206, 86)",
       ],
-      cutout: 60,
+      cutout: "90%",
       radius: 90,
       animateScale: true
     },

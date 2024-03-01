@@ -12,6 +12,7 @@ import Goal from "@/components/Icons/Goal";
 import Edit from "@/components/Icons/Edit";
 import Barchart from "@/components/Charts/Barchart";
 import OverallFundStat from "@/components/OverallFundStat/OverallFundStat";
+import EarningStat from "@/components/EarningStat/EarningStat";
 
 const getToday = () => {
   const date = new Date();
@@ -99,7 +100,6 @@ const DashboardTab = () => {
                   <h3 className="font-bold text-xl">Online</h3>
                   <p className="text-sm text-[#ACACAC]">Customers Activity</p>
                 </div>
-                <Dougnutchart />
               </div>
               <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
                 <div>
@@ -240,10 +240,40 @@ const DashboardTab = () => {
         <div className={styles.tabcontent}>
           {/* top stat cards with leafy background */}
           <div className="grid grid-cols-3 gap-8">
-            {/* black card  */}
             <OverallFundStat bg_color={"#000000"} title={"Total"} />
             <OverallFundStat bg_color={"#0F993E"} title={"Top 3 Gainers"} />
             <OverallFundStat bg_color={"#FF715B"} title={"Top 3 Losers"} />
+          </div>
+          {/* earning stat of weekly and montly and a horizontal bar plot */}
+          <div className={styles.earning_stat_grid}>
+            <div className="grid grid-cols-1 gap-2">
+              <EarningStat
+                title={"This Week"}
+                bg_color={"#FFFFFF"}
+                text_color={"#5E5873"}
+              />
+              <EarningStat
+                title={"This Month"}
+                bg_color={"#000000"}
+                text_color={"#FFFFFF"}
+              />
+            </div>
+            <div className="shadow-md rounded-lg p-4">
+              <div>
+                <div className="w-full border-b  flex justify-between items-center gap-4 ">
+                  <p className="font-bold text-sm">Statistics</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="font-bold text-sm p-2 border-b-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">Now</p>
+                    <p className="font-bold text-sm p-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">Today</p>
+                    <p className="font-bold text-sm p-2 hover:text-[#0F993E] hover:border-b-2 hover:border-b-[#0F993E]">Month</p>
+                  </div>
+                  <span>:</span>
+                </div>
+              </div>
+              <div className="flex justify-center items-center">
+                <p>There will be a chart.</p>
+              </div>
+            </div>
           </div>
         </div>
       )}

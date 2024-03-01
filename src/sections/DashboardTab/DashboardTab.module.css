@@ -52,4 +52,12 @@
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 2rem;
+  margin: 32px 0px;
+}
+
+.earning_stat_grid {
+  margin: 32px 0px;
+  display: grid;
+  grid-template-columns: 33% auto;
+  column-gap: 32px;
 }
