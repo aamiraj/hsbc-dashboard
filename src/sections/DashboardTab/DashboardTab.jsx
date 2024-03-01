@@ -11,11 +11,37 @@ import Award from "@/components/Icons/Award";
 import Goal from "@/components/Icons/Goal";
 import Edit from "@/components/Icons/Edit";
 import Barchart from "@/components/Charts/Barchart";
+import OverallFundStat from "@/components/OverallFundStat/OverallFundStat";
 
+const getToday = () => {
+  const date = new Date();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${month} ${day}, ${year}`;
+};
 const DashboardTab = () => {
   const [openFirstTab, setOpenFirstTab] = useState(true);
+  const today = getToday();
 
-  const handleActive = (event, value) => {
+  const handleActive = (value) => {
     setOpenFirstTab(value);
   };
   return (
@@ -24,14 +50,14 @@ const DashboardTab = () => {
       <div className={styles.tab}>
         <button
           className={openFirstTab ? styles.active : ""}
-          onClick={(e) => handleActive(e, true)}
+          onClick={() => handleActive(true)}
           id="defaultOpen"
         >
           Call Diary
         </button>
         <button
           className={!openFirstTab ? styles.active : ""}
-          onClick={(e) => handleActive(e, false)}
+          onClick={() => handleActive(false)}
         >
           General Statistic
         </button>
@@ -40,18 +66,29 @@ const DashboardTab = () => {
       {/* <!-- Tab content --> */}
       {openFirstTab && (
         <div className={styles.tabcontent}>
-          <div className="grid grid-cols-2 gap-8 my-8">
+          <div className="grid grid-cols-2 gap-8">
             <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
               <div className="flex justify-between items-center">
                 <div>
                   <h3 className="font-bold text-xl">Reminder Of The Day</h3>
-                  <p className="text-sm text-[#ACACAC]">9 January 2024</p>
+                  <p className="text-sm text-[#ACACAC]">{today}</p>
                 </div>
-                <div className="flex items-center justify-between gap-2 p-2 bg-[#F9FBFF]">
-                  <span className="text-sm text-[#7E7E7E]">Weekly</span>
-                  <span>
-                    <ArrowDown w={16} h={16} />
-                  </span>
+                <div>
+                  <select
+                    name="timerange"
+                    id="timerange"
+                    className="flex items-center justify-between gap-2 p-2 bg-[#F9FBFF]"
+                  >
+                    <option value="weekly" className="text-sm text-[#7E7E7E]">
+                      Weekly
+                    </option>
+                    <option value="monthly" className="text-sm text-[#7E7E7E]">
+                      Monthly
+                    </option>
+                    <option value="daily" className="text-sm text-[#7E7E7E]">
+                      Daily
+                    </option>
+                  </select>
                 </div>
               </div>
               <Barchart />
@@ -123,7 +160,9 @@ const DashboardTab = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-[10px] text-[#191919]">Target vs Achievement</h3>
+                    <h3 className="text-[10px] text-[#191919]">
+                      Target vs Achievement
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -198,8 +237,14 @@ const DashboardTab = () => {
       )}
 
       {!openFirstTab && (
-        <div id="Paris" className={styles.tabcontent}>
-          <div className="donut"></div>
+        <div className={styles.tabcontent}>
+          {/* top stat cards with leafy background */}
+          <div className="grid grid-cols-3 gap-8">
+            {/* black card  */}
+            <OverallFundStat bg_color={"#000000"} title={"Total"} />
+            <OverallFundStat bg_color={"#0F993E"} title={"Top 3 Gainers"} />
+            <OverallFundStat bg_color={"#FF715B"} title={"Top 3 Losers"} />
+          </div>
         </div>
       )}
     </div>
