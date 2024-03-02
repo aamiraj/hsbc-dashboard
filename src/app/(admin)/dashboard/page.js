@@ -1,4 +1,4 @@
-import DashboardTab from "@/sections/DashboardTab/DashboardTab";
+import DashboardTab from "./sections/DashboardTab/DashboardTab";
 import React from "react";
 
 const Dashboard = () => {

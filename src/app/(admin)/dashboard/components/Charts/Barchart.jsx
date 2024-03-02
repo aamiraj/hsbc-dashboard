@@ -167,7 +167,7 @@ export const newData = {
 const Barchart = () => {
   return (
     <div>
-      <Bar options={options} data={newData} />;
+      <Bar options={options} data={newData} />
     </div>
   );
 };

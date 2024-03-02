@@ -1,19 +1,16 @@
 import AntiClock from "@/components/Icons/AntiClock";
 import Bell from "@/components/Icons/Bell";
-import Command from "@/components/Icons/Command";
-import SearchGlass from "@/components/Icons/SearchGlass";
-import SideBar from "@/components/Icons/SideBar";
 import Star from "@/components/Icons/Star";
 import Sun from "@/components/Icons/Sun";
 import Image from "next/image";
 import React from "react";
-import UK from "../../../public/assets/uk.svg";
 import Searchbox from "@/components/Searchbox/Searchbox";
+import SideBar from "@/components/Icons/SideBar";
 
 const language = {
   country: "UK",
   lang: "EN",
-  icon: UK,
+  icon: '/assets/uk.svg',
 };
 
 const HeaderMenu = () => {

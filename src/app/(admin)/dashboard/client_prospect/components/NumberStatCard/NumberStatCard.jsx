@@ -1,6 +1,7 @@
+import TrendDown from "@/components/Icons/TrendDown";
+import TrendUp from "@/components/Icons/TrendUp";
 import React from "react";
-import TrendUp from "../Icons/TrendUp";
-import TrendDown from "../Icons/TrendDown";
+
 
 const TrendUpBadge = ({ percent }) => {
   return (

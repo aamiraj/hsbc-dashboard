@@ -2,21 +2,18 @@
 
 import React, { useState } from "react";
 import styles from "./DashboardTab.module.css";
-import ArrowDown from "@/components/Icons/ArrowDown";
-import Dougnutchart from "@/components/Charts/Dougnutchart";
 import Image from "next/image";
-import MeetingPerson from "../../../public/assets/Rectangle.png";
 import TimeClock from "@/components/Icons/TimeClock";
 import Award from "@/components/Icons/Award";
 import Goal from "@/components/Icons/Goal";
 import Edit from "@/components/Icons/Edit";
-import Barchart from "@/components/Charts/Barchart";
-import OverallFundStat from "@/components/OverallFundStat/OverallFundStat";
-import EarningStat from "@/components/EarningStat/EarningStat";
-import PaymentList from "@/components/PaymentList/PaymentList";
 import Selectbox from "@/components/Selectbox/Selectbox";
-import { optionList } from "@/options/optionList";
 import { payments } from "@/dummydata/payments";
+import Barchart from "../../components/Charts/Barchart";
+import OverallFundStat from "../../components/OverallFundStat/OverallFundStat";
+import EarningStat from "../../components/EarningStat/EarningStat";
+import PaymentList from "../../components/PaymentList/PaymentList";
+import { optionList } from "../../options/optionList";
 
 const getToday = () => {
   const date = new Date();
@@ -201,7 +198,7 @@ const DashboardTab = () => {
                 <div>
                   <div className="flex items-center gap-4 my-4">
                     <Image
-                      src={MeetingPerson}
+                      src={'/public/assets/dummyPic.png'}
                       alt="Meeting Person"
                       width={48}
                       height={42}

@@ -1,7 +1,7 @@
 import React from "react";
-import Searchbox from "../Searchbox/Searchbox";
-import { optionListNumbers } from "@/options/optionList";
-import Selectbox from "../Selectbox/Selectbox";
+import Searchbox from "@/components/Searchbox/Searchbox";
+import Selectbox from "@/components/Selectbox/Selectbox";
+import { optionListNumbers } from "../../options/optionList";
 
 const thead = [
   "Date",
@@ -29,8 +29,10 @@ const PaymentList = ({ title, payments }) => {
     <div className="shadow-md rounded-lg py-4 px-8 my-8">
       <div className="flex items-center gap-4 justify-between">
         <h2 className="text-lg font-bold">{title}</h2>
-        <Searchbox withCommand={false} />
-        <Selectbox optionList={optionListNumbers} defaultOption="" />
+        <div className="flex items-center justify-end gap-4">
+          <Searchbox withCommand={false} />
+          <Selectbox optionList={optionListNumbers} defaultOption="" />
+        </div>
       </div>
       <div className="py-4">
         <table className="table">

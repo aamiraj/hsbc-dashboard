@@ -1,5 +1,5 @@
+import RightAngle from "@/components/Icons/RightAngle";
 import styles from "./IconMenus.module.css";
-import RightAngle from "../Icons/RightAngle";
 import Link from "next/link";
 
 const IconMenus = ({ text, icon, link }) => {

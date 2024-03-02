@@ -1,29 +1,27 @@
 import Image from "next/image";
 import styles from "./SideMenu.module.css";
-import Logo from "../../../public/assets/logo-hsbc.png";
 import Link from "next/link";
-import KeySquare from "../../components/Icons/KeySquare";
-import ThreeDSquare from "../../components/Icons/ThreeDSquare";
-import UserProfile from "../../components/Icons/UserProfile";
+import KeySquare from "@/components/Icons/KeySquare";
+import ThreeDSquare from "@/components/Icons/ThreeDSquare";
+import UserProfile from "@/components/Icons/UserProfile";
 import WalletMoney from "@/components/Icons/WalletMoney";
 import Discount from "@/components/Icons/Discount";
 import ShoppingBag from "@/components/Icons/ShoppingBag";
 import ChatDot from "@/components/Icons/ChatDot";
 import CycleUser from "@/components/Icons/CycleUser";
-import IconMenus from "@/components/IconMenus/IconMenus";
-import SecondIconMenus from "@/components/SecondIconMenus/SecondIconMenus";
 import Briefcase from "@/components/Icons/Briefcase";
 import UsersTwo from "@/components/Icons/UsersTwo";
 import AddProduct from "@/components/Icons/AddProduct";
 import Chat from "@/components/Icons/Chat";
 import Eye from "@/components/Icons/Eye";
 import ThreeUsers from "@/components/Icons/ThreeUsers";
-import Dummy from "../../../public/assets/dummyPic.png";
 import ArrowDown from "@/components/Icons/ArrowDown";
+import IconMenus from "../../components/IconMenus/IconMenus";
+import SecondIconMenus from "../../components/SecondIconMenus/SecondIconMenus";
 
 const User = {
   displayName: "Veronica Sislia",
-  profilePic: Dummy,
+  profilePic: "/assets/dummyPic.png",
 };
 
 const iconMenus = [
@@ -107,7 +105,7 @@ const SideMenu = () => {
     <section className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}>
       <div className={styles.logo_hsbc}>
         <Link href={"/"}>
-          <Image src={Logo} alt="HSBC Logo" width={103} height={28} />
+          <Image src={'/assets/logo-hsbc.png'} alt="HSBC Logo" width={103} height={28} />
         </Link>
       </div>
       <div className="w-full">
