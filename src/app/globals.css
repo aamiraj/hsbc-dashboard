@@ -16,7 +16,7 @@
   }
 }
 
-body{
+body {
   font-size: 14px;
 }
 
@@ -67,7 +67,7 @@ body{
 .th,
 .td {
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 0;
   font-size: 0.75rem;
 }
 
@@ -100,4 +100,54 @@ body{
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+/* Style the tab */
+.tab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab_button {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 50%;
+  border-bottom: 1px solid #d6d8e3;
+  padding: 0.75rem 1rem;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab_button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.active {
+  border-bottom: 3px solid #20dc49;
+  color: #20dc49;
+}
+
+/* Style the tab content */
+.tabcontent {
+  width: 100%;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -43,7 +43,7 @@ const iconMenus = [
   {
     text: "Collection",
     icon: <WalletMoney w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/collection",
   },
   {
     text: "Paiment",
