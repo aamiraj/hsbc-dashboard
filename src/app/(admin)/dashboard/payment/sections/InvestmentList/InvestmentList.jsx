@@ -1,6 +1,5 @@
 import Searchbox from "@/components/Searchbox/Searchbox";
 import Selectbox from "@/components/Selectbox/Selectbox";
-import { payments } from "@/dummydata/payments";
 import React from "react";
 import { optionListNumbers } from "../../../options/optionList";
 import Link from "next/link";
