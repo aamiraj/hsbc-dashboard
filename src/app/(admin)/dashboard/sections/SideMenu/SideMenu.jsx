@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./SideMenu.module.css";
 import Link from "next/link";
@@ -18,6 +20,7 @@ import ThreeUsers from "@/components/Icons/ThreeUsers";
 import ArrowDown from "@/components/Icons/ArrowDown";
 import IconMenus from "../../components/IconMenus/IconMenus";
 import SecondIconMenus from "../../components/SecondIconMenus/SecondIconMenus";
+import { usePathname } from "next/navigation";
 
 const User = {
   displayName: "Veronica Sislia",
@@ -28,17 +31,17 @@ const iconMenus = [
   {
     text: "Dashboard",
     icon: <KeySquare w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/",
   },
   {
     text: "Client/Prospect",
     icon: <ThreeDSquare w={24} h={24} />,
-    link: "/dashboard/client_prospect",
+    link: "/dashboard/client-prospect",
   },
   {
     text: "Get Over Yourself",
     icon: <UserProfile w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/get-over-yourself",
   },
   {
     text: "Collection",
@@ -46,24 +49,24 @@ const iconMenus = [
     link: "/dashboard/collection",
   },
   {
-    text: "Paiment",
+    text: "Payment",
     icon: <Discount w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/payment",
   },
   {
     text: "Transaction",
     icon: <ShoppingBag w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/transaction",
   },
   {
     text: "Contract",
     icon: <CycleUser w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/contract",
   },
   {
     text: "Current Conversation",
     icon: <ChatDot w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/current-conversation",
   },
 ];
 
@@ -101,18 +104,30 @@ const secondIconMenus = [
 ];
 
 const SideMenu = () => {
+  const path = usePathname();
+  
   return (
     <section className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}>
       <div className={styles.logo_hsbc}>
         <Link href={"/"}>
-          <Image src={'/assets/logo-hsbc.png'} alt="HSBC Logo" width={103} height={28} />
+          <Image
+            src={"/assets/logo-hsbc.png"}
+            alt="HSBC Logo"
+            width={103}
+            height={28}
+          />
         </Link>
       </div>
       <div className="w-full">
         <ul>
           {iconMenus.map(({ text, icon, link }) => (
             <li key={text} className="mb-2">
-              <IconMenus text={text} icon={icon} link={link} />
+              <IconMenus
+                text={text}
+                icon={icon}
+                link={link}
+                currentPath={path}
+              />
             </li>
           ))}
         </ul>

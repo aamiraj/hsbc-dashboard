@@ -14,7 +14,7 @@
   color: #595959;
 }
 
-.icon_menus::before {
+.icon_menus .bar {
   content: "";
   width: 4px;
   height: 32px;
@@ -30,10 +30,14 @@
   color: #fff;
 }
 
-.menu_container:hover .icon_menus::before {
+.menu_container:hover .icon_menus .bar {
   background-color: #fff;
 }
 
 .menu_container:hover path {
+  fill: #fff;
+}
+
+.active_icon path {
   fill: #fff;
 }

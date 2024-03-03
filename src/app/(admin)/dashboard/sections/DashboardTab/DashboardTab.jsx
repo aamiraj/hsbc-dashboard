@@ -198,7 +198,7 @@ const DashboardTab = () => {
                 <div>
                   <div className="flex items-center gap-4 my-4">
                     <Image
-                      src={'/public/assets/dummyPic.png'}
+                      src={'/assets/dummyPic.png'}
                       alt="Meeting Person"
                       width={48}
                       height={42}

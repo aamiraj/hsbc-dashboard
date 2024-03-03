@@ -1,23 +1,41 @@
 import React from "react";
-import TabButton from "./components/TabButton/TabButton";
-import TabLinks from "./sections/TabLinks/TabLinks";
+import PaymentList from "../components/PaymentList/PaymentList";
+import { payments } from "@/dummydata/payments";
+import CollectionTabLinks from "./sections/TabLinks/CollectionTabLinks";
+import OrderList from "./sections/OrderList/OrderList";
 
 const Collection = () => {
   return (
     <div className="p-8">
-      <TabLinks />
+      <CollectionTabLinks parentClass={"collection"} />
       <div>
-        <div id="recieved" className="tabcontent" style={{ display: "block" }}>
-          Money Received
+        <div
+          id="recieved"
+          className="tabcontent collection"
+          style={{ display: "block" }}
+        >
+          <PaymentList title={"Order in Progress"} payments={payments} />
         </div>
-        <div id="withdraw" className="tabcontent" style={{ display: "none" }}>
-          WIthdraw
+        <div
+          id="withdraw"
+          className="tabcontent collection"
+          style={{ display: "none" }}
+        >
+          <OrderList />
         </div>
-        <div id="deposit" className="tabcontent" style={{ display: "none" }}>
-          Deposit
+        <div
+          id="deposit"
+          className="tabcontent collection"
+          style={{ display: "none" }}
+        >
+          <OrderList />
         </div>
-        <div id="modify" className="tabcontent" style={{ display: "none" }}>
-          Add/Modify a plan
+        <div
+          id="modify"
+          className="tabcontent collection"
+          style={{ display: "none" }}
+        >
+          <OrderList />
         </div>
       </div>
     </div>

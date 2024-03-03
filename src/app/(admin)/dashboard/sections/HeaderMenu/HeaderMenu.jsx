@@ -1,3 +1,5 @@
+"use client";
+
 import AntiClock from "@/components/Icons/AntiClock";
 import Bell from "@/components/Icons/Bell";
 import Star from "@/components/Icons/Star";
@@ -6,15 +8,32 @@ import Image from "next/image";
 import React from "react";
 import Searchbox from "@/components/Searchbox/Searchbox";
 import SideBar from "@/components/Icons/SideBar";
+import { usePathname } from "next/navigation";
 
 const language = {
   country: "UK",
   lang: "EN",
-  icon: '/assets/uk.svg',
+  icon: "/assets/uk.svg",
 };
 
 const HeaderMenu = () => {
-  const location = "Default";
+  const path = usePathname();
+
+  const formatLocation = (path) => {
+    const newPath = path.replace(/-/g, " ");
+    const pathArray = newPath.split("/");
+
+    let capitalized = [];
+    for (let i = 0; i < pathArray.length; i++) {
+      capitalized.push(
+        pathArray[i].charAt(0).toUpperCase() + pathArray[i].slice(1)
+      );
+    }
+    return capitalized;
+  };
+
+  const location = formatLocation(path);
+
   return (
     <div className="m-4 p-4 flex items-center justify-between border-b border-[#1C1C1C1A]">
       <div className="flex justify-evenly gap-4 items-center">
@@ -22,7 +41,7 @@ const HeaderMenu = () => {
         <Star w={24} h={24} />
         <span className="text-[#1C1C1C66]">Dashboard</span>
         <span>/</span>
-        <span>{location}</span>
+        {location[2] ? location[2] : "Default"}
       </div>
       <div className="flex items-center justify-evenly gap-4">
         <Searchbox withCommand={true} />
