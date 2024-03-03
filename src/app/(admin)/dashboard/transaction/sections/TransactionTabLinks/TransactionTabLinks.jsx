@@ -1,7 +1,7 @@
 import React from "react";
 import TabButton from "../../../collection/components/TabButton/TabButton";
 
-const TransactionTabLinks = ({parentClass}) => {
+const TransactionTabLinks = ({ parentClass }) => {
   const handleClick = (e, id) => {
     const currentDiv = document.getElementById(id);
 
@@ -22,26 +22,20 @@ const TransactionTabLinks = ({parentClass}) => {
   return (
     <div className="flex items-center justify-evenly border-b">
       <TabButton
-        text={"Finencial Invesment"}
-        id={"investment"}
+        text={"Cryptocurrencies"}
+        id={"cryptocurrencies"}
         isDefault={true}
         handleClick={handleClick}
       />
       <TabButton
-        text={"Car Park"}
-        id={"park"}
+        text={"Stock Markets"}
+        id={"stock_markets"}
         isDefault={false}
         handleClick={handleClick}
       />
       <TabButton
-        text={"Saving Fund"}
-        id={"fund"}
-        isDefault={false}
-        handleClick={handleClick}
-      />
-      <TabButton
-        text={"Life Insurance"}
-        id={"insurance"}
+        text={"Bulk Transactions"}
+        id={"bulk_transactions"}
         isDefault={false}
         handleClick={handleClick}
       />

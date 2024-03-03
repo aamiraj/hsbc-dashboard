@@ -4,6 +4,7 @@ import React from "react";
 import TransactionTabLinks from "./sections/TransactionTabLinks/TransactionTabLinks";
 import PaymentList from "../components/PaymentList/PaymentList";
 import { payments } from "@/dummydata/payments";
+import Cryptocurrency from "./sections/Cryptocurrency/Cryptocurrency";
 
 const Transaction = () => {
   return (
@@ -11,32 +12,25 @@ const Transaction = () => {
       <TransactionTabLinks parentClass={"transaction"} />
       <div>
         <div
-          id="investment"
+          id="cryptocurrencies"
           className="tabcontent transaction"
           style={{ display: "block" }}
         >
-          <PaymentList title={"Order in Progress"} payments={payments} />
+          <Cryptocurrency />
         </div>
         <div
-          id="park"
+          id="stock_markets"
           className="tabcontent transaction"
           style={{ display: "none" }}
         >
-          <PaymentList title={"Order in Progress"} payments={payments} />
+          <Cryptocurrency />
         </div>
         <div
-          id="fund"
+          id="bulk_transactions"
           className="tabcontent transaction"
           style={{ display: "none" }}
         >
-          <PaymentList title={"Order in Progress"} payments={payments} />
-        </div>
-        <div
-          id="insurance"
-          className="tabcontent transaction"
-          style={{ display: "none" }}
-        >
-          <PaymentList title={"Order in Progress"} payments={payments} />
+          <Cryptocurrency />
         </div>
       </div>
     </div>

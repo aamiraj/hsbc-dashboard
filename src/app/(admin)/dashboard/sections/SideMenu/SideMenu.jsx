@@ -31,7 +31,7 @@ const iconMenus = [
   {
     text: "Dashboard",
     icon: <KeySquare w={24} h={24} />,
-    link: "/dashboard/",
+    link: "/dashboard",
   },
   {
     text: "Client/Prospect",
