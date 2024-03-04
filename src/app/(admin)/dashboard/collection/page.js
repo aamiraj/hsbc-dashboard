@@ -1,8 +1,10 @@
+"use client"
 import React from "react";
 import PaymentList from "../components/PaymentList/PaymentList";
 import { payments } from "@/dummydata/payments";
 import CollectionTabLinks from "./sections/TabLinks/CollectionTabLinks";
 import OrderList from "./sections/OrderList/OrderList";
+import ProductSell from "./components/ProductSell";
 
 const Collection = () => {
   return (
@@ -13,7 +15,8 @@ const Collection = () => {
           id="recieved"
           className="tabcontent collection"
           style={{ display: "block" }}
-        >
+        > 
+          <ProductSell title={"Product Sell"}/>
           <PaymentList title={"Order in Progress"} payments={payments} />
         </div>
         <div
