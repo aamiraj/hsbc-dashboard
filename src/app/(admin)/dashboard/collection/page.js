@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import PaymentList from "../components/PaymentList/PaymentList";
 import { payments } from "@/dummydata/payments";

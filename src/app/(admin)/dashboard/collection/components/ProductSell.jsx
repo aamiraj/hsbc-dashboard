@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Searchbox from "@/components/Searchbox/Searchbox";
 import Selectbox from "@/components/Selectbox/Selectbox";
 import { optionListNumbers } from "../../options/optionList";
@@ -33,60 +33,74 @@ const card = [
 ];
 
 const ProductSell = ({ title }) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
-    <div className="bg-white rounded-md">
-      <div className="shadow-md rounded-lg py-4 px-8 my-8">
-        <div className="flex items-center gap-4 justify-between">
-          <h2 className="text-lg font-bold">{title}</h2>
-          <div className="flex items-center justify-end gap-4">
-            <Searchbox withCommand={false} />
-            <Selectbox optionList={optionListNumbers} defaultOption="" />
+    <>
+      {isClient ? (
+        <div className="bg-white rounded-md">
+          <div className="shadow-md rounded-lg py-4 px-8 my-8">
+            <div className="flex items-center gap-4 justify-between">
+              <h2 className="text-lg font-bold">{title}</h2>
+              <div className="flex items-center justify-end gap-4">
+                <Searchbox withCommand={false} />
+                <Selectbox optionList={optionListNumbers} defaultOption="" />
+              </div>
+            </div>
+            <div className="py-4">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th className="th">
+                      <div className="flex justify-between">
+                        <div className="w-[27%] flex justify-center">
+                          <h1>Seller</h1>
+                        </div>
+                        <div className="w-3/12 flex justify-between">
+                          <h1>Fund Per Client</h1>
+                          <h1>Withdraw Amount</h1>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {card.map((card, i) => (
+                    <div key={i} className="flex justify-between mb-5">
+                      <div className="flex gap-x-6 w-9/12">
+                        <Image
+                          src={card.image}
+                          alt=""
+                          width={100}
+                          height={100}
+                          className="h-[56px] w-[62px] rounded-lg"
+                        />
+                        <div>
+                          <h1 className="text-lg font-semibold">
+                            {card.title}
+                          </h1>
+                          <h2>{card.sub_title}</h2>
+                        </div>
+                      </div>
+                      <div className="w-3/12 flex justify-between px-6">
+                        <span>${card.initial_price}</span>
+                        <span>${card.offer_price}</span>
+                      </div>
+                    </div>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-        <div className="py-4">
-          <table className="table">
-            <thead>
-              <tr>
-                <th className="th">
-                  <div className="flex justify-between">
-                    <div className="w-[27%] flex justify-center">
-                      <h1>Seller</h1>
-                    </div>
-                    <div className="w-3/12 flex justify-between">
-                      <h1>Fund Per Client</h1>
-                      <h1>Withdraw Amount</h1>
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {card.map((card, i) => (
-                <div key={i} className="flex justify-between mb-5">
-                  <div className="flex gap-x-6 w-9/12">
-                    <Image
-                      src={card.image}
-                      alt=""
-                      width={100}
-                      height={100}
-                      className="h-[56px] w-[62px] rounded-lg"
-                    />
-                    <div>
-                      <h1 className="text-lg font-semibold">{card.title}</h1>
-                      <h2>{card.sub_title}</h2>
-                    </div>
-                  </div>
-                  <div className="w-3/12 flex justify-between px-6">
-                    <span>${card.initial_price}</span>
-                    <span>${card.offer_price}</span>
-                  </div>
-                </div>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 
