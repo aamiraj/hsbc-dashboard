@@ -7,6 +7,7 @@ import Calendar from "./components/Calendar/Calendar";
 import { payments } from "@/dummydata/payments";
 import { clients } from "@/dummydata/clients";
 import Image from "next/image";
+import Popups from "./components/Popups/Popups";
 
 const thead = [
   "",
@@ -35,6 +36,12 @@ const EnableButton = () => {
 };
 
 const Client_Prospect = () => {
+  
+
+  const handleOpenPopUp = ()=>{
+    const popUp = document.getElementById("popUpInClientProspect")
+    popUp.style.display = "block"
+  }
   return (
     <div className="p-8 my-8">
       <div className="grid grid-cols-4 gap-4">
@@ -156,6 +163,10 @@ const Client_Prospect = () => {
             <span className="text-sm rotate-90">{">"}</span>
           </div>
         </div>
+      </div>
+      {/* Pop up windows  */}
+      <div id="popUpInClientProspect" style={{display: "block"}}>
+        <Popups />
       </div>
     </div>
   );
