@@ -105,7 +105,7 @@ const secondIconMenus = [
 
 const SideMenu = () => {
   const path = usePathname();
-  
+
   return (
     <section className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}>
       <div className={styles.logo_hsbc}>
@@ -136,7 +136,12 @@ const SideMenu = () => {
         <ul>
           {secondIconMenus.map(({ text, icon, link }) => (
             <li key={text} className="mb-2">
-              <SecondIconMenus text={text} icon={icon} link={link} />
+              <SecondIconMenus
+                text={text}
+                icon={icon}
+                link={link}
+                currentPath={path}
+              />
             </li>
           ))}
         </ul>
