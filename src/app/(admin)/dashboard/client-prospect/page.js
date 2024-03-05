@@ -1,3 +1,5 @@
+"use client";
+
 import Searchbox from "@/components/Searchbox/Searchbox";
 import NumberStatCard from "./components/NumberStatCard/NumberStatCard";
 import Totalstat from "./components/Totalstat/Totalstat";
@@ -36,12 +38,10 @@ const EnableButton = () => {
 };
 
 const Client_Prospect = () => {
-  
-
-  const handleOpenPopUp = ()=>{
-    const popUp = document.getElementById("popUpInClientProspect")
-    popUp.style.display = "block"
-  }
+  const handleOpenPopUp = () => {
+    const popUp = document.getElementById("popUpInClientProspect");
+    popUp.style.display = "block";
+  };
   return (
     <div className="p-8 my-8">
       <div className="grid grid-cols-4 gap-4">
@@ -116,14 +116,19 @@ const Client_Prospect = () => {
                     )}
                   </td>
                   <td className="td">
-                    <div className="flex justify-center items-center">
+                    <button
+                      type="button"
+                      className="flex justify-center items-center cursor-pointer "
+                      onClick={handleOpenPopUp}
+                    >
                       <Image
                         src={"/assets/edit.svg"}
                         alt="Edit button"
                         width={24}
                         height={24}
+                        className="hover:shadow-lg"
                       />
-                    </div>
+                    </button>
                   </td>
                   <td className="td">
                     <div className="flex justify-center items-center">
@@ -165,7 +170,7 @@ const Client_Prospect = () => {
         </div>
       </div>
       {/* Pop up windows  */}
-      <div id="popUpInClientProspect" style={{display: "block"}}>
+      <div id="popUpInClientProspect" style={{ display: "none" }}>
         <Popups />
       </div>
     </div>
