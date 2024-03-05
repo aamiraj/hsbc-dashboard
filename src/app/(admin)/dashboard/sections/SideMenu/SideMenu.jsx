@@ -79,7 +79,7 @@ const secondIconMenus = [
   {
     text: "Collaboration",
     icon: <UsersTwo w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/collaboration",
   },
   {
     text: "Product",
