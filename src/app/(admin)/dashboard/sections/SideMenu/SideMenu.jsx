@@ -89,17 +89,17 @@ const secondIconMenus = [
   {
     text: "Negosiation",
     icon: <Chat w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/negosiation",
   },
   {
     text: "Personalisation",
     icon: <Eye w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/personalisation",
   },
   {
     text: "Company",
     icon: <ThreeUsers w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/company",
   },
 ];
 
