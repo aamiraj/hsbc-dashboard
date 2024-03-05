@@ -74,7 +74,7 @@ const secondIconMenus = [
   {
     text: "Invitation Of Leads",
     icon: <Briefcase w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/invitations-of-leads",
   },
   {
     text: "Collaboration",

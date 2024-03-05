@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const converationGridLayout = {
@@ -182,10 +183,10 @@ const CurrentConversations = () => {
             </div>
             <div className="flex items-center justify-center gap-4">
               <div className="text-white bg-[#39DE5D] shadow-lg px-6 py-3 rounded-lg">
-                <p>Answer</p>
+                <Link href={"/dashboard/current-conversation/1"}>Answer</Link>
               </div>
               <div className="text-white bg-[#000000] shadow-lg px-6 py-3 rounded-lg">
-                <p>Back</p>
+                <Link href={"/dashboard/current-conversation"}>Answer</Link>
               </div>
             </div>
           </div>
