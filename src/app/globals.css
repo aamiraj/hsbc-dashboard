@@ -6,6 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  /* --gray: rgb(253, 251, 252);; */ 
+  --gray: rgb(34, 48, 64);
+  --blue: rgb(0, 122, 253);
+  --green: rgb(6, 215, 108);
+  --white: rgb(253, 251, 252);
+  /* --white: rgb(34, 48, 64); */
 }
 
 @media (prefers-color-scheme: dark) {

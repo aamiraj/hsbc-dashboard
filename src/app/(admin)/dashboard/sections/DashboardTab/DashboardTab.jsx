@@ -17,6 +17,7 @@ import { optionList } from "../../options/optionList";
 import { LineChart } from "../../components/Charts/LineChart";
 import { AreaChart } from "../../components/Charts/AreaChart";
 import Dougnutchart from "../../components/Charts/Dougnutchart";
+import GaugeMeterChart from "../../components/Charts/GaugeMeterChart";
 
 const getToday = () => {
   const date = new Date();
@@ -155,7 +156,8 @@ const DashboardTab = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-[10px] text-[#191919]">
+                    <GaugeMeterChart target={20000} achieved={12500} />
+                    <h3 className="text-center text-[10px] font-bold text-[#000000]">
                       Target vs Achievement
                     </h3>
                   </div>
