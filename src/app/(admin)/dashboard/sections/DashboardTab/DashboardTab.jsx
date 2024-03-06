@@ -14,6 +14,9 @@ import OverallFundStat from "../../components/OverallFundStat/OverallFundStat";
 import EarningStat from "../../components/EarningStat/EarningStat";
 import PaymentList from "../../components/PaymentList/PaymentList";
 import { optionList } from "../../options/optionList";
+import { LineChart } from "../../components/Charts/LineChart";
+import { AreaChart } from "../../components/Charts/AreaChart";
+import Dougnutchart from "../../components/Charts/Dougnutchart";
 
 const getToday = () => {
   const date = new Date();
@@ -84,11 +87,15 @@ const DashboardTab = () => {
                 <div>
                   <h3 className="font-bold text-xl">Online</h3>
                   <p className="text-sm text-[#ACACAC]">Customers Activity</p>
+                  <Dougnutchart />
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
                 <div>
                   <h3 className="font-bold text-xl">Advance Of SRD Funds</h3>
+                  <div className="py-14">
+                    <LineChart />
+                  </div>
                   <div className="flex items-center justify-start gap-4">
                     <p className="px-4 py-1 text-xs text-bold rounded bg-[#04E762] text-white">
                       SALES
@@ -103,7 +110,10 @@ const DashboardTab = () => {
           </div>
           <div className={styles.bottom_grid}>
             <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
-              <h3 className="font-bold text-xl">Advance Of SRD Funds</h3>
+              <h3 className="font-bold text-xl">New Leads To Handle</h3>
+              <div className="py-14">
+                <AreaChart />
+              </div>
               <div className="flex items-center justify-start gap-4">
                 <p className="px-4 py-1 text-xs text-bold rounded bg-[#0496FF] text-white">
                   NIKE

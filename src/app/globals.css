@@ -42,6 +42,28 @@ body {
   border-color: black transparent transparent transparent;
 }
 
+.line_tooltip {
+  background-color: white;
+  border-radius: 8px;
+  color: white;
+  opacity: 1;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, -120%);
+  transition: all 0.1s ease;
+}
+
+.line_tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
 .donut {
   background: #fff;
   display: flex;

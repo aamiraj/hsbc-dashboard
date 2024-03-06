@@ -84,7 +84,7 @@ const secondIconMenus = [
   {
     text: "Product",
     icon: <AddProduct w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/product",
   },
   {
     text: "Negosiation",

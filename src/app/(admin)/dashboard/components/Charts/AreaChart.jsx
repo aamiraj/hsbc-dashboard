@@ -5,29 +5,32 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
+  Filler,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
+  Filler,
   Legend
 );
-
 const getOrCreateTooltip = (chart) => {
   let tooltipEl = chart.canvas.parentNode.querySelector("div");
 
   if (!tooltipEl) {
     tooltipEl = document.createElement("div");
-    tooltipEl.classList.add("tooltip");
+    tooltipEl.classList.add("line_tooltip");
 
     const table = document.createElement("table");
 
@@ -59,23 +62,15 @@ const externalTooltipHandler = (context) => {
     bodyLines.forEach((body, i) => {
       const tr = document.createElement("tr");
       tr.style.backgroundColor = "inherit";
+      tr.style.color = "black";
       tr.style.borderWidth = 0;
 
       const td = document.createElement("td");
       td.style.borderWidth = 0;
-      const img = document.createElement("img");
-      img.src = "/assets/TrendUp.svg";
-      img.style.width = "20px"
-      img.style.height = "20px"
 
-      const text = document.createTextNode(body + "%");
+      const text = document.createTextNode(body);
 
-      td.appendChild(img);
       td.appendChild(text);
-
-      td.style.display = "flex";
-      td.style.alignItems = "center"
-      td.style.gap = "4px";
 
       tr.appendChild(td);
       tableBody.appendChild(tr);
@@ -105,6 +100,15 @@ const externalTooltipHandler = (context) => {
 };
 
 export const options = {
+  elements: {
+    point: {
+      radius: 0,
+      hoverRadius: 3,
+    },
+    line: {
+      cubicInterpolationMode: "monotone",
+    },
+  },
   responsive: true,
   plugins: {
     legend: {
@@ -118,14 +122,26 @@ export const options = {
       position: "nearest",
       external: externalTooltipHandler,
     },
+    interaction: {
+      mode: "nearest",
+    },
   },
   scales: {
     x: {
       type: "category",
       axis: "x",
+      position: "top",
       display: true,
       grid: {
-        display: false,
+        display: true,
+      },
+      border: {
+        dash: [10, 5],
+      },
+      ticks: {
+        autoSkip: true,
+        maxRotation: 0,
+        maxTicksLimit: 6,
       },
     },
     y: {
@@ -140,39 +156,46 @@ export const options = {
 };
 
 const labels = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  "8:00",
+  "9:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
 ];
 
-export const newData = {
+export const data = {
   labels,
   datasets: [
     {
-      label: "",
-      data: labels.map(() => faker.number.int({ min: 0, max: 100 })),
-      backgroundColor: "#F2EFFF",
-      hoverBackgroundColor: "#39DE5D",
-      borderRadius: 8,
+      label: "NIKE",
+      data: labels.map(() => faker.number.int({ min: 0, max: 50 })),
+      borderColor: "rgba(0, 151, 255, 1)",
+      backgroundColor: "rgba(0, 151, 255, 0.5)",
+      tension: 0.5,
+    },
+    {
+      fill: true,
+      label: "ADIDAS",
+      data: labels.map(() => faker.number.int({ min: 0, max: 50 })),
+      borderColor: "rgba(26, 232, 206, 1)",
+      backgroundColor: "rgba(26, 232, 206, 0.1)",
+      tension: 0.5,
     },
   ],
 };
 
-const Barchart = () => {
+export function AreaChart() {
   return (
     <div>
-      <Bar options={options} data={newData} />
+      <Line options={options} data={data} />
     </div>
   );
-};
-
-export default Barchart;
+}
