@@ -1,9 +1,5 @@
-"use client";
-
 import React from "react";
 import TransactionTabLinks from "./sections/TransactionTabLinks/TransactionTabLinks";
-import PaymentList from "../components/PaymentList/PaymentList";
-import { payments } from "@/dummydata/payments";
 import Cryptocurrency from "./sections/Cryptocurrency/Cryptocurrency";
 
 const Transaction = () => {

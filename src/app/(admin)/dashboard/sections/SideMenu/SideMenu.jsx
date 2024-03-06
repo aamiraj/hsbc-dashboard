@@ -74,38 +74,38 @@ const secondIconMenus = [
   {
     text: "Invitation Of Leads",
     icon: <Briefcase w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/invitations-of-leads",
   },
   {
     text: "Collaboration",
     icon: <UsersTwo w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/collaboration",
   },
   {
     text: "Product",
     icon: <AddProduct w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/product",
   },
   {
     text: "Negosiation",
     icon: <Chat w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/negosiation",
   },
   {
     text: "Personalisation",
     icon: <Eye w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/personalisation",
   },
   {
     text: "Company",
     icon: <ThreeUsers w={24} h={24} />,
-    link: "/dashboard",
+    link: "/dashboard/company",
   },
 ];
 
 const SideMenu = () => {
   const path = usePathname();
-  
+
   return (
     <section className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}>
       <div className={styles.logo_hsbc}>
@@ -136,7 +136,12 @@ const SideMenu = () => {
         <ul>
           {secondIconMenus.map(({ text, icon, link }) => (
             <li key={text} className="mb-2">
-              <SecondIconMenus text={text} icon={icon} link={link} />
+              <SecondIconMenus
+                text={text}
+                icon={icon}
+                link={link}
+                currentPath={path}
+              />
             </li>
           ))}
         </ul>

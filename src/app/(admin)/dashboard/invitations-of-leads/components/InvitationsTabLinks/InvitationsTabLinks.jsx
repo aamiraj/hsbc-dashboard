@@ -3,7 +3,7 @@
 import React from "react";
 import TabButton from "../../../collection/components/TabButton/TabButton";
 
-const TransactionTabLinks = ({ parentClass }) => {
+const InvitationsTabLinks = ({parentClass}) => {
   const handleClick = (e, id) => {
     const currentDiv = document.getElementById(id);
 
@@ -24,20 +24,26 @@ const TransactionTabLinks = ({ parentClass }) => {
   return (
     <div className="flex items-center justify-evenly border-b">
       <TabButton
-        text={"Cryptocurrencies"}
-        id={"cryptocurrencies"}
+        text={"Lead Manager"}
+        id={"lead_manager"}
         isDefault={true}
         handleClick={handleClick}
       />
       <TabButton
-        text={"Stock Markets"}
-        id={"stock_markets"}
+        text={"New Assignment"}
+        id={"new_assignment"}
         isDefault={false}
         handleClick={handleClick}
       />
       <TabButton
-        text={"Bulk Transactions"}
-        id={"bulk_transactions"}
+        text={"Auto Pilot Lead Assignment"}
+        id={"auto_pilot"}
+        isDefault={false}
+        handleClick={handleClick}
+      />
+      <TabButton
+        text={"Archive"}
+        id={"archive"}
         isDefault={false}
         handleClick={handleClick}
       />
@@ -45,4 +51,4 @@ const TransactionTabLinks = ({ parentClass }) => {
   );
 };
 
-export default TransactionTabLinks;
+export default InvitationsTabLinks;

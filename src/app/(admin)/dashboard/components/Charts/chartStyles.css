@@ -1,0 +1,43 @@
+.wrapper {
+  overflow: hidden;
+}
+
+.circle {
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  border-top-left-radius: 95px;
+  border-top-right-radius: 95px;
+  border: 25px solid pink;
+  border-bottom: 0;
+
+  transition: all 1s ease;
+
+  transform-origin: bottom;
+  position: absolute;
+  z-index: 1;
+  transform: rotate(-180deg);
+
+  bottom: 0;
+  left: -25px;
+}
+
+.circle-out {
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  border-top-left-radius: 95px;
+  border-top-right-radius: 95px;
+  border: 25px solid #ededed;
+  border-bottom: 0;
+  position: relative;
+}
+
+.text {
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}

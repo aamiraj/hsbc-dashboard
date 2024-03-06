@@ -13,7 +13,6 @@ export const options = {
     tooltip: {
       enabled: false,
     },
-
   },
 };
 
@@ -24,13 +23,24 @@ export const data = {
       label: "",
       data: [20, 40, 40],
       backgroundColor: [
-        "rgba(255, 99, 132)",
-        "rgba(54, 162, 235)",
-        "rgba(255, 206, 86)",
+        "rgba(255, 0, 122, 1)",
+        "rgba(70, 35, 233, 1)",
+        "rgba(241, 239, 251, 1)",
       ],
-      cutout: "90%",
+      cutout: "60%",
       radius: 90,
-      animateScale: true
+      animateScale: true,
+      hoverBorderWidth: 10,
+      hoverBackgroundColor: [
+        "rgba(255, 0, 122, 1)",
+        "rgba(70, 35, 233, 1)",
+        "rgba(241, 239, 251, 1)",
+      ],
+      hoverBorderColor: [
+        "rgba(255, 0, 122, 1)",
+        "rgba(70, 35, 233, 1)",
+        "rgba(241, 239, 251, 1)",
+      ],
     },
   ],
 };

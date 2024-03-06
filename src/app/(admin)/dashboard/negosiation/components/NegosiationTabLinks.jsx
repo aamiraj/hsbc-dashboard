@@ -1,9 +1,9 @@
 "use client"
 
 import React from "react";
-import TabButton from "../../../collection/components/TabButton/TabButton";
+import TabButton from "../../collection/components/TabButton/TabButton";
 
-const TransactionTabLinks = ({ parentClass }) => {
+const NegosiationTabLinks = ({parentClass}) => {
   const handleClick = (e, id) => {
     const currentDiv = document.getElementById(id);
 
@@ -25,19 +25,25 @@ const TransactionTabLinks = ({ parentClass }) => {
     <div className="flex items-center justify-evenly border-b">
       <TabButton
         text={"Cryptocurrencies"}
-        id={"cryptocurrencies"}
+        id={"cryptocurrencies2"}
         isDefault={true}
         handleClick={handleClick}
       />
       <TabButton
-        text={"Stock Markets"}
-        id={"stock_markets"}
+        text={"Shares & Stocks"}
+        id={"sharesAndStocks"}
         isDefault={false}
         handleClick={handleClick}
       />
       <TabButton
-        text={"Bulk Transactions"}
-        id={"bulk_transactions"}
+        text={"Precious Metals"}
+        id={"preciousMetals"}
+        isDefault={false}
+        handleClick={handleClick}
+      />
+      <TabButton
+        text={"Indexes"}
+        id={"indexws"}
         isDefault={false}
         handleClick={handleClick}
       />
@@ -45,4 +51,4 @@ const TransactionTabLinks = ({ parentClass }) => {
   );
 };
 
-export default TransactionTabLinks;
+export default NegosiationTabLinks;
