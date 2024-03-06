@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import PaymentList from "../components/PaymentList/PaymentList";
-import { payments } from "@/dummydata/payments";
+import { payments } from "../../../../dummydata/payments";
 import CollectionTabLinks from "./sections/TabLinks/CollectionTabLinks";
 import OrderList from "./sections/OrderList/OrderList";
 import ProductSell from "./components/ProductSell";

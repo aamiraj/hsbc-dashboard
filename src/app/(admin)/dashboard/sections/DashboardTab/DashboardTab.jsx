@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import styles from "./DashboardTab.module.css";
 import Image from "next/image";
-import TimeClock from "@/components/Icons/TimeClock";
-import Award from "@/components/Icons/Award";
-import Goal from "@/components/Icons/Goal";
-import Edit from "@/components/Icons/Edit";
-import Selectbox from "@/components/Selectbox/Selectbox";
-import { payments } from "@/dummydata/payments";
+import TimeClock from "../../../../../components/Icons/TimeClock";
+import Award from "../../../../../components/Icons/Award";
+import Goal from "../../../../../components/Icons/Goal";
+import Edit from "../../../../../components/Icons/Edit";
+import Selectbox from "../../../../../components/Selectbox/Selectbox";
+import { payments } from "../../../../../dummydata/payments";
 import Barchart from "../../components/Charts/Barchart";
 import OverallFundStat from "../../components/OverallFundStat/OverallFundStat";
 import EarningStat from "../../components/EarningStat/EarningStat";

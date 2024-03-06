@@ -1,6 +1,6 @@
 import React from "react";
 import PaymentTabLinks from "./sections/PaymentTabLinks/PaymentTabLinks";
-import { payments } from "@/dummydata/payments";
+import { payments } from "../../../../dummydata/payments";
 import PaymentList from "../components/PaymentList/PaymentList";
 import InvestmentList from "./sections/InvestmentList/InvestmentList";
 

@@ -1,13 +1,13 @@
 "use client";
 
-import Searchbox from "@/components/Searchbox/Searchbox";
-import Selectbox from "@/components/Selectbox/Selectbox";
+import Searchbox from "../../../../components/Searchbox/Searchbox";
+import Selectbox from "../../../../components/Selectbox/Selectbox";
 import Image from "next/image";
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { TfiAngleDown } from "react-icons/tfi";
 import { optionListNumbers } from "../options/optionList";
-import AddUserPopUp from "./sections/AddUserPopUp";
+import AddUserPopUp from "./sections/AddUserPopUp"; 
 
 const theads = [
   "First Name and Surname",

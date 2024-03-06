@@ -44,15 +44,21 @@ const FundsPerClient = () => {
                 </thead>
                 <tbody>
                   {card.map((card, i) => (
-                    <div key={i} className="flex justify-between mb-5">
-                     <div className="w-4/12">
-                     <h1 className="text-sm font-semibold  text-center ">{card.title}</h1>
-                     </div>
+                    <tr key={i}>
+                      <td>
+                        <div key={i} className="flex justify-between mb-5">
+                          <div className="w-4/12">
+                            <h1 className="text-sm font-semibold  text-center ">
+                              {card.title}
+                            </h1>
+                          </div>
 
-                      <div className="w-3/12 px-5">
-                        <span>${card.price}</span>
-                      </div>
-                    </div>
+                          <div className="w-3/12 px-5">
+                            <span>${card.price}</span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>

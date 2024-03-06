@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "./Modal";
-import usePlanModal from "@/hooks/PlanModal";
+import usePlanModal from "../../../../../hooks/PlanModal";
 
 const PlanModal = () => {
   const planModal = usePlanModal();

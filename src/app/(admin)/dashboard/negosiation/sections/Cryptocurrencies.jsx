@@ -1,7 +1,7 @@
 "use client";
 
-import Searchbox from "@/components/Searchbox/Searchbox";
-import Selectbox from "@/components/Selectbox/Selectbox";
+import Searchbox from "../../../../../components/Searchbox/Searchbox";
+import Selectbox from "../../../../../components/Selectbox/Selectbox";
 import React from "react";
 import { optionListNumbers } from "../../options/optionList";
 import SwitchInput from "../../client-prospect/components/SwitchInput/SwitchInput";

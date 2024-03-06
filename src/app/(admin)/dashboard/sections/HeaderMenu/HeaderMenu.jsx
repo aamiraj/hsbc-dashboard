@@ -1,13 +1,13 @@
 "use client";
 
-import AntiClock from "@/components/Icons/AntiClock";
-import Bell from "@/components/Icons/Bell";
-import Star from "@/components/Icons/Star";
-import Sun from "@/components/Icons/Sun";
+import AntiClock from "../../../../../components/Icons/AntiClock";
+import Bell from "../../../../../components/Icons/Bell";
+import Star from "../../../../../components/Icons/Star";
+import Sun from "../../../../../components/Icons/Sun";
 import Image from "next/image";
 import React from "react";
-import Searchbox from "@/components/Searchbox/Searchbox";
-import SideBar from "@/components/Icons/SideBar";
+import Searchbox from "../../../../../components/Searchbox/Searchbox";
+import SideBar from "../../../../../components/Icons/SideBar";
 import { usePathname } from "next/navigation";
 
 const language = {

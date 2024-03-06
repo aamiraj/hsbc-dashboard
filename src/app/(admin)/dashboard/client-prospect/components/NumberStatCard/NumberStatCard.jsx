@@ -1,5 +1,5 @@
-import TrendDown from "@/components/Icons/TrendDown";
-import TrendUp from "@/components/Icons/TrendUp";
+import TrendDown from "../../../../../../components/Icons/TrendDown";
+import TrendUp from "../../../../../../components/Icons/TrendUp";
 import React from "react";
 
 

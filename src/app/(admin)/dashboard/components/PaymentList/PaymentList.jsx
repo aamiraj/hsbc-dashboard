@@ -1,6 +1,6 @@
 import React from "react";
-import Searchbox from "@/components/Searchbox/Searchbox";
-import Selectbox from "@/components/Selectbox/Selectbox";
+import Searchbox from "../../../../../components/Searchbox/Searchbox";
+import Selectbox from "../../../../../components/Selectbox/Selectbox";
 import { optionListNumbers } from "../../options/optionList";
 
 const thead = [

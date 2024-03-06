@@ -1,5 +1,5 @@
-import Searchbox from "@/components/Searchbox/Searchbox";
-import Selectbox from "@/components/Selectbox/Selectbox";
+import Searchbox from "../../../../../../components/Searchbox/Searchbox";
+import Selectbox from "../../../../../../components/Selectbox/Selectbox";
 import Link from "next/link";
 import React from "react";
 import { optionListNumbers } from "../../../options/optionList";

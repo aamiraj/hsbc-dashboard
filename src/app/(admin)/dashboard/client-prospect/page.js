@@ -1,13 +1,12 @@
 "use client";
 
-import Searchbox from "@/components/Searchbox/Searchbox";
+import Searchbox from "../../../../components/Searchbox/Searchbox";
 import NumberStatCard from "./components/NumberStatCard/NumberStatCard";
 import Totalstat from "./components/Totalstat/Totalstat";
-import { engagements } from "@/dummydata/stats";
+import { engagements } from "../../../../dummydata/stats";
 import React from "react";
 import Calendar from "./components/Calendar/Calendar";
-import { payments } from "@/dummydata/payments";
-import { clients } from "@/dummydata/clients";
+import { clients } from "../../../../dummydata/clients";
 import Image from "next/image";
 import Popups from "./components/Popups/Popups";
 
