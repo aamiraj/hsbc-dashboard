@@ -7,6 +7,7 @@ import OrderList from "./sections/OrderList/OrderList";
 import ProductSell from "./components/ProductSell";
 import FundsPerClient from "./components/FundsPerClient";
 import CurrentPlans from "./components/CurrentPlans";
+import PlanModal from "./components/PlanModal";
 
 const Collection = () => {
   return (
@@ -57,6 +58,7 @@ const Collection = () => {
           className="tabcontent collection"
           style={{ display: "none" }}
         >
+          <PlanModal/>
           <CurrentPlans/>
           <OrderList />
         </div>
