@@ -2,6 +2,7 @@ import React from "react";
 import Calendar from "../../../client-prospect/components/Calendar/Calendar";
 import Searchbox from "@/components/Searchbox/Searchbox";
 import { payments } from "@/dummydata/payments";
+import usePlanModal from "@/hooks/PlanModal";
 
 const thead = [
   "Date",
@@ -12,9 +13,10 @@ const thead = [
   "Status",
 ];
 
-const ApproveButton = () => {
+const ApproveButton = ({planModal}) => {
   return (
     <button
+    onClick={planModal.onOpen}
       type="button"
       className="bg-[#0052B4] shadow rounded-lg text-[#FFFFFF] py-2 px-4"
     >
@@ -24,6 +26,7 @@ const ApproveButton = () => {
 };
 
 const OrderList = () => {
+  const planModal = usePlanModal()
   return (
     <div className="bg-white rounded-lg p-8 my-8">
       <div>
@@ -70,7 +73,7 @@ const OrderList = () => {
                 <td className="td">{payment.price}</td>
                 
                 <td className="td">
-                  {payment.payment ? <ApproveButton /> : <ApproveButton />}
+                  {payment.payment ? <ApproveButton planModal={planModal}/> : <ApproveButton />}
                 </td>
               </tr>
             ))}
