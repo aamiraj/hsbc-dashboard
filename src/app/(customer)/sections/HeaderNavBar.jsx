@@ -17,7 +17,7 @@ export const iconSize = {
 const headerMenus = [
   {
     name: "News",
-    link: "/news",
+    link: "/",
     icon: <PiNewspaperLight style={iconSize} />,
   },
   {
