@@ -14,11 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} bg-customer-screen`}
-        style={{ maxWidth: "1440px", margin: "auto" }}
+        className={`${poppins.className}`}
+        style={{ maxWidth: "1440px", margin: "0 auto" }}
       >
         <HeaderNavBar />
-        <main>{children}</main>
+        <main className=" bg-customer-screen">{children}</main>
         <Footer />
       </body>
     </html>

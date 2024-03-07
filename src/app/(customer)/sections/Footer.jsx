@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <div className="bg-[#0A142F] text-white w-full p-12 py-24 mx-auto">
       <div className="w-[90%] mx-auto py-32 border-y border-white grid grid-cols-2 gap-4">
-        <Image
+        <img
           src="/assets/logo_hsbc_white.png"
           alt="HSBC logo"
           width={220}
