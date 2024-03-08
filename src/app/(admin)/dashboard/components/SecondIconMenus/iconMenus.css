@@ -1,0 +1,38 @@
+.second_menu_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px 20px 10px 0px;
+}
+
+.second_icon_menus {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  color: #9197b3;
+}
+
+.second_icon_menus .bar {
+  content: "";
+  width: 4px;
+  height: 32px;
+  background-color: transparent;
+}
+
+.second_menu_container:hover .second_icon_menus .bar {
+  background-color: #0f993e;
+}
+
+.second_menu_container:hover span {
+  color: #0f993e;
+}
+
+.second_menu_container:hover path {
+  fill: #0f993e;
+}
+
+.second_active_icon path {
+  fill: #0f993e;
+}

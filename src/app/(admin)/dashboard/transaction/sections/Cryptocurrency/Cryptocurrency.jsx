@@ -1,9 +1,7 @@
-import Searchbox from "@/components/Searchbox/Searchbox";
-import Selectbox from "@/components/Selectbox/Selectbox";
-import { payments } from "@/dummydata/payments";
+import Searchbox from "../../../../../../components/Searchbox/Searchbox";
+import Selectbox from "../../../../../../components/Selectbox/Selectbox";
 import React from "react";
 import { optionListNumbers } from "../../../options/optionList";
-import Link from "next/link";
 import Image from "next/image";
 
 const thead = [

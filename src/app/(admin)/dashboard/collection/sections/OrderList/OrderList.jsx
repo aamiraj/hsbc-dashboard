@@ -1,8 +1,8 @@
 import React from "react";
 import Calendar from "../../../client-prospect/components/Calendar/Calendar";
-import Searchbox from "@/components/Searchbox/Searchbox";
-import { payments } from "@/dummydata/payments";
-import usePlanModal from "@/hooks/PlanModal";
+import Searchbox from "../../../../../../components/Searchbox/Searchbox";
+import { payments } from "../../../../../../dummydata/payments";
+import usePlanModal from "../../../../../../hooks/PlanModal";
 
 const thead = [
   "Date",

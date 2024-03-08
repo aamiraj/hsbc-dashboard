@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import TabButton from "../../../collection/components/TabButton/TabButton";
 

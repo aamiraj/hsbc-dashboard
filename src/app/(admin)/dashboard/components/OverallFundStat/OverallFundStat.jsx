@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./OverallFundStat.module.css"
-import Dollar from "@/components/Icons/Dollar";
+import Dollar from "../../../../../components/Icons/Dollar";
 
 const smallStats = [
   {

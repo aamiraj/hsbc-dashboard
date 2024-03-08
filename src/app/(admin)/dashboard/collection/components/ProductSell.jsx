@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Searchbox from "@/components/Searchbox/Searchbox";
-import Selectbox from "@/components/Selectbox/Selectbox";
+import Searchbox from "../../../../../components/Searchbox/Searchbox";
+import Selectbox from "../../../../../components/Selectbox/Selectbox";
 import { optionListNumbers } from "../../options/optionList";
 import Image from "next/image";
 import image1 from "../../../../../images/628d9abe1d64b9cd528c434381eba87f.jpg";
@@ -70,27 +70,31 @@ const ProductSell = ({ title }) => {
                 </thead>
                 <tbody>
                   {card.map((card, i) => (
-                    <div key={i} className="flex justify-between mb-5">
-                      <div className="flex gap-x-6 w-9/12">
-                        <Image
-                          src={card.image}
-                          alt=""
-                          width={100}
-                          height={100}
-                          className="h-[56px] w-[62px] rounded-lg"
-                        />
-                        <div>
-                          <h1 className="text-lg font-semibold">
-                            {card.title}
-                          </h1>
-                          <h2>{card.sub_title}</h2>
+                    <tr key={i}>
+                      <td>
+                        <div className="flex justify-between mb-5">
+                          <div className="flex gap-x-6 w-9/12">
+                            <Image
+                              src={card.image}
+                              alt=""
+                              width={100}
+                              height={100}
+                              className="h-[56px] w-[62px] rounded-lg"
+                            />
+                            <div>
+                              <h1 className="text-lg font-semibold">
+                                {card.title}
+                              </h1>
+                              <h2>{card.sub_title}</h2>
+                            </div>
+                          </div>
+                          <div className="w-3/12 flex justify-between px-6">
+                            <span>${card.initial_price}</span>
+                            <span>${card.offer_price}</span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="w-3/12 flex justify-between px-6">
-                        <span>${card.initial_price}</span>
-                        <span>${card.offer_price}</span>
-                      </div>
-                    </div>
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>

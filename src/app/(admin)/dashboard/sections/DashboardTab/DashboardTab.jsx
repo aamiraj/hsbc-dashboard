@@ -3,17 +3,21 @@
 import React, { useState } from "react";
 import styles from "./DashboardTab.module.css";
 import Image from "next/image";
-import TimeClock from "@/components/Icons/TimeClock";
-import Award from "@/components/Icons/Award";
-import Goal from "@/components/Icons/Goal";
-import Edit from "@/components/Icons/Edit";
-import Selectbox from "@/components/Selectbox/Selectbox";
-import { payments } from "@/dummydata/payments";
+import TimeClock from "../../../../../components/Icons/TimeClock";
+import Award from "../../../../../components/Icons/Award";
+import Goal from "../../../../../components/Icons/Goal";
+import Edit from "../../../../../components/Icons/Edit";
+import Selectbox from "../../../../../components/Selectbox/Selectbox";
+import { payments } from "../../../../../dummydata/payments";
 import Barchart from "../../components/Charts/Barchart";
 import OverallFundStat from "../../components/OverallFundStat/OverallFundStat";
 import EarningStat from "../../components/EarningStat/EarningStat";
 import PaymentList from "../../components/PaymentList/PaymentList";
 import { optionList } from "../../options/optionList";
+import { LineChart } from "../../components/Charts/LineChart";
+import { AreaChart } from "../../components/Charts/AreaChart";
+import Dougnutchart from "../../components/Charts/Dougnutchart";
+import GaugeMeterChart from "../../components/Charts/GaugeMeterChart";
 
 const getToday = () => {
   const date = new Date();
@@ -84,11 +88,15 @@ const DashboardTab = () => {
                 <div>
                   <h3 className="font-bold text-xl">Online</h3>
                   <p className="text-sm text-[#ACACAC]">Customers Activity</p>
+                  <Dougnutchart />
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
                 <div>
                   <h3 className="font-bold text-xl">Advance Of SRD Funds</h3>
+                  <div className="py-14">
+                    <LineChart />
+                  </div>
                   <div className="flex items-center justify-start gap-4">
                     <p className="px-4 py-1 text-xs text-bold rounded bg-[#04E762] text-white">
                       SALES
@@ -103,7 +111,10 @@ const DashboardTab = () => {
           </div>
           <div className={styles.bottom_grid}>
             <div className="p-4 rounded-lg bg-[#FFFFFF] shadow-lg">
-              <h3 className="font-bold text-xl">Advance Of SRD Funds</h3>
+              <h3 className="font-bold text-xl">New Leads To Handle</h3>
+              <div className="py-14">
+                <AreaChart />
+              </div>
               <div className="flex items-center justify-start gap-4">
                 <p className="px-4 py-1 text-xs text-bold rounded bg-[#0496FF] text-white">
                   NIKE
@@ -145,7 +156,8 @@ const DashboardTab = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-[10px] text-[#191919]">
+                    <GaugeMeterChart target={20000} achieved={12500} />
+                    <h3 className="text-center text-[10px] font-bold text-[#000000]">
                       Target vs Achievement
                     </h3>
                   </div>

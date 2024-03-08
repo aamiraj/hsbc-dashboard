@@ -65,6 +65,8 @@ const externalTooltipHandler = (context) => {
       td.style.borderWidth = 0;
       const img = document.createElement("img");
       img.src = "/assets/TrendUp.svg";
+      img.style.width = "20px"
+      img.style.height = "20px"
 
       const text = document.createTextNode(body + "%");
 
@@ -72,6 +74,7 @@ const externalTooltipHandler = (context) => {
       td.appendChild(text);
 
       td.style.display = "flex";
+      td.style.alignItems = "center"
       td.style.gap = "4px";
 
       tr.appendChild(td);

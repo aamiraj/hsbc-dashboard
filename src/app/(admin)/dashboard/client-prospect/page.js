@@ -1,12 +1,14 @@
-import Searchbox from "@/components/Searchbox/Searchbox";
+"use client";
+
+import Searchbox from "../../../../components/Searchbox/Searchbox";
 import NumberStatCard from "./components/NumberStatCard/NumberStatCard";
 import Totalstat from "./components/Totalstat/Totalstat";
-import { engagements } from "@/dummydata/stats";
+import { engagements } from "../../../../dummydata/stats";
 import React from "react";
 import Calendar from "./components/Calendar/Calendar";
-import { payments } from "@/dummydata/payments";
-import { clients } from "@/dummydata/clients";
+import { clients } from "../../../../dummydata/clients";
 import Image from "next/image";
+import Popups from "./components/Popups/Popups";
 
 const thead = [
   "",
@@ -35,6 +37,10 @@ const EnableButton = () => {
 };
 
 const Client_Prospect = () => {
+  const handleOpenPopUp = () => {
+    const popUp = document.getElementById("popUpInClientProspect");
+    popUp.style.display = "block";
+  };
   return (
     <div className="p-8 my-8">
       <div className="grid grid-cols-4 gap-4">
@@ -109,14 +115,19 @@ const Client_Prospect = () => {
                     )}
                   </td>
                   <td className="td">
-                    <div className="flex justify-center items-center">
+                    <button
+                      type="button"
+                      className="flex justify-center items-center cursor-pointer "
+                      onClick={handleOpenPopUp}
+                    >
                       <Image
                         src={"/assets/edit.svg"}
                         alt="Edit button"
                         width={24}
                         height={24}
+                        className="hover:shadow-lg"
                       />
-                    </div>
+                    </button>
                   </td>
                   <td className="td">
                     <div className="flex justify-center items-center">
@@ -156,6 +167,10 @@ const Client_Prospect = () => {
             <span className="text-sm rotate-90">{">"}</span>
           </div>
         </div>
+      </div>
+      {/* Pop up windows  */}
+      <div id="popUpInClientProspect" style={{ display: "none" }}>
+        <Popups />
       </div>
     </div>
   );

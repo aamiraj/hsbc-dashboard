@@ -1,4 +1,4 @@
-import RightAngle from "@/components/Icons/RightAngle";
+import RightAngle from "../../../../../components/Icons/RightAngle";
 import "./iconMenus.css";
 import Link from "next/link";
 
