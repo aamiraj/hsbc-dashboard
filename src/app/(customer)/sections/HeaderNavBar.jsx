@@ -22,7 +22,7 @@ const headerMenus = [
   },
   {
     name: "Accounts",
-    link: "/accounts",
+    link: "/accounts/situation",
     icon: <PiNewspaperClippingLight style={iconSize} />,
   },
   {
