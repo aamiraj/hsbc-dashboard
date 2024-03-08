@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "./Modal";
 import usePlanModal from "@/hooks/PlanModal";
 
-const PlanModal = () => {
+const ShowPlanModal = () => {
   const planModal = usePlanModal();
 
   const bodyContent = (
@@ -102,4 +102,4 @@ const PlanModal = () => {
   );
 };
 
-export default PlanModal;
+export default ShowPlanModal;
