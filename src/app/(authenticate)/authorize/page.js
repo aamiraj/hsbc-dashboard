@@ -1,19 +1,32 @@
-import { getServerSession } from "next-auth";
+"use client";
+
 import React from "react";
-import { authOptions } from "../../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-const Authorize = async () => {
-  const session = await getServerSession(authOptions);
+const Authorize = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-  if (session?.user?.role === "customer") {
-    redirect("/customer");
-  } else if (session?.user?.role === "admin") {
-    redirect("/dashboard");
+  if (status === "unauthenticated") {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="font-bolf text-xl text-red-900">
+          You are not authorized to this site.
+        </p>
+      </div>
+    );
+  } else if (session?.user?.role === "customer" && status === "authenticated") {
+    router.push("/customer");
+  } else if (session?.user?.role === "admin" && status === "authenticated") {
+    router.push("/dashboard");
   }
+
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <p className="font-bolf text-xl text-red-900">You are not authorized to this site.</p>
+      <p className="font-bolf text-xl text-red-900">
+        Please be patient, You are being authorized to this site.
+      </p>
     </div>
   );
 };

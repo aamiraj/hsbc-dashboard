@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../../../images/af8da771f5eb688450c14d598e835ea6.png";
+import image from "../../../../../images/af8da771f5eb688450c14d598e835ea6.png";
 import Image from "next/image";
 import Adviser from "../_components/Adviser"
 

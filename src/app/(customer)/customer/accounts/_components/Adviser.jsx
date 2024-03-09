@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import image from "../../../../images/pexels-photo-1133957.webp";
+import image from "../../../../../images/pexels-photo-1133957.webp";
 
 const Adviser = () => {
   return (

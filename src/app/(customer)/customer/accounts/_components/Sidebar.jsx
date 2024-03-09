@@ -15,7 +15,7 @@ const Sidebar = () => {
           My Account
         </h1>
         <ul className="border border-[#979797] rounded-xl py-10 ">
-          <Link href={"/accounts/situation"}>
+          <Link href={"/customer/accounts/situation"}>
             <li
               className={
                 situation === "situation"
@@ -48,7 +48,7 @@ const Sidebar = () => {
               </span>
             </li>
           </Link>
-          <Link href={"/accounts/commitment"}>
+          <Link href={"/customer/accounts/commitment"}>
             <li
               className={
                 situation === "commitment"
@@ -74,7 +74,7 @@ const Sidebar = () => {
               </span>
             </li>
           </Link>
-          <Link href={"/accounts/historical"}>
+          <Link href={"/customer/accounts/historical"}>
             <li
               className={
                 situation === "historical"
@@ -108,7 +108,7 @@ const Sidebar = () => {
               </span>
             </li>
           </Link>
-          <Link href={"/accounts/movement"}>
+          <Link href={"/customer/accounts/movement"}>
             <li
               className={
                 situation === "movement"
@@ -134,7 +134,7 @@ const Sidebar = () => {
               </span>
             </li>
           </Link>
-          <Link href={"/accounts/terms"}>
+          <Link href={"/customer/accounts/terms"}>
             <li
               className={
                 situation === "terms"
