@@ -21,6 +21,7 @@ import ArrowDown from "../../../../../components/Icons/ArrowDown";
 import IconMenus from "../../components/IconMenus/IconMenus";
 import SecondIconMenus from "../../components/SecondIconMenus/SecondIconMenus";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 const User = {
   displayName: "Veronica Sislia",
@@ -146,7 +147,7 @@ const SideMenu = () => {
           ))}
         </ul>
       </div>
-      <div className="flex justify-center items-center gap-4 bg-white py-2 px-4 my-4 rounded-[32px]">
+      <div className="w-full flex justify-center items-center gap-4 bg-white py-2 px-4 my-4 rounded-[32px]">
         <Image
           src={User.profilePic}
           alt={User.displayName}
@@ -156,6 +157,13 @@ const SideMenu = () => {
         <span>{User.displayName}</span>
         <ArrowDown w={24} h={24} />
       </div>
+      <button
+        type="button"
+        className="w-full bg-red-500 text-white font-bold py-2 px-4 my-4 rounded-[32px]"
+        onClick={() => signOut()}
+      >
+        Log Out
+      </button>
     </section>
   );
 };

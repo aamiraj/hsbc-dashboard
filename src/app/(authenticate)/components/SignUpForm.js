@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const Signup = () => {
+const SignUpForm = () => {
   const router = useRouter();
   const [inputs, setInputs] = useState({
     fullname: "",
@@ -68,7 +68,7 @@ const Signup = () => {
             const { message } = await res.json();
             alert(message);
             event.target.reset();
-            // router.push("/");
+            router.push("/customer");
           }
         } catch (error) {
           console.log(error);
@@ -157,7 +157,7 @@ const Signup = () => {
             </button>
           </div>
         </div>
-        <Link href={"/authenticate/login"} className="px-8 underline">
+        <Link href={"/"} className="px-8 underline">
           Already have an accunt? Please go to log in.
         </Link>
       </form>
@@ -165,4 +165,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUpForm;

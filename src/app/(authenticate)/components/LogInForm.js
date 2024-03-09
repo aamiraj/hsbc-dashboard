@@ -2,9 +2,16 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-const Login = () => {
-  const [inputs, setInputs] = useState({});
+const LogInForm = () => {
+  const router = useRouter();
+  const [inputs, setInputs] = useState({
+    email: "",
+    psw: "",
+  });
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -12,12 +19,29 @@ const Login = () => {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (inputs["psw"] === inputs["psw_repeat"]) {
-      console.log(inputs);
+    if (!inputs["psw"] || !inputs["email"]) {
+      setError("Please fill up all the fields.");
     } else {
-      alert("Your password did not match.");
+      setError("");
+      try {
+        const res = await signIn("credentials", {
+          email: inputs.email,
+          password: inputs.psw,
+          redirect: false,
+        });
+
+        if (!res.ok) {
+          console.log(res);
+          setError(res.error);
+          return;
+        }
+        
+        router.replace("/authorize");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (
@@ -29,6 +53,7 @@ const Login = () => {
             Please fill in this form to log in your account.
           </p>
           <hr className={"hr"} />
+          {error ? <p className="text-red-500 p-2 my-2">{error}</p> : <p></p>}
 
           <label htmlFor="email">
             <b>Email</b>
@@ -69,7 +94,7 @@ const Login = () => {
             </button>
           </div>
         </div>
-        <Link href={"/authenticate/signup"} className="px-8 underline">
+        <Link href={"/signup"} className="px-8 underline">
           Didn't have an account? Please go to sign up.
         </Link>
       </form>
@@ -77,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LogInForm;

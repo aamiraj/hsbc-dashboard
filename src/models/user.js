@@ -10,10 +10,19 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     password: {
       type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: {
+        values: ["admin", "customer"],
+        message: "{VALUE} is not supported",
+      },
+      default: "customer",
       required: true,
     },
   },

@@ -7,7 +7,7 @@ import { PiLineSegmentsLight } from "react-icons/pi";
 import { PiMonitorLight } from "react-icons/pi";
 import { PiBell } from "react-icons/pi";
 import { PiEnvelopeSimpleLight } from "react-icons/pi";
-import { PiUserCircle } from "react-icons/pi";
+import ProfileMenus from "../components/ProfileMenus";
 
 export const iconSize = {
   width: "24px",
@@ -17,32 +17,27 @@ export const iconSize = {
 const headerMenus = [
   {
     name: "News",
-    link: "/",
+    link: "/customer",
     icon: <PiNewspaperLight style={iconSize} />,
   },
   {
     name: "Accounts",
-    link: "/accounts",
+    link: "/customer/accounts",
     icon: <PiNewspaperClippingLight style={iconSize} />,
   },
   {
     name: "Investments",
-    link: "/investments",
+    link: "/customer/investments",
     icon: <PiLineSegmentsLight style={iconSize} />,
   },
   {
     name: "Stock Exchange",
-    link: "/stock-exchange",
+    link: "/customer/stock-exchange",
     icon: <PiMonitorLight style={iconSize} />,
   },
 ];
 
 const HeaderNavBar = () => {
-  const user = {
-    displayName: "",
-    email: "",
-    profilePic: "/assets/dummyPic.png",
-  };
   return (
     <div className="bg-white px-24 py-8 flex items-center justify-between gap-4">
       <div>
@@ -69,16 +64,7 @@ const HeaderNavBar = () => {
       <div className="flex items-center justify-center gap-4">
         <PiBell style={iconSize} />
         <PiEnvelopeSimpleLight style={iconSize} />
-        {user.profilePic ? (
-          <Image
-            src={user.profilePic}
-            width={32}
-            height={32}
-            alt={user.displayName}
-          />
-        ) : (
-          <PiUserCircle style={iconSize} />
-        )}
+        <ProfileMenus />
       </div>
     </div>
   );
