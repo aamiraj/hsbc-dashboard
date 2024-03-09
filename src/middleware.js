@@ -54,5 +54,10 @@ export const config = {
     "/customer/investments",
     "/dashboard/accounts",
     "/customer/stock-exchange",
+    "/customer/accounts/situation",
+    "/customer/accounts/commitment",
+    "/customer/accounts/historical",
+    "/customer/accounts/movement",
+    "/customer/accounts/terms",
   ],
 };
