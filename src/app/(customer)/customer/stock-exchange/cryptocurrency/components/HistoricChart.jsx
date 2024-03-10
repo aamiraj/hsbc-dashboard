@@ -66,7 +66,7 @@ const HistoricChart = ({ singleCoin }) => {
     <div>
       <Line
         data={{
-          labels: singleCoinData.map((coin) => {
+          labels: singleCoinData?.map((coin) => {
             let date = new Date(coin[0]);
             let time =
               date.getHours() > 12

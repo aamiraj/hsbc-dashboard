@@ -94,9 +94,7 @@ const CryptoCurrencyData = () => {
           </div>
         </div>
         <div>
-          {allCoinsData
-            .filter((coin) => coin.id === singleCoin)
-            .map((coin, i) => (
+          {allCoinsData?.filter((coin) => coin?.id === singleCoin)?.map((coin, i) => (
               <div
                 key={i}
                 className="bg-white rounded-lg shadow-lg w-full px-4 py-2 flex items-center gap-4"
