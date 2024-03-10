@@ -1,6 +1,6 @@
 import React from "react";
 
-const SituationPage = () => {
+const CommitmentPage = () => {
   return (
     <div className="mt-7 mb-16 rounded-xl bg-white w-[852px] h-[610px]">
       <h1 className="text-[16px] text-[#595959] font-bold px-10 pt-6">
@@ -150,4 +150,4 @@ const SituationPage = () => {
   );
 };
 
-export default SituationPage;
+export default CommitmentPage;
