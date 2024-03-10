@@ -154,7 +154,7 @@ const SideMenu = () => {
           width={40}
           height={40}
         />
-        <span>{User.displayName}</span>
+        <Link href="/customer/profile/personal-data">{User.displayName}</Link>
         <ArrowDown w={24} h={24} />
       </div>
       <button

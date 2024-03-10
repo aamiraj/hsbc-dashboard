@@ -5,6 +5,7 @@ import { PiUserCircle } from "react-icons/pi";
 import { iconSize } from "../sections/HeaderNavBar";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 const ProfileMenus = () => {
   const { data: session } = useSession();
@@ -46,7 +47,9 @@ const ProfileMenus = () => {
         style={{ display: "none" }}
       >
         <p className="p-2 my-2 bg-red-500 text-white rounded-lg font-bold text-center">
+          <Link href="/customer/profile/personal-data">
           {session?.user?.name}
+          </Link>
         </p>
         <button
           onClick={() => signOut()}
