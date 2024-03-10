@@ -8,7 +8,7 @@ import { signOut, useSession } from "next-auth/react";
 
 const ProfileMenus = () => {
   const { data: session } = useSession();
-  
+  // console.log(session)
   const handleOpenMenus = () => {
     const profileMenus = document.getElementById("profile-menus");
     // console.log(profileMenus.style.display)

@@ -5,6 +5,7 @@ import { PiWallet } from "react-icons/pi";
 import { PiCalendar } from "react-icons/pi";
 import { PiSticker } from "react-icons/pi";
 import Image from "next/image";
+import Link from "next/link";
 
 const InvestmentBooklet = ({ image }) => {
   return (
@@ -71,13 +72,13 @@ const InvestmentBooklet = ({ image }) => {
           </div>
 
           <div className="w-full p-2 bg-[#39DE5D] flex items-center justify-center rounded-lg hover:bg-[#39DE5DAA]">
-            <button
-              type="button"
+            <Link
+              href={"investments/saving-fund-investment"}
               className="w-full flex items-center justify-center gap-2"
             >
               <PiNewspaperClipping style={iconSize} />
               <span className="font-bold">Learn More</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

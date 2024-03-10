@@ -52,7 +52,7 @@ export const config = {
     "/dashboard/transaction",
     "/customer",
     "/customer/investments",
-    "/dashboard/accounts",
+    "/customer/accounts",
     "/customer/stock-exchange",
     "/customer/accounts/situation",
     "/customer/accounts/commitment",
