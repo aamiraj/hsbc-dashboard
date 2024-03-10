@@ -59,5 +59,6 @@ export const config = {
     "/customer/accounts/historical",
     "/customer/accounts/movement",
     "/customer/accounts/terms",
+    "/customer/stock-exchange/cryptocurrency",
   ],
 };
