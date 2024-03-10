@@ -3,10 +3,9 @@ import image from "../../../../images/ce1e025ec981289572edf337907792c1.jpg"
 import Image from 'next/image';
 
 const AddFund = () => {
-     
     return (
        <section>
-        <h1 className='text-[32px] font-bold py-7'>Add Fund And Create Crypto Account</h1>
+        <h1 className='text-[32px] font-bold py-7 text-center'>Add Fund And Create Crypto Account</h1>
          <div className='grid grid-cols-3 gap-5'>
             <div className='w-[400px] h-[510px] rounded-xl relative border border-[#595959]'>
              <Image src={image} alt='image' className='h-[200px] rounded-t-xl'/>
