@@ -1,10 +1,6 @@
 import React from "react";
 import Adviser from "../_components/Adviser";
-import Selectbox from "../../../../components/Selectbox/Selectbox";
-import {
-  optionList,
-  optionListNumbers,
-} from "../../../(admin)/dashboard/options/optionList";
+import {optionList} from "../../../(admin)/dashboard/options/optionList";
 const MovementPage = () => {
   return (
     <div className="flex gap-x-10">
