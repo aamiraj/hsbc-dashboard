@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import Sidebar from "./_components/Sidebar.jsx";
 import TopBar from "./_components/TopBar.jsx";
+import SendMessage from "./_components/SendMessage.jsx";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function ProfileLayout({ children }) {
         </div>
         <div>{children}</div>
       </div>
+      <SendMessage/>
       <div className=" invisible">
         <TopBar/>
       </div>
