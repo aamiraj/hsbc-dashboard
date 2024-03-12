@@ -5,6 +5,7 @@ import { PiWallet } from "react-icons/pi";
 import { PiCalendar } from "react-icons/pi";
 import { PiSticker } from "react-icons/pi";
 import ProfitSimulators from "../components/ProfitSimulators";
+import MediaDocuments from "../components/MediaDocuments";
 
 const bookLetInfo = {
   fundPaymentDate: "2023-12-12 / 18:24",
@@ -75,9 +76,11 @@ const SavingFundInvestment = () => {
               </div>
             </div>
             <ProfitSimulators />
+            
           </div>
         </div>
       </div>
+      <MediaDocuments />
     </div>
   );
 };

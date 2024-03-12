@@ -64,44 +64,51 @@ const ProfitSimulators = () => {
           </div>
         </div>
         <div>
-          <p>
+          <p className="font-bold text-center py-4">
             <span>Attention!</span>
             Your funds are insufficient to invest.
           </p>
         </div>
         <div>
-          <p>Number of available spaces: 12</p>
+          <p className="font-bold text-center py-4">Number of available spaces: 12</p>
         </div>
-        <div className="w-full p-2 bg-[#39DE5D] flex items-center justify-center rounded-lg hover:bg-[#39DE5DAA]">
+        <div className="w-full my-4 p-2 bg-[#D80027] flex items-center justify-center rounded-lg hover:bg-[#39DE5DAA]">
           <Link
             href={"investments/saving-fund-investment"}
-            className="w-full flex items-center justify-center gap-2"
+            className="w-full flex items-center justify-center gap-2 text-white"
           >
             <PiNewspaperClipping style={iconSize} />
-            <span className="font-bold">Learn More</span>
+            <span className="font-bold">Buy ticket</span>
           </Link>
         </div>
-        <div className="grid grid-cols-3 gap-1 border p-4 rounded-lg">
-          <div>
+        <div className="grid grid-cols-4 gap-1">
+          <div className="border p-4 rounded-lg">
             <p className="text-xs text-[#595959] font-bold flex items-center gap-1">
               <PiWallet style={iconSize} />
-              Already Invest
+              You invest
             </p>
             <p className="text-lg py-2 text-[#39DE5D] font-bold">$456.237</p>
           </div>
-          <div>
+          <div className="border p-4 rounded-lg">
+            <p className="text-xs text-[#595959] font-bold flex items-center gap-1">
+              <PiWallet style={iconSize} />
+              You retive
+            </p>
+            <p className="text-lg py-2 text-[#39DE5D] font-bold">$456.237</p>
+          </div>
+          <div className="border p-4 rounded-lg">
             <p className="text-xs text-[#595959] font-bold flex items-center gap-1">
               <PiCalendar style={iconSize} />
-              Term Of Loan
+              You earn
             </p>
             <p className="text-lg py-2 text-[#39DE5D] font-bold">$456.237</p>
           </div>
-          <div>
+          <div className="border p-4 rounded-lg">
             <p className="text-xs text-[#595959] font-bold flex items-center gap-1">
               <PiSticker style={iconSize} />
-              Minimum Entry Ticket
+              Performance
             </p>
-            <p className="text-lg py-2 text-[#39DE5D] font-bold">$456.237</p>
+            <p className="text-lg py-2 text-[#39DE5D] font-bold">2.78%</p>
           </div>
         </div>
       </div>
