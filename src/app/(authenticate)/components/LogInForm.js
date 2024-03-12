@@ -4,6 +4,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import { PiEye } from "react-icons/pi";
+import { PiEyeSlash } from "react-icons/pi";
 
 const LogInForm = () => {
   const router = useRouter();
@@ -37,67 +41,110 @@ const LogInForm = () => {
           setError(res.error);
           return;
         }
-        
+
         router.replace("/authorize");
       } catch (error) {
         console.log(error);
       }
     }
   };
+
+  const visiblePassword = () => {
+    const x = document.getElementById("password");
+    const eye = document.getElementById("eye");
+    const eyeslash = document.getElementById("eyeslash");
+
+    if (x.type === "password") {
+      x.type = "text";
+      eye.style.display = "block";
+      eyeslash.style.display = "none";
+      console.log("visible");
+    } else {
+      x.type = "password";
+      eye.style.display = "none";
+      eyeslash.style.display = "block";
+      console.log("invisible");
+    }
+  };
   return (
-    <div className="w-1/3 h-screen mx-auto flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="border rounded-lg p-4 shadow-lg">
-        <div className={"container"}>
-          <h1 className="text-xl text-center font-bold">Log In</h1>
-          <p className="text-lg text-center font-semibold">
-            Please fill in this form to log in your account.
-          </p>
-          <hr className={"hr"} />
-          {error ? <p className="text-red-500 p-2 my-2">{error}</p> : <p></p>}
+    <div className="bg-[#F0F2F5] rounded-l-lg p-4">
+      <p className="py-4 text-end">
+        Don't have an account?{" "}
+        <Link href={"/signup"} className="text-[#20DC49]">
+          Sign up!
+        </Link>
+      </p>
+      <div>
+        <h1 className="text-4xl text-center font-bold py-2">Welcome Back</h1>
+        <p className="text-sm text-center py-2">Login into your account.</p>
+        <div className="flex items-center justify-center gap-4 my-4">
+          <button
+            type="button"
+            className="bg-white px-4 py-2 border rounded border-[#20DC49] flex items-center gap-2"
+          >
+            <FcGoogle />
+            Google
+          </button>
+          <button
+            type="button"
+            className="bg-white px-4 py-2 border rounded flex items-center gap-2"
+          >
+            <FaFacebook style={{ color: "#3B5998" }} />
+            Facebook
+          </button>
+        </div>
+        <div className="divider">Or continue with</div>
+        <form onSubmit={handleSubmit} className="w-[70%] mx-auto">
+          <div className={"container"}>
+            {error ? <p className="text-red-500 p-2 my-2">{error}</p> : <p></p>}
+            <input
+              onChange={handleChange}
+              className={"input_type_text"}
+              type="email"
+              placeholder="Email"
+              name="email"
+              required
+            />
 
-          <label htmlFor="email">
-            <b>Email</b>
-          </label>
-          <input
-            onChange={handleChange}
-            className={"input_type_text"}
-            type="email"
-            placeholder="Enter Email"
-            name="email"
-            required
-          />
+            <div className="bg-white flex items-center justify-center gap-0 rounded-lg">
+              <input
+                onChange={handleChange}
+                className={"input_type_password"}
+                type="password"
+                placeholder="Password"
+                name="psw"
+                id="password"
+                required
+              />
+              <button type="button" onClick={visiblePassword} className="p-4">
+                <PiEye
+                  id="eye"
+                  style={{ display: "none", width: "16px", height: "16px" }}
+                />
+                <PiEyeSlash
+                  id="eyeslash"
+                  style={{ display: "block", width: "16px", height: "16px" }}
+                />
+              </button>
+            </div>
+            {/* furthur implement forget password link  */}
+            <div className="flex items-center gap-4 justify-between my-4">
+              <div className="flex items-center gap-3">
+                <label className="switch">
+                  <input type="checkbox" defaultChecked={false} />
+                  <span className="slider round"></span>
+                </label>
+                <span>Remember Me</span>
+              </div>
+              <Link href={"/"} className="text-red-500">Recover Password</Link>
+            </div>
 
-          <label htmlFor="psw">
-            <b>Password</b>
-          </label>
-          <input
-            onChange={handleChange}
-            className={"input_type_password"}
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
-            required
-          />
-
-          {/* furthur implement forget password link  */}
-          {/* <p>
-            By creating an account you agree to our{" "}
-            <a href="#" style={{ color: "dodgerblue" }}>
-              Terms & Privacy
-            </a>
-            .
-          </p> */}
-
-          <div className={"clearfix"}>
-            <button type="submit" className={`button bg-red-400`}>
+            <button type="submit" className="w-full px-6 py-3 my-4 text-black border-2 border-black rounded-lg bg-transparent hover:text-white hover:bg-[#20dc49] hover:border-[#20dc49]">
               Log In
             </button>
           </div>
-        </div>
-        <Link href={"/signup"} className="px-8 underline">
-          Didn't have an account? Please go to sign up.
-        </Link>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

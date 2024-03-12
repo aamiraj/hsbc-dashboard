@@ -14,7 +14,7 @@ export default function AuthenticationLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <main>
+        <main className="max-w-[1440px] mx-auto">
           <AuthProvider>{children}</AuthProvider>
         </main>
       </body>

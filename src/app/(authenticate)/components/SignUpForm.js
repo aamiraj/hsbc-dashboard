@@ -3,6 +3,10 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import { PiEye } from "react-icons/pi";
+import { PiEyeSlash } from "react-icons/pi";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -78,87 +82,117 @@ const SignUpForm = () => {
       }
     }
   };
+
+  const visiblePassword = () => {
+    const x = document.getElementById("password");
+    const x_repeat = document.getElementById("repeatpassword");
+    const eye = document.getElementById("eye");
+    const eyeslash = document.getElementById("eyeslash");
+
+    if (x.type === "password") {
+      x.type = "text";
+      x_repeat.type = "text";
+      eye.style.display = "block";
+      eyeslash.style.display = "none";
+      console.log("visible");
+    } else {
+      x.type = "password";
+      x_repeat.type = "password";
+      eye.style.display = "none";
+      eyeslash.style.display = "block";
+      console.log("invisible");
+    }
+  };
   return (
-    <div className="w-1/3 h-screen mx-auto flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="border rounded-lg p-4 shadow-lg">
-        <div className={"container"}>
-          <h1 className="text-xl text-center font-bold">Sign Up</h1>
-          <p className="text-lg text-center font-semibold">
+    <div className="bg-[#F0F2F5] rounded-l-lg p-4">
+      <p className="py-4 text-end">
+        Already have an account?{" "}
+        <Link href={"/"} className="text-[#20DC49]">
+          Log In!
+        </Link>
+      </p>
+      <form onSubmit={handleSubmit} className="max-w-[70%] mx-auto p-4">
+        <div>
+          <h1 className="text-4xl text-center font-bold py-2">Sign Up</h1>
+          <p className="text-sm text-center py-2">
             Please fill in this form to create an account.
           </p>
-          <hr className={"hr"} />
           {!!error ? (
-            <p className=" text-red-500 text-center px-2 py-1 my-4 rounded-lg">
+            <p className=" text-red-500 text-center px-2 py-1 my-2 rounded-lg">
               {error}
             </p>
           ) : (
             <p></p>
           )}
 
-          <label htmlFor="fullname">
-            <b>Full Name</b>
-          </label>
           <input
             onChange={handleChange}
             className={"input_type_text"}
             type="text"
-            placeholder="Enter Your Name"
+            placeholder="Your Name"
             name="fullname"
             required
           />
 
-          <label htmlFor="email">
-            <b>Email</b>
-          </label>
           <input
             onChange={handleChange}
             className={"input_type_text"}
             type="email"
-            placeholder="Enter Email"
+            placeholder="Email"
             name="email"
             required
           />
 
-          <label htmlFor="psw">
-            <b>Password</b>
-          </label>
-          <input
-            onChange={handleChange}
-            className={"input_type_password"}
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
-            required
-          />
+          <div className="bg-white flex items-center justify-center gap-0 rounded-lg my-2">
+            <input
+              onChange={handleChange}
+              className={"input_type_password"}
+              type="password"
+              placeholder="Password"
+              name="psw"
+              id="password"
+              required
+            />
+            <button type="button" onClick={visiblePassword} className="p-4">
+              <PiEye
+                id="eye"
+                style={{ display: "none", width: "16px", height: "16px" }}
+              />
+              <PiEyeSlash
+                id="eyeslash"
+                style={{ display: "block", width: "16px", height: "16px" }}
+              />
+            </button>
+          </div>
 
-          <label htmlFor="psw_repeat">
-            <b>Repeat Password</b>
-          </label>
           <input
             onChange={handleChange}
-            className={"input_type_password"}
+            className={"input_type_password my-2"}
             type="password"
             placeholder="Repeat Password"
             name="psw_repeat"
+            id="repeatpassword"
             required
           />
 
-          <p>
-            By creating an account you agree to our{" "}
-            <a href="#" style={{ color: "dodgerblue" }}>
-              Terms & Privacy
-            </a>
-            .
-          </p>
-
-          <div className={"clearfix"}>
-            <button type="submit" className={`button`}>
-              Sign Up
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="bg-[#367AFF] text-white font-bold px-5 py-4 w-full rounded-lg my-2"
+          >
+            Sign Up
+          </button>
+          <div className="divider">Or</div>
         </div>
-        <Link href={"/"} className="px-8 underline">
-          Already have an accunt? Please go to log in.
+        <button
+          type="button"
+          className="bg-white w-full px-4 py-2 border rounded flex items-center justify-center font-bold gap-2 my-2"
+        >
+          Continue with Google
+          <FcGoogle />
+        </button>
+        <Link href={"/"} className="px-8 my-2">
+          Already have an accunt?{" "}
+          <span className="underline text-[#367AFF]">Log In</span>
         </Link>
       </form>
     </div>
