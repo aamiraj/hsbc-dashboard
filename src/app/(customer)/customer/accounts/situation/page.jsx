@@ -47,16 +47,16 @@ const SituationPage = () => {
                     <path
                       d="M8.66675 15.3333L15.3334 8.66667"
                       stroke="#299D91"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M8.66675 8.66667H15.3334V15.3333"
                       stroke="#299D91"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </div>

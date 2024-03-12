@@ -19,7 +19,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>
@@ -36,7 +36,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>
@@ -53,7 +53,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>
@@ -70,7 +70,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>
@@ -87,7 +87,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>
@@ -104,7 +104,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>
@@ -121,7 +121,7 @@ const Sidebar = () => {
               <path
                 d="M10 21.5L17 28.5L31.5 14"
                 stroke="white"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
           </li>

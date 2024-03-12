@@ -168,8 +168,8 @@ const Sidebar = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect width="167.5" height="37" rx="8" fill="#D2FFD7" />
-            <path d="M127.25 11V23.5" stroke="black" stroke-width="2" />
-            <path d="M133.5 17.25L121 17.25" stroke="black" stroke-width="2" />
+            <path d="M127.25 11V23.5" stroke="black" strokeWidth="2" />
+            <path d="M133.5 17.25L121 17.25" stroke="black" strokeWidth="2" />
           </svg>
         </div>
       </div>
