@@ -17,8 +17,18 @@ const ProfileMenus = () => {
       ? (profileMenus.style.display = "block")
       : (profileMenus.style.display = "none");
   };
+
+  const handleAccordion = () => {
+    const panel = document.getElementById("panel");
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  };
+
   return (
-    <div className="relative">
+    <div className="relative flex items-center justify-center">
       {session?.user?.image ? (
         <button
           type="button"
@@ -43,18 +53,38 @@ const ProfileMenus = () => {
       )}
       <div
         id="profile-menus"
-        className="bg-white w-48 p-2 text-sm absolute top-16 right-0"
+        className="bg-white w-48 p-2 text-sm absolute top-12 right-0"
         style={{ display: "none" }}
       >
         <p className="p-2 my-2 bg-red-500 text-white rounded-lg font-bold text-center">
           <Link href="/customer/profile/personal-data">
-          {session?.user?.name}
+            {session?.user?.name}
           </Link>
+        </p>
+        <p className="p-2 my-2 rounded-lg font-bold text-center hover:bg-slate-200 ">
+          Personal Information
+        </p>
+        <button
+          type="button"
+          onClick={handleAccordion}
+          className="w-full p-2 my-2 rounded-lg font-bold text-center hover:bg-slate-200"
+        >
+          Messaging
+        </button>
+        <div id="panel" className="text-xs panel">
+          <div className="p-1 border border-black">
+            <p className="py-2">Write message</p>
+            <p className="py-2">Current conversation</p>
+            <p className="py-2">Conversation history</p>
+          </div>
+        </div>
+        <p className="p-2 my-2 rounded-lg font-bold text-center hover:bg-slate-200">
+          My Favourites
         </p>
         <button
           onClick={() => signOut()}
           type="button"
-          className="block w-full p-2 my-2 text-center rounded-lg  hover:bg-slate-200"
+          className="block w-full p-2 my-2 text-center font-bold rounded-lg hover:bg-slate-200"
         >
           Log Out
         </button>
