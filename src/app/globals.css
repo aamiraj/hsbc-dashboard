@@ -368,3 +368,14 @@ input[type="range"]:focus::-moz-range-thumb {
   background: #fff;
   padding: 10px 4px;
 }
+
+.textEditor {
+ 
+	height: 250px;
+	border-radius: 10px;
+ 
+}
+.textEditor:nth-child(2),
+.textEditor:nth-child(3) {
+	height: 285px;
+}
