@@ -128,7 +128,7 @@ const investments = [
 
 const Cryptocurrency = () => {
   return (
-    <div className="shadow-md rounded-lg py-4 px-8 my-8">
+    <div className="bg-white shadow-md rounded-lg py-4 px-8 my-8">
       <div className="flex items-center gap-4 justify-between">
         <div className="flex items-center justify-end gap-4">
           <Searchbox withCommand={false} />
