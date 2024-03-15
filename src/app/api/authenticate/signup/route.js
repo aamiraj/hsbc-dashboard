@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB } from "../../../../lib/mongodbConnect";
 import User from "../../../../models/user";
+import ActivateToken from "../../../../models/activateToken";
+import { randomUUID } from "crypto";
+import sendVerificationEmail from "../../../../lib/sendVerificationEmail";
 
 export async function POST(req) {
   try {
@@ -8,7 +11,16 @@ export async function POST(req) {
     const user = { fullname, email, password };
     // console.log({ fullname, email, password });
     await connectMongoDB();
-    await User.create(user);
+    const newUser = await User.create(user);
+    const token = `${randomUUID()}${randomUUID()}`.replace(/-/g, "");
+
+    await ActivateToken.create({
+      token,
+      userId: newUser._id,
+    });
+
+    await sendVerificationEmail(email, fullname, token);
+
     return NextResponse.json(
       { message: "User sign up successful" },
       { status: 201 }

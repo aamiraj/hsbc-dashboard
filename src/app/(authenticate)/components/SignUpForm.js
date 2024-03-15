@@ -181,8 +181,8 @@ const SignUpForm = () => {
           >
             Sign Up
           </button>
-          <div className="divider">Or</div>
         </div>
+        {/* <div className="divider">Or</div>
         <button
           type="button"
           className="bg-white w-full px-4 py-2 border rounded flex items-center justify-center font-bold gap-2 my-2"
@@ -193,7 +193,7 @@ const SignUpForm = () => {
         <Link href={"/"} className="px-8 my-2">
           Already have an accunt?{" "}
           <span className="underline text-[#367AFF]">Log In</span>
-        </Link>
+        </Link> */}
       </form>
     </div>
   );

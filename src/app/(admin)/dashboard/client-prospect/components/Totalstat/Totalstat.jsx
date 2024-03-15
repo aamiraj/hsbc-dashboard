@@ -1,7 +1,17 @@
 import React from "react";
 import Image from "next/image";
 
-const Stat = ({ children, title, stat, percent, trend }) => {
+const getEngagementsData = async (api) => {
+  try {
+    const res = await fetch(api);
+    const { data } = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const Stat = ({ children, title, stat }) => {
   return (
     <div>
       <div className="flex justify-start items-center gap-2">
@@ -11,7 +21,7 @@ const Stat = ({ children, title, stat, percent, trend }) => {
         <div className="flex flex-col gap-1">
           <p className="text-sm text-slate-700">{title}</p>
           <p className="text-xl font-bold text-black">{stat}</p>
-          {trend !== "none" && (
+          {/* {trend !== "none" && (
             <div>
               <p className="text-xs">
                 <span className={trend==='up' ? "text-[#00AC4F]" : "text-[#D0004B]"}>
@@ -38,23 +48,22 @@ const Stat = ({ children, title, stat, percent, trend }) => {
                 this month
               </p>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
   );
 };
 
-const Totalstat = () => {
+const Totalstat = async () => {
+  const engagements = await getEngagementsData(
+    `${process.env.DEV_URL}/api/data/engagements/`
+  );
+
   return (
     <>
       <div className="bg-[#FFFFFF] rounded-lg p-8 my-8 flex justify-around items-center gap-4">
-        <Stat
-          title={"Total Customers"}
-          stat={"5,432"}
-          percent={16.0}
-          trend={"up"}
-        >
+        <Stat title={"Total Customers"} stat={engagements?.stat}>
           <Image
             src={"/assets/profile-2user.svg"}
             alt="2 users icon"
@@ -63,7 +72,7 @@ const Totalstat = () => {
           />
         </Stat>
         <div className="w-[1px] h-[84px] bg-[#B1B1B1] mx-8"></div>
-        <Stat title={"Members"} stat={"1,893"} percent={1.0} trend={"down"}>
+        <Stat title={"Members"} stat={engagements?.stat}>
           <Image
             src={"/assets/profile-tick.svg"}
             alt="2 users icon"
@@ -72,7 +81,7 @@ const Totalstat = () => {
           />
         </Stat>
         <div className="w-[1px] h-[84px] bg-[#B1B1B1] mx-8"></div>
-        <Stat title={"Active Now"} stat={"189"} percent={0} trend={"none"}>
+        <Stat title={"Active Now"} stat={engagements?.stat}>
           <Image
             src={"/assets/monitor.svg"}
             alt="2 users icon"

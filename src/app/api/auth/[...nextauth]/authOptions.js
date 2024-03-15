@@ -19,18 +19,22 @@ const authOptions = {
         await connectMongoDB();
         try {
           const foundUser = await User.findOne({ email });
-
           if (foundUser) {
+            if (!foundUser.active) {
+              return null;
+            }
+
             // Any object returned will be saved in `user` property of the JWT
             const passMatched = await bcrypt.compare(
               password,
               foundUser.password
             );
 
+            // console.log(passMatched);
             if (!passMatched) {
               return null;
             }
-            delete foundUser.password;
+            // delete foundUser.password;
             const user = {
               name: foundUser.fullname,
               email: foundUser.email,

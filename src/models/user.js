@@ -16,6 +16,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    active: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
     role: {
       type: String,
       enum: {
@@ -25,12 +30,36 @@ const userSchema = new Schema(
       default: "customer",
       required: true,
     },
+    phone: {
+      type: String,
+      required: false,
+    },
+    date: {
+      type: Date,
+      required: false,
+    },
+    attribution: {
+      type: String,
+      required: false,
+    },
+    lastLogInAt: {
+      type: Date,
+      required: false,
+    },
+    campaignBy: {
+      type: String,
+      required: false,
+    },
+    countryFrom: {
+      type: String,
+      required: false,
+    },
   },
   { timestamps: true }
 );
 
 userSchema.pre("save", async function (next) {
-  const hashedPassword = await bcrypt.hash(this.password, 10);
+  const hashedPassword = await bcrypt.hash(this.password, 12);
   this.password = hashedPassword;
   next();
 });

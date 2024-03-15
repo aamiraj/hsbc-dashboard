@@ -77,7 +77,7 @@ const LogInForm = () => {
       <div>
         <h1 className="text-4xl text-center font-bold py-2">Welcome Back</h1>
         <p className="text-sm text-center py-2">Login into your account.</p>
-        <div className="flex items-center justify-center gap-4 my-4">
+        {/* <div className="flex items-center justify-center gap-4 my-4">
           <button
             type="button"
             className="bg-white px-4 py-2 border rounded border-[#20DC49] flex items-center gap-2"
@@ -93,7 +93,7 @@ const LogInForm = () => {
             Facebook
           </button>
         </div>
-        <div className="divider">Or continue with</div>
+        <div className="divider">Or continue with</div> */}
         <form onSubmit={handleSubmit} className="w-[70%] mx-auto">
           <div className={"container"}>
             {error ? <p className="text-red-500 p-2 my-2">{error}</p> : <p></p>}

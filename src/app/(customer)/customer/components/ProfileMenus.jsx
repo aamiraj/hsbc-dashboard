@@ -18,14 +18,14 @@ const ProfileMenus = () => {
       : (profileMenus.style.display = "none");
   };
 
-  const handleAccordion = () => {
-    const panel = document.getElementById("panel");
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  };
+  // const handleAccordion = () => {
+  //   const panel = document.getElementById("panel");
+  //   if (panel.style.maxHeight) {
+  //     panel.style.maxHeight = null;
+  //   } else {
+  //     panel.style.maxHeight = panel.scrollHeight + "px";
+  //   }
+  // };
 
   return (
     <div className="relative flex items-center justify-center">
@@ -64,7 +64,7 @@ const ProfileMenus = () => {
         <p className="p-2 my-2 rounded-lg font-bold text-center hover:bg-slate-200 ">
           Personal Information
         </p>
-        <button
+        {/* <button
           type="button"
           onClick={handleAccordion}
           className="w-full p-2 my-2 rounded-lg font-bold text-center hover:bg-slate-200"
@@ -77,7 +77,7 @@ const ProfileMenus = () => {
             <p className="py-2">Current conversation</p>
             <p className="py-2">Conversation history</p>
           </div>
-        </div>
+        </div> */}
         <p className="p-2 my-2 rounded-lg font-bold text-center hover:bg-slate-200">
           My Favourites
         </p>

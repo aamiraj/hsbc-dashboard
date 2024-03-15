@@ -36,10 +36,10 @@ const menus = [
 const HeaderMenus = () => {
   return (
     <div className="flex items-center gap-4 justify-between px-12 py-8">
-      <p className="text-white font-bold">HSBC</p>
+      <p className="text-white font-bold text-4xl">HSBC</p>
       <div>
         <ul className="flex items-center justify-evenly gap-4">
-          {menus.map(({ title, icon, link }, i) => (
+          {menus.slice(-2).map(({ title, icon, link }, i) => (
             <li key={i}>
               <Link href={link}>
                 <p className="flex items-center gap-2 text-white">
@@ -51,14 +51,14 @@ const HeaderMenus = () => {
           ))}
         </ul>
       </div>
-      <div>
+      {/* <div>
         <button
           type="button"
           className="bg-white text-black px-4 py-2 rounded-full"
         >
           Free Download
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

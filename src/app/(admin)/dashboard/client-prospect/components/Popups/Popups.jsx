@@ -10,6 +10,7 @@ import BannerBlocks from "./BannerBlocks";
 import CustomerPush from "./CustomerPush";
 import Dashboard from "./Dashboard";
 import Experience from "./Experience";
+import { PiXBold } from "react-icons/pi";
 
 const headerMenusOne = [
   {
@@ -77,9 +78,9 @@ const headerMenusTwo = [
   },
 ];
 
-const Popups = () => {
+const Popups = ({client}) => {
   const [openSecondHeaderMenu, setOpenSecondHeaderMenu] = useState(false);
-  const [menuActive, setMenuActive] = useState(1);
+  const [menuActive, setMenuActive] = useState(2);
 
   const handleNext = () => {
     setOpenSecondHeaderMenu(true);
@@ -95,23 +96,27 @@ const Popups = () => {
     setMenuActive(id);
   };
 
-  const handleClosePopUp = ()=>{
-    const popUp = document.getElementById("popUpInClientProspect")
-    popUp.style.display = "none"
-  }
+  const handleClosePopUp = () => {
+    const popUp = document.getElementById(client?._id);
+    popUp.style.display = "none";
+  };
   return (
-    <div>
+    <>
       <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-50 z-10"></div>
       <div className="w-full h-max p-8 bg-white rounded-3xl absolute top-32 left-0 right-0 bottom-0 z-20">
-        <div className="flex justify-center items-center gap-4 my-4">
+        <div className="relative w-full flex justify-center items-center gap-4 my-4">
           <h3 className="text-2xl">Company</h3>
           <div className="p-2 border-2 rounded-lg flex items-center gap-2">
             <p>HSBC</p>
             <span className="rotate-90">{">"}</span>
           </div>
-          <div className="self-end" onClick={handleClosePopUp}>
-            <p>Close</p>
-          </div>
+          <button
+            type="button"
+            className="absolute right-4 top-0"
+            onClick={handleClosePopUp}
+          >
+            <PiXBold style={{ width: 32, height: 32, color: "red" }} />
+          </button>
         </div>
         <div>
           <div className="bg-[#EEEAEA] rounded-t-lg">
@@ -121,7 +126,7 @@ const Popups = () => {
                   <li
                     key={i}
                     onClick={() => handleActive(menu.id)}
-                    className="w-full rounded-t-lg text-center text-xs p-3"
+                    className="w-full rounded-t-lg text-center text-xs p-3 cursor-pointer"
                     style={
                       menuActive === menu.id
                         ? { color: "white", backgroundColor: "#0F993E" }
@@ -131,21 +136,21 @@ const Popups = () => {
                     {menu.title}
                   </li>
                 ))}
-                <li onClick={handleNext} className="px-3">
+                <li onClick={handleNext} className="px-3 cursor-pointer">
                   {">"}
                 </li>
               </ul>
             )}
             {openSecondHeaderMenu && (
               <ul className="flex items-center justify-evenly">
-                <li onClick={handlePrev} className="px-3">
+                <li onClick={handlePrev} className="px-3 cursor-pointer">
                   {"<"}
                 </li>
                 {headerMenusTwo.map((menu, i) => (
                   <li
                     key={menu.id}
                     onClick={() => handleActive(menu.id)}
-                    className="w-full rounded-t-lg text-center text-xs p-3"
+                    className="w-full rounded-t-lg text-center text-xs p-3 cursor-pointer"
                     style={
                       menuActive === menu.id
                         ? { color: "white", backgroundColor: "#0F993E" }
@@ -162,12 +167,12 @@ const Popups = () => {
           {/* when header menu matches the active menu number then the component is visible, hidden otherwise  */}
           {menuActive === headerMenusOne[0].id && (
             <div>
-              <Details />
+              <Details client={client} />
             </div>
           )}
           {menuActive === headerMenusOne[1].id && (
             <div>
-              <CustomerFollowUp />
+              <CustomerFollowUp client={client} />
             </div>
           )}
           {menuActive === headerMenusOne[2].id && (
@@ -213,7 +218,7 @@ const Popups = () => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

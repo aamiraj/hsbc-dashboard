@@ -21,7 +21,8 @@ import ArrowDown from "../../../../../components/Icons/ArrowDown";
 import IconMenus from "../../components/IconMenus/IconMenus";
 import SecondIconMenus from "../../components/SecondIconMenus/SecondIconMenus";
 import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
+import { PiUserCircle } from "react-icons/pi";
 
 const User = {
   displayName: "Veronica Sislia",
@@ -64,11 +65,11 @@ const iconMenus = [
     icon: <CycleUser w={24} h={24} />,
     link: "/dashboard/contract",
   },
-  {
-    text: "Current Conversation",
-    icon: <ChatDot w={24} h={24} />,
-    link: "/dashboard/current-conversation",
-  },
+  // {
+  //   text: "Current Conversation",
+  //   icon: <ChatDot w={24} h={24} />,
+  //   link: "/dashboard/current-conversation",
+  // },
 ];
 
 const secondIconMenus = [
@@ -106,6 +107,7 @@ const secondIconMenus = [
 
 const SideMenu = () => {
   const path = usePathname();
+  const { data: session } = useSession();
 
   return (
     <section className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}>
@@ -148,13 +150,23 @@ const SideMenu = () => {
         </ul>
       </div>
       <div className="w-full flex justify-center items-center gap-4 bg-white py-2 px-4 my-4 rounded-[32px]">
-        <Image
-          src={User.profilePic}
-          alt={User.displayName}
-          width={40}
-          height={40}
-        />
-        <Link href="/customer/profile/personal-data">{User.displayName}</Link>
+        {session?.user?.image ? (
+          <div>
+            <Image
+              src={session?.user?.image}
+              width={40}
+              height={40}
+              alt={session?.user?.name}
+            />
+          </div>
+        ) : (
+          <div>
+            <PiUserCircle style={{ width: 40, height: 40 }} />
+          </div>
+        )}
+        <Link href="/dashboard">
+          {session?.user?.name}
+        </Link>
         <ArrowDown w={24} h={24} />
       </div>
       <button

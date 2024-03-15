@@ -5,7 +5,7 @@ const RightSideForm = () => {
   return (
     <div className="right_bg">
       <div className="h-full">
-        <div className="w-full h-[60%]"></div>
+        <div className="w-full h-[40%]"></div>
         <div className="glass-card p-8 mx-4 text-white">
           <p className="flex items-center gap-2 w-max px-4 py-2 mb-4 rounded-lg text-black text-xs bg-[#20DC49]">
             <Image

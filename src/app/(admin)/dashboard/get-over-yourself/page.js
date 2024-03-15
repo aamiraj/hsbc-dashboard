@@ -15,16 +15,15 @@ const GetOverYourself = () => {
   return (
     <div className="p-8">
       <div className="h-80">
-      <Calendar
-        views={[ "week", "month"]}
-        selectable
-        localizer={localizer}
-        defaultDate={new Date()}
-        defaultView="month"
-        events={myEventsList}
-        style={{ height: "100vh" }}
-        
-      />
+        <Calendar
+          views={["week", "month", "day"]}
+          selectable
+          localizer={localizer}
+          defaultDate={new Date()}
+          defaultView="month"
+          events={myEventsList}
+          style={{ height: 500 }}
+        />
       </div>
     </div>
   );

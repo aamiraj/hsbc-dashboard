@@ -1,23 +1,39 @@
 import Image from "next/image";
 import React from "react";
+import { PiUserCircle } from "react-icons/pi";
 
-const CustomerFollowUp = () => {
+const CustomerFollowUp = ({ client }) => {
   return (
     <div>
       <div className="border rounded-lg p-12">
         <div className="flex items-center justify-around gap-4 p-4 bg-black rounded-lg">
           <div className="flex gap-4">
-            <Image
-              src={"/assets/dummyPic.png"}
-              alt="profile pic"
-              width={48}
-              height={48}
-            />
+            {client?.image ? (
+              <div>
+                <Image
+                  src={client?.image}
+                  width={48}
+                  height={48}
+                  alt={client?.fullname}
+                />
+              </div>
+            ) : (
+              <div>
+                <PiUserCircle
+                  style={{
+                    width: 48,
+                    height: 48,
+                    backgroundColor: "white",
+                    padding: 8,
+                    color: "#D0D0D0",
+                    borderRadius: "50%"
+                  }}
+                />
+              </div>
+            )}
             <div>
               <p className="text-[#B7B7B7]">Customer</p>
-              <p className="text-white font-bold">
-                Brand Achille, Paul, Emanuel
-              </p>
+              <p className="text-white font-bold">{client?.fullname}</p>
             </div>
           </div>
           <div className="flex gap-4">
@@ -31,7 +47,7 @@ const CustomerFollowUp = () => {
             </div>
             <div>
               <p className="text-[#B7B7B7]">Phone</p>
-              <p className="text-white font-bold">2113-2113-2144</p>
+              <p className="text-white font-bold">{client?.phone}</p>
             </div>
           </div>
           <div className="flex gap-4">
@@ -45,7 +61,7 @@ const CustomerFollowUp = () => {
             </div>
             <div>
               <p className="text-[#B7B7B7]">Email</p>
-              <p className="text-white font-bold">brandt.achele@gmail.com</p>
+              <p className="text-white font-bold">{client?.email}</p>
             </div>
           </div>
           <div className="flex gap-4">
@@ -156,7 +172,7 @@ const CustomerFollowUp = () => {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <div className="w-max px-10 py-4 font-bold rounded-lg text-center bg-[#39DE5D]">
               Show Status History
             </div>
