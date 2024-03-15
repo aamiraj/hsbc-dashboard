@@ -14,7 +14,7 @@ const getEngagementsData = async (api) => {
 };
 const Client_Prospect = async () => {
   const engagements = await getEngagementsData(
-    `${process.env.DEV_URL}/api/data/engagements/`
+    `${process.env.PROD_URL}/api/data/engagements/`
   );
   return (
     <div className="p-8 my-8">

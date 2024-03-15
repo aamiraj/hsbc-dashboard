@@ -57,7 +57,7 @@ const Stat = ({ children, title, stat }) => {
 
 const Totalstat = async () => {
   const engagements = await getEngagementsData(
-    `${process.env.DEV_URL}/api/data/engagements/`
+    `${process.env.PROD_URL}/api/data/engagements/`
   );
 
   return (
