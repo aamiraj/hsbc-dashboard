@@ -94,7 +94,7 @@ const options = {
 };
 
 const HistoricChart = ({ singleCoin }) => {
-  const [days, setDays] = useState(1);
+  const [days, setDays] = useState(30);
   const currency = "usd";
   const [singleCoinData, setSingleCoinData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -114,7 +114,7 @@ const HistoricChart = ({ singleCoin }) => {
     })
       .then((res) => res.json())
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         setSingleCoinData(data);
         setLoading(false);
       })
@@ -130,21 +130,28 @@ const HistoricChart = ({ singleCoin }) => {
 
   return (
     <>
-      <div className="w-full p-8 flex items-center justify-around gap-4 ">
-        <select
-          name="days"
-          id="days"
-          className="outline-0 bg-slate-500 px-4 py-2"
-          defaultValue={days}
-          onChange={handleDays}
-        >
-          <option value={1}>1 day</option>
-          <option value={7}>7 days</option>
-          <option value={30}>1 month</option>
-          <option value={90}>3 months</option>
-          <option value={180}>6 months</option>
-          <option value={365}>12 months</option>
-        </select>
+      <div className="w-full p-4 flex items-center justify-around gap-4 ">
+        <div>
+          <label htmlFor="days">Days: </label>
+          <select
+            name="days"
+            id="days"
+            className="outline-0 bg-slate-100 px-4 py-1 rounded-lg"
+            defaultValue={days}
+            onChange={handleDays}
+          >
+            <option value={1}>1 day</option>
+            <option value={7}>7 days</option>
+            <option value={14}>14 days</option>
+            <option value={30}>1 month</option>
+            <option value={90}>3 months</option>
+            <option value={180}>6 months</option>
+            <option value={365}>12 months</option>
+          </select>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
       <div>
         <Bar
@@ -161,7 +168,6 @@ const HistoricChart = ({ singleCoin }) => {
                     s: [coin[1], coin[4]],
                   };
                 }),
-                label: ``,
                 backgroundColor: function (ctx) {
                   const {
                     raw: { o, c },
