@@ -64,8 +64,8 @@ const CryptoCurrencyData = () => {
                   </div>
                   <div className="font-bold w-full flex items-center justify-between gap-4">
                     <div>
-                      <p>{d?.name}</p>
-                      <p>{d?.symbol}</p>
+                      <p className="text-lest">{d?.name}</p>
+                      <p className="text-left text-xs font-normal">{d?.symbol}</p>
                     </div>
                     <div>
                       <p className="text-right flex items-center">

@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { PiEye } from "react-icons/pi";
 import { PiEyeSlash } from "react-icons/pi";
+import Feedback from "../../../components/Feedback/Feedback";
 
 const LogInForm = () => {
   const router = useRouter();
@@ -38,7 +39,9 @@ const LogInForm = () => {
 
         if (!res.ok) {
           console.log(res);
-          setError(res.error);
+          setError(
+            "Invalid email/password or inactive user. Put correct email/password and try again later."
+          );
           return;
         }
 
@@ -65,6 +68,10 @@ const LogInForm = () => {
       eyeslash.style.display = "block";
       console.log("invisible");
     }
+  };
+
+  const handleFeedBackClose = () => {
+    setError("");
   };
   return (
     <div className="bg-[#F0F2F5] rounded-l-lg p-4">
@@ -96,7 +103,20 @@ const LogInForm = () => {
         <div className="divider">Or continue with</div> */}
         <form onSubmit={handleSubmit} className="w-[70%] mx-auto">
           <div className={"container"}>
-            {error ? <p className="text-red-500 p-2 my-2">{error}</p> : <p></p>}
+            {error ? (
+              <Feedback
+                id="log-in-feedback"
+                title={"Invalid Credentials"}
+                messages={[
+                  "Put correct email and password.",
+                  "In case you are signing in for the first time, please check your email inbox and click the provided link to activate your account.",
+                ]}
+                handleClose={handleFeedBackClose}
+              />
+            ) : (
+              <p></p>
+            )}
+
             <input
               onChange={handleChange}
               className={"input_type_text"}
@@ -136,10 +156,15 @@ const LogInForm = () => {
                 </label>
                 <span>Remember Me</span>
               </div>
-              <Link href={"/"} className="text-red-500">Recover Password</Link>
+              <Link href={"/"} className="text-red-500">
+                Recover Password
+              </Link>
             </div>
 
-            <button type="submit" className="w-full px-6 py-3 my-4 text-black border-2 border-black rounded-lg bg-transparent hover:text-white hover:bg-[#20dc49] hover:border-[#20dc49]">
+            <button
+              type="submit"
+              className="w-full px-6 py-3 my-4 text-black border-2 border-black rounded-lg bg-transparent hover:text-white hover:bg-[#20dc49] hover:border-[#20dc49]"
+            >
               Log In
             </button>
           </div>

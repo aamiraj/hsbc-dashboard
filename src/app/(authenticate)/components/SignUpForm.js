@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { PiEye } from "react-icons/pi";
 import { PiEyeSlash } from "react-icons/pi";
+import Feedback from "../../../components/Feedback/Feedback";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const SignUpForm = () => {
     psw: "",
     psw_repeat: "",
   });
+  const [success, setSuccess] = useState(true);
   const [error, setError] = useState("");
 
   const handleChange = (event) => {
@@ -67,12 +69,12 @@ const SignUpForm = () => {
 
           if (!res.ok) {
             const { message } = await res.json();
-            alert(message);
+            setError(message);
           } else {
             const { message } = await res.json();
-            alert(message);
+            setSuccess(true);
             event.target.reset();
-            router.push("/customer");
+            router.push("/");
           }
         } catch (error) {
           console.log(error);
@@ -117,10 +119,30 @@ const SignUpForm = () => {
           <p className="text-sm text-center py-2">
             Please fill in this form to create an account.
           </p>
-          {!!error ? (
-            <p className=" text-red-500 text-center px-2 py-1 my-2 rounded-lg">
-              {error}
-            </p>
+          {success ? (
+            <Feedback
+              id="sign-up-feedback-success"
+              title={"Thank you for signing up"}
+              messages={[
+                "Your account has been created successfully, please check your email inbox and click the provided link to activate your account.",
+              ]}
+              handleClose={() => setSuccess(false)}
+            />
+          ) : (
+            <p></p>
+          )}
+
+          {error ? (
+            <Feedback
+              id="sign-up-feedback-error"
+              title={"Error while signing up"}
+              messages={[
+                "Please provide valid name, email and strong password.",
+                "Your password may mismatch.",
+                "Your account creation may fail due to server error, please try again later.",
+              ]}
+              handleClose={() => setError("")}
+            />
           ) : (
             <p></p>
           )}
