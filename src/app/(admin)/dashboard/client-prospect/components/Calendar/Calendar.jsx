@@ -1,7 +1,9 @@
+"use client"
+
 import Image from "next/image";
 import React from "react";
 
-const Calendar = ({text}) => {
+const Calendar = ({ text }) => {
   return (
     <div className="datepicker-toggle border">
       <label

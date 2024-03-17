@@ -1,30 +1,40 @@
-"use client";
+import React from "react";
+import { PiPlusCircle } from "react-icons/pi";
+import AddEvent from "./components/AddEvent/AddEvent";
+import BigCalendar from "./components/BigCalendar/BigCalendar";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
+import authOptions from "../../../api/auth/[...nextauth]/authOptions";
 
-import React, { useState } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+const getEventsData = async (email) => {
+  try {
+    const res = await fetch(
+      `${process.env.PROD_URL}api/data/events?email=${email}`,
+      { cache: "no-store", next: { revalidate: 10 } }
+    );
+    const { data } = await res.json();
+    // console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// Setup the localizer by providing the moment (or globalize, or Luxon) Object
-// to the correct localizer.
-moment.locale("en-Uk");
-const localizer = momentLocalizer(moment); // or globalizeLocalizer
-const myEventsList = [{}];
+const GetOverYourself = async ({ searchParams }) => {
+  const session = await getServerSession(authOptions);
+  const allEvents = await getEventsData(session?.user?.email);
 
-const GetOverYourself = () => {
+  const openModal = searchParams?.modal;
   return (
     <div className="p-8">
-      <div className="h-80">
-        <Calendar
-          views={["week", "month", "day"]}
-          selectable
-          localizer={localizer}
-          defaultDate={new Date()}
-          defaultView="month"
-          events={myEventsList}
-          style={{ height: 500 }}
-        />
+      <div className="w-max mb-4 flex items-center gap-4 px-4 py-2 border border-[#39de5d] rounded-lg">
+        <p className="text-lg font-bold text-[#39de5d]">Add event</p>
+        <Link type="button" href={"?modal=true"}>
+          <PiPlusCircle style={{ width: 32, height: 32, color: "#39de5d" }} />
+        </Link>
       </div>
+      {openModal && <AddEvent id={"add-event"} />}
+      <BigCalendar events={allEvents} />
     </div>
   );
 };

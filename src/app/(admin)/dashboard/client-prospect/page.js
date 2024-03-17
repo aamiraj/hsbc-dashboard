@@ -30,7 +30,7 @@ const Client_Prospect = async () => {
           title={"Customer"}
           trendUp={engagements?.trendUp}
           percent={engagements?.percent}
-          stat={engagements?.stat}
+          stat={engagements?.customers}
           context={"Viewers"}
         />
         <NumberStatCard
@@ -49,7 +49,7 @@ const Client_Prospect = async () => {
         />
       </div>
       <div>
-        <Totalstat />
+        <Totalstat engagements={engagements} />
       </div>
       {/* client table  */}
       <div>

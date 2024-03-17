@@ -55,7 +55,7 @@ const Stat = ({ children, title, stat }) => {
   );
 };
 
-const Totalstat = async ({engagements}) => {
+const Totalstat = async ({ engagements }) => {
   // const engagements = await getEngagementsData(
   //   `${process.env.PROD_URL}api/data/engagements/`
   // );
@@ -63,7 +63,7 @@ const Totalstat = async ({engagements}) => {
   return (
     <>
       <div className="bg-[#FFFFFF] rounded-lg p-8 my-8 flex justify-around items-center gap-4">
-        <Stat title={"Total Customers"} stat={engagements?.stat}>
+        <Stat title={"Total Customers"} stat={engagements?.customers}>
           <Image
             src={"/assets/profile-2user.svg"}
             alt="2 users icon"
@@ -72,7 +72,7 @@ const Totalstat = async ({engagements}) => {
           />
         </Stat>
         <div className="w-[1px] h-[84px] bg-[#B1B1B1] mx-8"></div>
-        <Stat title={"Members"} stat={engagements?.stat}>
+        <Stat title={"Members"} stat={engagements?.members}>
           <Image
             src={"/assets/profile-tick.svg"}
             alt="2 users icon"
@@ -81,7 +81,7 @@ const Totalstat = async ({engagements}) => {
           />
         </Stat>
         <div className="w-[1px] h-[84px] bg-[#B1B1B1] mx-8"></div>
-        <Stat title={"Active Now"} stat={engagements?.stat}>
+        <Stat title={"Active Now"} stat={engagements?.actives}>
           <Image
             src={"/assets/monitor.svg"}
             alt="2 users icon"

@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 
-const TextAreaInput = ({ id, label }) => {
+const TextAreaInput = ({ id, label, rows, handleChange }) => {
   return (
     <div className="w-full">
       <label htmlFor={id}>{label}</label>
@@ -9,7 +10,8 @@ const TextAreaInput = ({ id, label }) => {
         id={id}
         className="border rounded w-full py-2 my-2"
         cols={10}
-        rows={4}
+        rows={rows ? rows : 4}
+        onChange={handleChange}
       ></textarea>
     </div>
   );
