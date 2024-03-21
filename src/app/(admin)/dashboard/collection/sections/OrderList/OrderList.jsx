@@ -2,7 +2,7 @@ import React from "react";
 import Calendar from "../../../client-prospect/components/Calendar/Calendar";
 import Searchbox from "../../../../../../components/Searchbox/Searchbox";
 import { payments } from "../../../../../../dummydata/payments";
-import usePlanModal from "../../../../../../hooks/PlanModal";
+import ApproveButton from "../../components/ApproveButton";
 
 const thead = [
   "Date",
@@ -13,20 +13,7 @@ const thead = [
   "Status",
 ];
 
-const ApproveButton = ({planModal}) => {
-  return (
-    <button
-    onClick={planModal.onOpen}
-      type="button"
-      className="bg-[#0052B4] shadow rounded-lg text-[#FFFFFF] py-2 px-4"
-    >
-      Approved
-    </button>
-  );
-};
-
 const OrderList = () => {
-  const planModal = usePlanModal()
   return (
     <div className="bg-white rounded-lg p-8 my-8">
       <div>
@@ -52,8 +39,8 @@ const OrderList = () => {
           <thead>
             <tr>
               {thead.map((text, i) => (
-                <th key={i} className="th">
-                  <div className="flex justify-center items-center gap-2">
+                <th key={i} className="py-4">
+                  <div className="text-xs flex justify-center items-center gap-2">
                     <p className="text-center">{text}</p>
                     <span className="rotate-90 text-center text-[10px]">
                       {"<>"}
@@ -66,14 +53,14 @@ const OrderList = () => {
           <tbody>
             {payments.map((payment, i) => (
               <tr key={i}>
-                <td className="td">{payment.date}</td>
-                <td className="td">{payment.fullname}</td>
-                <td className="td">{payment.attribution}</td>
-                <td className="td">{payment.plan}</td>
-                <td className="td">{payment.price}</td>
-                
-                <td className="td">
-                  {payment.payment ? <ApproveButton planModal={planModal}/> : <ApproveButton />}
+                <td className="py-4">{payment.date}</td>
+                <td className="py-4">{payment.fullname}</td>
+                <td className="py-4">{payment.attribution}</td>
+                <td className="py-4">{payment.plan}</td>
+                <td className="py-4">{payment.price}</td>
+
+                <td className="py-4">
+                  {payment.payment ? <ApproveButton /> : <ApproveButton />}
                 </td>
               </tr>
             ))}

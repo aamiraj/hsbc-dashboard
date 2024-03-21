@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB } from "../../../../lib/mongodbConnect";
-import User from "../../../../models/user";
+import Client from "../../../../models/client";
 
 export async function GET() {
   try {
     await connectMongoDB();
-    const members = (await User.find({})).length;
-    const actives = (await User.find({ active: true })).length;
-    const customers = await User.countDocuments({ role: "customer" });
+    const members = (await Client.find({})).length;
+    const actives = (await Client.find({ active: true })).length;
+    const customers = await Client.countDocuments({ role: "customer" });
     const engagements = {
       trendUp: true,
       percent: 10.0,

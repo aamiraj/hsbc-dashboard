@@ -34,10 +34,28 @@ const HeaderMenu = () => {
 
   const location = formatLocation(path);
 
+  const handleSidemenu = () => {
+    const sidemenu = document.getElementById("sidemenu");
+    const main = document.getElementById("main");
+
+    // console.log(sidemenu.style.width)
+    if (sidemenu.style.width === "0px") {
+      sidemenu.style.width = "360px";
+      sidemenu.style.padding = "24px";
+      // main.style.marginLeft = "360px";
+    } else {
+      sidemenu.style.width = "0";
+      sidemenu.style.padding = "0";
+      // main.style.marginLeft = "0";
+    }
+  };
+
   return (
     <div className="m-4 p-4 flex items-center justify-between border-b border-[#1C1C1C1A]">
       <div className="flex justify-evenly gap-4 items-center">
-        <SideBar w={24} h={24} />
+        <button type="button" onClick={handleSidemenu}>
+          <SideBar w={24} h={24} />
+        </button>
         {/* <Star w={24} h={24} /> */}
         <span className="text-[#1C1C1C66]">Dashboard</span>
         <span>/</span>

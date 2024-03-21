@@ -43,7 +43,7 @@ const SignUpForm = () => {
         // console.log(inputs);
         try {
           // check if the user with this email exists or not
-          const resUserExists = await fetch("/api/authenticate/user-exists", {
+          const resUserExists = await fetch("/api/authenticate/client-exists", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

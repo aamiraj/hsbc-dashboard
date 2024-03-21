@@ -1,5 +1,4 @@
 import mongoose, { Schema, models } from "mongoose";
-import bcrypt from "bcryptjs";
 
 const eventSchema = new Schema(
   {

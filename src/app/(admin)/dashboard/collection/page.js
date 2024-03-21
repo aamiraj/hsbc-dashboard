@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import PaymentList from "../components/PaymentList/PaymentList";
 import { payments } from "../../../../dummydata/payments";
@@ -7,7 +6,6 @@ import OrderList from "./sections/OrderList/OrderList";
 import ProductSell from "./components/ProductSell";
 import FundsPerClient from "./components/FundsPerClient";
 import CurrentPlans from "./components/CurrentPlans";
-import ShowPlanModal from "./components/ShowPlanModal";
 
 const Collection = () => {
   return (
@@ -26,10 +24,9 @@ const Collection = () => {
             <div className="text-2xl font-bold text-[#439F3F]">
               Withdraw Amount : $495.282,57
             </div>
-           
           </div>
           <ProductSell title={"Product Sell"} />
-          <PaymentList title={"Order in Progress"} payments={payments} />
+          <PaymentList title={"Order in Progress"} />
         </div>
         <div
           id="withdraw"
@@ -47,9 +44,9 @@ const Collection = () => {
           className="tabcontent collection"
           style={{ display: "none" }}
         >
-           <div className="text-2xl font-bold text-[#439F3F] px-8">
+          <div className="text-2xl font-bold text-[#439F3F] px-8">
             FUNDS PER CLIENT: €495,678.47
-            </div>
+          </div>
           <FundsPerClient />
           <OrderList />
         </div>
@@ -58,9 +55,8 @@ const Collection = () => {
           className="tabcontent collection"
           style={{ display: "none" }}
         >
-          <ShowPlanModal/>
-          <CurrentPlans/>
-          <OrderList />
+          <CurrentPlans />
+          {/* <OrderList /> */}
         </div>
       </div>
     </div>

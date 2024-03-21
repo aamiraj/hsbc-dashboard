@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Searchbox from "../../../../../components/Searchbox/Searchbox";
 import Selectbox from "../../../../../components/Selectbox/Selectbox";
 import { optionListNumbers } from "../../options/optionList";
+import ShowPlanModal from "../../collection/components/ShowPlanModal";
+import { payments } from "../../../../../dummydata/payments";
 
 const thead = [
   "Date",
@@ -24,7 +28,16 @@ const PayButton = () => {
   );
 };
 
-const PaymentList = ({ title, payments }) => {
+const PaymentList = ({ title }) => {
+  const handleOpen = (id) => {
+    const modal = document.getElementById(id);
+    modal.style.display = "block";
+  };
+  const handleClose = (id) => {
+    const modal = document.getElementById(id);
+    modal.style.display = "none";
+  };
+
   return (
     <div className="shadow-md rounded-lg py-4 px-8 my-8">
       <div className="flex items-center gap-4 justify-between">
@@ -35,37 +48,49 @@ const PaymentList = ({ title, payments }) => {
         </div>
       </div>
       <div className="py-4">
-        <table className="table">
-          <thead>
-            <tr>
+        <div className="table">
+          <div>
+            <div className="flex gap-2 justify-around items-center">
               {thead.map((text, i) => (
-                <th key={i} className="th">
+                <div key={`head-${i}`} className="th">
                   <div className="flex justify-center items-center gap-2">
                     <p className="text-center">{text}</p>
                     <span className="rotate-90 text-center text-[10px]">
                       {"<>"}
                     </span>
                   </div>
-                </th>
+                </div>
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {payments.map((payment, i) => (
-              <tr key={i}>
-                <td className="td">{payment.date}</td>
-                <td className="td">{payment.fullname}</td>
-                <td className="td">{payment.attribution}</td>
-                <td className="td">{payment.plan}</td>
-                <td className="td">{payment.price}</td>
-                <td className="td">{payment.bonuses}</td>
-                <td className="td">
-                  {payment.payment ? <PayButton /> : <PayButton />}
-                </td>
-              </tr>
+            </div>
+          </div>
+          <div>
+            {payments?.map((payment, i) => (
+              <div key={`payment-${i + 10}`}>
+                <div id={`modal-${i + 10}`} style={{ display: "none" }}>
+                  <ShowPlanModal
+                    key={`modal-${i + 10}`}
+                    payment={payment}
+                    closeModal={() => handleClose(`modal-${i + 10}`)}
+                  />
+                </div>
+                <div
+                  className="flex gap-2 justify-around items-center cursor-pointer hover:bg-[#d0d0d011] border-b"
+                  onClick={() => handleOpen(`modal-${i + 10}`)}
+                >
+                  <div className="td">{payment?.date}</div>
+                  <div className="td">{payment?.fullname}</div>
+                  <div className="td">{payment?.attribution}</div>
+                  <div className="td">{payment?.plan}</div>
+                  <div className="td">{payment?.price}</div>
+                  <div className="td">{payment?.bonuses}</div>
+                  <div className="td">
+                    {payment?.payment ? <PayButton /> : <PayButton />}
+                  </div>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
       <div className="flex justify-center items-center gap-4">
         <p className="text-sm">Page</p>

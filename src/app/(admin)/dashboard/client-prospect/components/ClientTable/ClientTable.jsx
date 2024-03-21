@@ -78,8 +78,8 @@ const ClientTable = () => {
               <thead>
                 <tr>
                   {thead.map((text, i) => (
-                    <th key={i} className="th">
-                      <div className="flex justify-center items-center gap-2">
+                    <th key={i}>
+                      <div className="py-4 text-[10px] flex justify-center items-center gap-2">
                         <p className="text-center">{text}</p>
                         <span className="rotate-90 text-center text-[8px]">
                           {"<>"}
@@ -99,17 +99,17 @@ const ClientTable = () => {
                         <Popups client={client} />
                       </div>
                     </td>
-                    <td className="td">{client?.fullname}</td>
-                    <td className="td">{client?.phone}</td>
-                    <td className="td">{client?.date}</td>
-                    <td className="td">{client?.attribution}</td>
-                    <td className="td">{client?.email}</td>
-                    <td className="td">{client?.campaignBy}</td>
-                    <td className="td">{client?.countryFrom}</td>
-                    <td className="td">
+                    <td className='text-left text-[#878790] py-4'>{client?.fullname}</td>
+                    <td className='text-left text-[#878790] py-4'>{client?.phone}</td>
+                    <td className='text-left text-[#878790] py-4'>{client?.date}</td>
+                    <td className='text-left text-[#878790] py-4'>{client?.attribution}</td>
+                    <td className='text-left text-[#878790] py-4'>{client?.email}</td>
+                    <td className='text-left text-[#878790] py-4'>{client?.campaignBy}</td>
+                    <td className='text-left text-[#878790] py-4'>{client?.countryFrom}</td>
+                    <td className='text-left text-[#878790] py-4'>
                       {true ? <EnableButton /> : <EnableButton />}
                     </td>
-                    <td className="td">
+                    <td className='text-left text-[#878790] py-4'>
                       <button
                         type="button"
                         className="w-full flex justify-center items-center"
@@ -126,7 +126,7 @@ const ClientTable = () => {
                         />
                       </button>
                     </td>
-                    <td className="td">
+                    <td className='text-left text-[#878790] py-4'>
                       <button
                         type="button"
                         className="w-full flex justify-center items-center"
@@ -143,7 +143,7 @@ const ClientTable = () => {
                         />
                       </button>
                     </td>
-                    <td className="td">
+                    <td className='text-left text-[#878790] py-4'>
                       <button
                         type="button"
                         className="w-full flex justify-center items-center"

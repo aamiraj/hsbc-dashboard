@@ -26,7 +26,7 @@ const CustomerFollowUp = ({ client }) => {
                     backgroundColor: "white",
                     padding: 8,
                     color: "#D0D0D0",
-                    borderRadius: "50%"
+                    borderRadius: "50%",
                   }}
                 />
               </div>
@@ -94,12 +94,18 @@ const CustomerFollowUp = ({ client }) => {
                 </p>
               </div>
               <div className="flex items-center justify-center gap-4 my-4">
-                <div className="p-4 rounded-lg text-center bg-[#39DE5D]">
+                <button
+                  type="button"
+                  className="p-4 rounded-lg text-center bg-[#39DE5D]"
+                >
                   Get an encrypted link to navigate the site
-                </div>
-                <div className="p-4 rounded-lg text-center border-2 border-[#0F993E]">
+                </button>
+                <button
+                  type="button"
+                  className="p-4 rounded-lg text-center border-2 border-[#0F993E]"
+                >
                   Send a welcome link to view the website
-                </div>
+                </button>
               </div>
             </div>
             <div className="rounded-lg border p-10 bg-[#0F993E] text-white">
@@ -107,19 +113,19 @@ const CustomerFollowUp = ({ client }) => {
                 <p className="text-2xl text-center">Validate The New Status</p>
               </div>
               <div className="h-[90%] flex items-start justify-start gap-4 border-2 border-white rounded-lg p-4">
-                <span className="p-2  rounded-full text-xs bg-white text-[#0F993E]">
+                <span className="p-2 cursor-pointer  rounded-full text-xs bg-white text-[#0F993E]">
                   Test color
                 </span>
-                <span className="p-2  rounded-full text-xs text-white border-2 border-white bg-[#0F993E]">
+                <span className="p-2 cursor-pointer  rounded-full text-xs text-white border-2 border-white bg-[#0F993E]">
                   Test color
                 </span>
-                <span className="p-2  rounded-full text-xs bg-white text-[#0F993E]">
+                <span className="p-2 cursor-pointer  rounded-full text-xs bg-white text-[#0F993E]">
                   Test color
                 </span>
-                <span className="p-2  rounded-full text-xs bg-white text-[#0F993E]">
+                <span className="p-2 cursor-pointer  rounded-full text-xs bg-white text-[#0F993E]">
                   Test color
                 </span>
-                <span className="p-2  rounded-full text-xs text-white border-2 border-white bg-[#0F993E]">
+                <span className="p-2 cursor-pointer  rounded-full text-xs text-white border-2 border-white bg-[#0F993E]">
                   Test color
                 </span>
               </div>

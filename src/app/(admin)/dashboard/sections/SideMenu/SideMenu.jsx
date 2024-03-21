@@ -105,12 +105,16 @@ const secondIconMenus = [
   },
 ];
 
-const SideMenu = () => {
+const SideMenu = ({ id }) => {
   const path = usePathname();
   const { data: session } = useSession();
 
   return (
-    <section className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}>
+    <section
+      id={id}
+      style={{ width: 360 }}
+      className={`${styles.bg_sidemenu} ${styles.max_w_sidemenu}`}
+    >
       <div className={styles.logo_hsbc}>
         <Link href={"/"}>
           <Image
@@ -164,9 +168,7 @@ const SideMenu = () => {
             <PiUserCircle style={{ width: 40, height: 40 }} />
           </div>
         )}
-        <Link href="/dashboard">
-          {session?.user?.name}
-        </Link>
+        <Link href="/dashboard">{session?.user?.name}</Link>
         <ArrowDown w={24} h={24} />
       </div>
       <button

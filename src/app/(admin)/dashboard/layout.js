@@ -17,8 +17,8 @@ export default function DashboardLayout({ children }) {
       <body className={poppins.className}>
         <AuthProvider>
           <main className="flex scroll-smooth max-w-screen-2xl">
-            <SideMenu />
-            <section className="bg-[#FAFBFF] w-full">
+            <SideMenu id={'sidemenu'} />
+            <section id="main" className="bg-[#FAFBFF] w-full">
               <HeaderMenu />
               {children}
             </section>

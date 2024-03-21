@@ -10,7 +10,7 @@ const getEventsData = async (email) => {
   try {
     const res = await fetch(
       `${process.env.PROD_URL}api/data/events?email=${email}`,
-      { cache: "no-store", next: { revalidate: 10 } }
+      { next: { revalidate: 10 } }
     );
     const { data } = await res.json();
     // console.log(data);
@@ -29,7 +29,7 @@ const GetOverYourself = async ({ searchParams }) => {
     <div className="p-8">
       <div className="w-max mb-4 flex items-center gap-4 px-4 py-2 border border-[#39de5d] rounded-lg">
         <p className="text-lg font-bold text-[#39de5d]">Add event</p>
-        <Link type="button" href={"?modal=true"}>
+        <Link href={"?modal=true"}>
           <PiPlusCircle style={{ width: 32, height: 32, color: "#39de5d" }} />
         </Link>
       </div>

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB } from "../../../../lib/mongodbConnect";
-import User from "../../../../models/user";
+import Client from "../../../../models/client";
 import ActivateToken from "../../../../models/activateToken";
 import { randomUUID } from "crypto";
 import sendVerificationEmail from "../../../../lib/sendVerificationEmail";
@@ -8,15 +8,15 @@ import sendVerificationEmail from "../../../../lib/sendVerificationEmail";
 export async function POST(req) {
   try {
     const { fullname, email, psw: password } = await req.json();
-    const user = { fullname, email, password };
+    const client = { fullname, email, password };
     // console.log({ fullname, email, password });
     await connectMongoDB();
-    const newUser = await User.create(user);
+    const newClient = await Client.create(client);
     const token = `${randomUUID()}${randomUUID()}`.replace(/-/g, "");
 
     await ActivateToken.create({
       token,
-      userId: newUser._id,
+      userId: newClient._id,
     });
 
     await sendVerificationEmail(email, fullname, token);

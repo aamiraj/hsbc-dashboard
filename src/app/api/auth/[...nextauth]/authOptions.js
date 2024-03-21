@@ -1,6 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectMongoDB } from "../../../../lib/mongodbConnect";
 import User from "../../../../models/user";
+import Client from "../../../../models/client";
 import bcrypt from "bcryptjs";
 
 const authOptions = {
@@ -19,6 +20,9 @@ const authOptions = {
         await connectMongoDB();
         try {
           const foundUser = await User.findOne({ email });
+          const foundClient = await Client.findOne({ email });
+
+          // user fetch from database then authorize
           if (foundUser) {
             if (!foundUser.active) {
               return null;
@@ -39,6 +43,30 @@ const authOptions = {
               name: foundUser.fullname,
               email: foundUser.email,
               role: foundUser.role,
+            };
+
+            return user;
+          } else if (foundClient) {
+            // or if the user is not found then fetch customer and authorize 
+            if (!foundClient.active) {
+              return null;
+            }
+
+            // Any object returned will be saved in `user` property of the JWT
+            const passMatched = await bcrypt.compare(
+              password,
+              foundClient.password
+            );
+
+            // console.log(passMatched);
+            if (!passMatched) {
+              return null;
+            }
+            // delete foundUser.password;
+            const user = {
+              name: foundClient.fullname,
+              email: foundClient.email,
+              role: foundClient.role,
             };
 
             return user;

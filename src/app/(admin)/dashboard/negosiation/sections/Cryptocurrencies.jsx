@@ -87,8 +87,8 @@ const Cryptocurrencies = () => {
           <table className="table p-4">
             <thead>
               <tr className="border-b">
-                <th className="th">Name</th>
-                <th className="th">
+                <th className="py-4">Name</th>
+                <th className="py-4">
                   <div>
                     <p>Maximum Price</p>
                     <div className="flex items-center justify-evenly gap-2">
@@ -97,7 +97,7 @@ const Cryptocurrencies = () => {
                     </div>
                   </div>
                 </th>
-                <th className="th">
+                <th className="py-4">
                   <div>
                     <p>Variation Interval</p>
                     <div className="flex items-center justify-evenly gap-2">
@@ -106,32 +106,32 @@ const Cryptocurrencies = () => {
                     </div>
                   </div>
                 </th>
-                <th className="th">Active</th>
-                <th className="th">Delete</th>
+                <th className="py-4">Active</th>
+                <th className="py-4">Delete</th>
               </tr>
             </thead>
             <tbody>
               {cryptocurrencies.map((crypto, i) => (
                 <tr key={i} className="border-b">
-                  <td className="td">{crypto.name}</td>
-                  <td className="td">
+                  <td className="py-4 text-center">{crypto.name}</td>
+                  <td className="py-4">
                     <div className="flex items-center justify-evenly gap-2">
                       <p>{crypto.maxPrice.from}</p>
                       <p>{crypto.maxPrice.to}</p>
                     </div>
                   </td>
-                  <td className="td">
+                  <td className="py-4">
                     <div className="flex items-center justify-evenly gap-2">
                       <p>{crypto.varInterval.from}</p>
                       <p>{crypto.varInterval.to}</p>
                     </div>
                   </td>
-                  <td className="td">
+                  <td className="py-4">
                     <div className="flex justify-center items-center">
                       <SwitchInput checked={crypto.active} withLabel={false} />
                     </div>
                   </td>
-                  <td className="td">
+                  <td className="py-4">
                     <div className="flex justify-center items-center">
                       <button
                         type="button"
