@@ -80,7 +80,20 @@ const AddUserPopUp = ({ id, user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log({...inputs, ...workDays});
+    fetch("/api/data/users", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ ...inputs }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          alert("User Added Successfully.");
+        }
+      })
+      .catch((error) => alert("Failed to create user.", error));
+    // console.log({ ...inputs, ...workDays });
   };
 
   const handleClose = (id) => {
