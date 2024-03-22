@@ -5,7 +5,7 @@ import { FaEnvelope, FaMinus, FaPhone, FaPlus } from "react-icons/fa";
 const Adviser = () => {
   return (
     <div>
-      <div className="bg-white w-[400px] h-[610px] mt-7 mb-16 rounded-xl">
+      <div className="bg-white w-full mx-auto rounded-xl">
         <h1 className="text-[16px] font-semibold py-5 text-center">
           Your Advisor
         </h1>

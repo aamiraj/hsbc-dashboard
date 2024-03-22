@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../../../../../images/3f066bfe1e49b95a3e9cce325f303ab8.jpg";
 import Image from "next/image";
 
 const Address = () => {
@@ -12,8 +11,10 @@ const Address = () => {
         <div className="py-7 ">
           <div className="relative">
             <Image
-              src={image}
+              src={"/assets/3f066bfe1e49b95a3e9cce325f303ab8.jpg"}
               alt="image"
+              width={650}
+              height={250}
               className="w-[650px] h-[250px] mx-auto"
             />
             <svg

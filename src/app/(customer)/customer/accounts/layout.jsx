@@ -11,7 +11,7 @@ export const metadata = {
 export default function AccountLayout({ children }) {
   return (
     <section className={poppins.className}>
-      <div className="flex justify-center">
+      <div className="w-full p-10 flex items-start gap-10">
         <div>
           <Sidebar />
         </div>

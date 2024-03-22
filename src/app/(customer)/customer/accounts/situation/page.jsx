@@ -3,12 +3,11 @@ import Image from "next/image";
 import Adviser from "../_components/Adviser";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import AddFund from "../_components/AddFund";
 
 const SituationPage = () => {
   return (
-    <section className="flex gap-x-10">
-      <div className="bg-white w-[440px] h-[610px] mt-7 mb-16 rounded-xl">
+    <section className="flex items-start gap-10">
+      <div className="bg-white w-full mx-auto rounded-xl py-8">
         <h1 className="text-[16px] font-semibold py-5 text-center">
           Account Status
         </h1>

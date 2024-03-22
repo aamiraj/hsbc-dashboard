@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../../../../../images/8771ba801f762cd6cf72e84603df4b17.jpg";
 import Image from "next/image";
 
 const TaxManagement = () => {
@@ -11,9 +10,11 @@ const TaxManagement = () => {
         </h1>
         <div className="py-7 ">
           <div className="relative">
-            <Image
-              src={image}
+          <Image
+              src={"/assets/8771ba801f762cd6cf72e84603df4b17.jpg"}
               alt="image"
+              width={650}
+              height={250}
               className="w-[650px] h-[250px] mx-auto"
             />
             <svg

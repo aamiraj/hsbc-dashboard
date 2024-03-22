@@ -12,8 +12,10 @@ const Identity = () => {
         <div className="py-7 ">
           <div className="relative">
             <Image
-              src={image}
+              src={"/assets/984a9e1b58fad2a33c59eeef43a41a53.jpg"}
               alt="image"
+              width={650}
+              height={250}
               className="w-[650px] h-[250px] mx-auto"
             />
             <svg
