@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { FaPlus } from "react-icons/fa";
 
 const Sidebar = () => {
   const path = usePathname();
@@ -159,19 +160,10 @@ const Sidebar = () => {
             </li>
           </Link>
         </ul>
-        <div className="mt-5 cursor-pointer">
-          <svg
-            width="168"
-            height="37"
-            viewBox="0 0 168 37"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="167.5" height="37" rx="8" fill="#D2FFD7" />
-            <path d="M127.25 11V23.5" stroke="black" strokeWidth="2" />
-            <path d="M133.5 17.25L121 17.25" stroke="black" strokeWidth="2" />
-          </svg>
-        </div>
+        <Link href='/customer/add-plan' className="bg-[#D2FFD7] flex items-center justify-between gap-4 my-4 px-8 py-4 cursor-pointer w-full rounded">
+          <p>Create A New Account</p>
+          <FaPlus />
+        </Link>
       </div>
     </div>
   );

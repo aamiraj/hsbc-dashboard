@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import ActivateToken from "../../../../../models/activateToken";
-import User from "../../../../../models/user";
+import Client from "../../../../../models/client";
 import { redirect } from "next/navigation";
 
 export async function GET(req, { params }) {
@@ -26,7 +26,7 @@ export async function GET(req, { params }) {
 
     // set the user active true when all validation passes
     // do not use save, because we are using 'pre' middlware to hash password
-    await User.updateOne({ _id: foundtoken.userId }, { active: true });
+    await Client.updateOne({ _id: foundtoken.userId }, { active: true });
 
     // set the token activateAt at now date
     foundtoken.activateAt = new Date();

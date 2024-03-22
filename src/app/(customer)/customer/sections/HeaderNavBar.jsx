@@ -30,7 +30,7 @@ const headerMenus = [
   },
   {
     name: "Investments",
-    link: "/customer/investments",
+    link: "/customer/#",
     icon: <PiLineSegmentsLight style={iconSize} />,
   },
   {
@@ -80,7 +80,7 @@ const HeaderNavBar = () => {
           </Link>
           <div className="dropdown-content">
             <Link
-              href="/customer/investments/list-of-invest"
+              href="/customer/investments"
               className="font-bold flex items-center justify-around gap-1 pe-2 py-4"
             >
               <PiMoney style={iconSize} />
@@ -94,11 +94,11 @@ const HeaderNavBar = () => {
               Invest History
             </Link>
             <Link
-              href="/customer/investments/current-history"
+              href="/customer/investments/current-requests"
               className="font-bold flex items-center justify-around gap-1 pe-2 py-4"
             >
               <PiCurrencyGbpLight style={iconSize} />
-              Current History
+              Current Requests
             </Link>
           </div>
         </div>

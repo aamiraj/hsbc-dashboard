@@ -27,29 +27,19 @@ export async function POST(req) {
   }
 }
 
-export async function GET(req) {
+export async function GET() {
   try {
-    // await connectMongoDB();
+    await connectMongoDB();
 
-    // const allEvents = await Event.find({ email });
-    // const formattedEvents = allEvents.map((event) => {
-    //   return {
-    //     title: event.title,
-    //     start: new Date(event.start),
-    //     end: new Date(event.end),
-    //     allDay: event.allDay,
-    //     description: event.description,
-    //   };
-    // });
-    // console.log(formattedEvents);
+    const allPlans = await Plan.find();
 
     return NextResponse.json(
-      { message: "Successfully fetched plan." },
+      { message: "Successfully fetched plan.", data: allPlans },
       { status: 201 }
     );
   } catch (error) {
     return NextResponse.json(
-      { message: "Failed to fetch plans due to server error." },
+      { message: "Failed to fetch plans due to server error.", data: error },
       { status: 500 }
     );
   }

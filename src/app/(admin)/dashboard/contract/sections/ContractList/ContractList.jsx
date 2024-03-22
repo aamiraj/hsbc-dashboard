@@ -77,7 +77,7 @@ const ContractList = () => {
           <thead>
             <tr className="border-b">
               {thead.map((text, i) => (
-                <th key={i} className="th">
+                <th key={i} className="py-4">
                   <div className="flex justify-center items-center gap-2">
                     <p className="text-center">{text}</p>
                     <span className="rotate-90 text-center text-[10px]">
@@ -90,15 +90,15 @@ const ContractList = () => {
           </thead>
           <tbody className="text-xs">
             {contracts.map((contract, i) => (
-              <tr key={i} className="border-b">
-                <td className="td font-bold">{contract.date}</td>
+              <tr key={i} className="border-b ">
+                <td className="font-bold py-4">{contract.date}</td>
                 <td>
                   <div className="ps-4">
                     <p className="font-bold">{contract.project.title}</p>
                     <p className="italic">{contract.project.details}</p>
                   </div>
                 </td>
-                <td className="td">
+                <td className="py-4">
                   <div>
                     <p>{contract.contract.id}</p>
                     <p>Download the contract</p>
@@ -110,8 +110,8 @@ const ContractList = () => {
                     </Link>
                   </div>
                 </td>
-                <td className="td font-bold">{contract.price}</td>
-                <td className="td">
+                <td className="py-4 font-bold">{contract.price}</td>
+                <td className="py-4">
                   <ApproveButton />
                 </td>
               </tr>

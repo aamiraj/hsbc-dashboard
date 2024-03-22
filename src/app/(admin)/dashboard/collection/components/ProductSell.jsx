@@ -4,27 +4,24 @@ import Searchbox from "../../../../../components/Searchbox/Searchbox";
 import Selectbox from "../../../../../components/Selectbox/Selectbox";
 import { optionListNumbers } from "../../options/optionList";
 import Image from "next/image";
-import image1 from "../../../../../images/628d9abe1d64b9cd528c434381eba87f.jpg";
-import image2 from "../../../../../images/27022519889f16e1275b4e0f96f434b8.jpg";
-import image3 from "../../../../../images/28d03fb43d7b35353bbdef38649852e3.jpg";
 
 const card = [
   {
-    image: image1,
+    image: "/assets/628d9abe1d64b9cd528c434381eba87f.jpg",
     title: "Julien Chauveau (Manager)",
     sub_title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     initial_price: "50.00",
     offer_price: "20",
   },
   {
-    image: image2,
+    image: "/assets/27022519889f16e1275b4e0f96f434b8.jpg",
     title: "Torti Thierry (Manager)",
     sub_title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     initial_price: "400.00",
     offer_price: "400.00",
   },
   {
-    image: image3,
+    image: "/assets/28d03fb43d7b35353bbdef38649852e3.jpg",
     title: "Berthier Laurent (Manager)",
     sub_title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     initial_price: "345.99",

@@ -17,7 +17,7 @@ const SignUpForm = () => {
     psw: "",
     psw_repeat: "",
   });
-  const [success, setSuccess] = useState(true);
+  const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (event) => {
@@ -74,7 +74,7 @@ const SignUpForm = () => {
             const { message } = await res.json();
             setSuccess(true);
             event.target.reset();
-            router.push("/");
+            // router.push("/");
           }
         } catch (error) {
           console.log(error);

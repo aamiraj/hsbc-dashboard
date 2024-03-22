@@ -17,6 +17,13 @@ const authOptions = {
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials;
+
+        // should be commented in production, for development purpose only
+        // return {
+        //   name: "Miraj",
+        //   email: email,
+        //   role: "admin",
+        // }
         await connectMongoDB();
         try {
           const foundUser = await User.findOne({ email });
@@ -39,15 +46,16 @@ const authOptions = {
               return null;
             }
             // delete foundUser.password;
+            const fullname = `${foundUser.firstname} ${foundUser.surname}`
             const user = {
-              name: foundUser.fullname,
+              name: fullname,
               email: foundUser.email,
               role: foundUser.role,
             };
 
             return user;
           } else if (foundClient) {
-            // or if the user is not found then fetch customer and authorize 
+            // or if the user is not found then fetch customer and authorize
             if (!foundClient.active) {
               return null;
             }

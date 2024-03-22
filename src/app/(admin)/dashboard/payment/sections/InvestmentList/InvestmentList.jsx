@@ -64,7 +64,7 @@ const InvestmentList = () => {
           <thead>
             <tr className="border-b">
               {thead.map((text, i) => (
-                <th key={i} className="th">
+                <th key={i} className="py-4 text-xs">
                   <div className="flex justify-center items-center gap-2">
                     <p className="text-center">{text}</p>
                     <span className="rotate-90 text-center text-[10px]">
@@ -75,12 +75,12 @@ const InvestmentList = () => {
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-xs">
             {investments.map((invest, i) => (
               <tr key={i} className="border-b">
-                <td className="td">{invest.customer}</td>
-                <td className="td">{invest.date}</td>
-                <td className="td">
+                <td className="py-4">{invest.customer}</td>
+                <td className="py-4">{invest.date}</td>
+                <td className="py-4">
                   <div>
                     <p>
                       Amount Investor:
@@ -112,7 +112,7 @@ const InvestmentList = () => {
                     </p>
                   </div>
                 </td>
-                <td className="td">
+                <td className="py-4">
                   <Link
                     href={invest.project.link}
                     className="font-bold text-[#439F3F]"
@@ -120,7 +120,7 @@ const InvestmentList = () => {
                     {invest.project.name}
                   </Link>
                 </td>
-                <td className="td underline">{invest.contract}</td>
+                <td className="py-4 underline">{invest.contract}</td>
                 <td className="flex justify-center items-center py-4">
                   <div>
                     <ul className="list-disc text-[#439F3F]">
@@ -139,7 +139,7 @@ const InvestmentList = () => {
                     </ul>
                   </div>
                 </td>
-                <td className="td"></td>
+                <td className="py-4"></td>
               </tr>
             ))}
           </tbody>

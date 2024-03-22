@@ -47,7 +47,7 @@ const userSchema = new Schema(
       required: false,
     },
     birthdate: {
-      type: String,
+      type: Date,
       required: false,
     },
     lastLogInAt: {

@@ -1,7 +1,9 @@
 import React from "react";
-import image from "../../../../../images/af8da771f5eb688450c14d598e835ea6.png";
 import Image from "next/image";
-import Adviser from "../_components/Adviser"
+import Adviser from "../_components/Adviser";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import AddFund from "../_components/AddFund";
 
 const SituationPage = () => {
   return (
@@ -26,39 +28,16 @@ const SituationPage = () => {
               </div>
               <div className="p-4">
                 <div className="flex justify-end">
-
-                <Image
-                  src={image}
-                  alt="Mastercard-Logo.png"
-                  className="w-[43px] h-[24px]"
-                />
+                  <Image
+                    src={"/assets/af8da771f5eb688450c14d598e835ea6.png"}
+                    alt="Mastercard-Logo.png"
+                    width={200} height={200}
+                  />
                 </div>
-                 <small className=" invisible">invisible</small>
-                <div className="flex gap-x-2">
+                <small className=" invisible">invisible</small>
+                <div className="flex items-center gap-x-2">
                   <h1 className="text-white text-[16px] font-bold">$25000</h1>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="24" height="24" rx="12" fill="white" />
-                    <path
-                      d="M8.66675 15.3333L15.3334 8.66667"
-                      stroke="#299D91"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M8.66675 8.66667H15.3334V15.3333"
-                      stroke="#299D91"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <BsArrowUpRightCircleFill style={{ color: "white" }} />
                 </div>
               </div>
             </div>
@@ -85,38 +64,9 @@ const SituationPage = () => {
                 <h1 className="text-[24px] font-bold text-[#BDBDBD]">$0</h1>
               </div>
             </div>
-            <svg
-              width="4"
-              height="19"
-              viewBox="0 0 4 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_11_4726)">
-                <path
-                  d="M2 11.5C3.10457 11.5 4 10.6046 4 9.5C4 8.39543 3.10457 7.5 2 7.5C0.89543 7.5 0 8.39543 0 9.5C0 10.6046 0.89543 11.5 2 11.5Z"
-                  fill="#909090"
-                />
-                <path
-                  d="M2 4.5C3.10457 4.5 4 3.60457 4 2.5C4 1.39543 3.10457 0.5 2 0.5C0.89543 0.5 0 1.39543 0 2.5C0 3.60457 0.89543 4.5 2 4.5Z"
-                  fill="#909090"
-                />
-                <path
-                  d="M2 18.5C3.10457 18.5 4 17.6046 4 16.5C4 15.3954 3.10457 14.5 2 14.5C0.89543 14.5 0 15.3954 0 16.5C0 17.6046 0.89543 18.5 2 18.5Z"
-                  fill="#909090"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_11_4726">
-                  <rect
-                    width="4"
-                    height="18"
-                    fill="white"
-                    transform="translate(0 0.5)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
+            <BsThreeDotsVertical
+              style={{ width: 20, height: 20, color: "white" }}
+            />
           </div>
         </div>
         <div className="bg-black text-white rounded-2xl mx-8 mt-8">
@@ -136,48 +86,20 @@ const SituationPage = () => {
                 />
               </svg>
               <div>
-                <h1>Total Amount Invested</h1>
+                <h1>Total Performance</h1>
                 <h1 className="text-[24px] font-bold text-[#BDBDBD]">$0</h1>
               </div>
             </div>
-            <svg
-              width="4"
-              height="19"
-              viewBox="0 0 4 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_11_4726)">
-                <path
-                  d="M2 11.5C3.10457 11.5 4 10.6046 4 9.5C4 8.39543 3.10457 7.5 2 7.5C0.89543 7.5 0 8.39543 0 9.5C0 10.6046 0.89543 11.5 2 11.5Z"
-                  fill="#909090"
-                />
-                <path
-                  d="M2 4.5C3.10457 4.5 4 3.60457 4 2.5C4 1.39543 3.10457 0.5 2 0.5C0.89543 0.5 0 1.39543 0 2.5C0 3.60457 0.89543 4.5 2 4.5Z"
-                  fill="#909090"
-                />
-                <path
-                  d="M2 18.5C3.10457 18.5 4 17.6046 4 16.5C4 15.3954 3.10457 14.5 2 14.5C0.89543 14.5 0 15.3954 0 16.5C0 17.6046 0.89543 18.5 2 18.5Z"
-                  fill="#909090"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_11_4726">
-                  <rect
-                    width="4"
-                    height="18"
-                    fill="white"
-                    transform="translate(0 0.5)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
+            <BsThreeDotsVertical
+              style={{ width: 20, height: 20, color: "white" }}
+            />
           </div>
         </div>
       </div>
 
       {/* cart two  */}
-     <Adviser/>
+      <Adviser />
+      
     </section>
   );
 };

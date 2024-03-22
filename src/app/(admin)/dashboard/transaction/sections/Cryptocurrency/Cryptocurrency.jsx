@@ -140,10 +140,10 @@ const Cryptocurrency = () => {
           <thead>
             <tr className="border-b">
               {thead.map((text, i) => (
-                <th key={i} className="th">
+                <th key={i} className="py-4 text-[10px]">
                   <div className="flex justify-center items-center gap-2">
                     <p className="text-center">{text}</p>
-                    <span className="rotate-90 text-center text-[10px]">
+                    <span className="rotate-90 text-center">
                       {"<>"}
                     </span>
                   </div>
@@ -154,7 +154,7 @@ const Cryptocurrency = () => {
           <tbody className="text-xs">
             {investments.map((invest, i) => (
               <tr key={i} className="border-b">
-                <td>
+                <td className="py-4">
                   <div className="font-bold text-xs py-4">
                     <p>{invest.customer.name}</p>
                     <p>{invest.customer.email}</p>
@@ -162,7 +162,7 @@ const Cryptocurrency = () => {
                   </div>
                 </td>
                 <td className="text-center">{invest.currency}</td>
-                <td>
+                <td className="py-4">
                   <div className="py-4">
                     <p>
                       Sell Spread:
@@ -187,24 +187,24 @@ const Cryptocurrency = () => {
                     </p>
                   </div>
                 </td>
-                <td>
+                <td className="py-4">
                   <p className="font-bold">{invest.mapTitle.name}</p>
                   <p>Available Fund: {invest.mapTitle.availableFund}</p>
                 </td>
-                <td className="td text-bold">{invest.amountTransaction}</td>
-                <td>
+                <td className="py-4 text-bold">{invest.amountTransaction}</td>
+                <td className="py-4">
                   <div className="flex flex-col justify-center items-center py-4">
                     <p>{invest.attribution.name}</p>
                     <p>({invest.attribution.designation})</p>
                   </div>
                 </td>
-                <td>
+                <td className="py-4">
                   <div className="flex flex-col justify-center items-start p-4">
                     <p>{invest.date.transactionType}</p>
                     <p>{invest.date.time}</p>
                   </div>
                 </td>
-                <td>
+                <td className="py-4">
                   <div className="felx justify-center items-center">
                   <Image
                     src={"/assets/delete.svg"}

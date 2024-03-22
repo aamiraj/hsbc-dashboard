@@ -6,16 +6,26 @@ import { redirect } from "next/navigation";
 import bcrypt from "bcryptjs";
 
 export async function POST(req) {
-  const user = await req.json();
+  const data = await req.json();
 
-  //   console.log(user);
+  const user = {
+    surname: data?.surname,
+    firstname: data?.firstname,
+    ipAddress: data?.ipAddress,
+    status: data?.status,
+    email: data?.email,
+    mainAddress: data?.mainAddress,
+    phone: data?.phone,
+    birthdate: data?.birthdate,
+    password: data?.newPassword,
+  };
 
   try {
     await connectMongoDB();
 
     const hashedPassword = await bcrypt.hash(user.password, 12);
-    user.password = hashedPassword;
-
+    user["password"] = hashedPassword;
+    //console.log(user);
     await User.create(user);
     // revalidatePath(`${process.env.PROD_URL}dashboard/get-over-yourself`);
     // redirect(`${process.env.PROD_URL}dashboard/get-over-yourself`);
@@ -24,6 +34,7 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Failed to add the user due to server error." },
       { status: 500 }
@@ -33,27 +44,21 @@ export async function POST(req) {
 
 export async function GET(req) {
   try {
-    // await connectMongoDB();
+    await connectMongoDB();
 
-    // const allEvents = await Event.find({ email });
-    // const formattedEvents = allEvents.map((event) => {
-    //   return {
-    //     title: event.title,
-    //     start: new Date(event.start),
-    //     end: new Date(event.end),
-    //     allDay: event.allDay,
-    //     description: event.description,
-    //   };
-    // });
-    // console.log(formattedEvents);
+    const allUsers = await User.find(
+      {},
+      "surname firstname ipAddress status email mainAddress phone birthdate workdays"
+    );
 
     return NextResponse.json(
-      { message: "Successfully fetched plan." },
+      { message: "Successfully fetched users.", data:allUsers },
       { status: 201 }
     );
   } catch (error) {
+    console.log(error)
     return NextResponse.json(
-      { message: "Failed to fetch plans due to server error." },
+      { message: "Failed to fetch users due to server error." },
       { status: 500 }
     );
   }

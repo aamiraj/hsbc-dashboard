@@ -54,7 +54,7 @@ const CurrentPlans = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("/api/data/plan", {
+    fetch("/api/data/plans", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -84,19 +84,19 @@ const CurrentPlans = () => {
           <label htmlFor="file">
             <div className="max-w-[132px] h-[169px] border border-dashed border-[#00AC4F] flex justify-center pt-8 rounded-lg cursor-pointer">
               <div>
-                <div className="p-4 flex justify-center">
+                <div className="p-2 flex justify-center">
                   <CiCamera className="text-[#A3A3A3] w-8 h-8 flex justify-center" />
                 </div>
-                <h1 className="p-2 text-base font-medium text-[#A3A3A3]">
+                <h1 className="p-2 text-xs font-medium text-[#A3A3A3]">
                   Add Picture
                 </h1>
               </div>
             </div>
           </label>
-          <div className="w-[90%]">
+          <div className="w-[80%]">
             <div className="w-full flex items-center gap-x-5">
-              <h1 className="text-[#595959] text-base font-medium">
-                Plan's title :
+              <h1 className="text-[#595959] text-xs font-medium">
+                Plan's title:
               </h1>
               <input
                 type="text"
@@ -108,8 +108,8 @@ const CurrentPlans = () => {
             </div>
             <div className="flex justify-between w-full my-8">
               <div className="flex gap-x-5 relative">
-                <h1 className="text-[#595959]  text-base font-medium">
-                  From :
+                <h1 className="text-[#595959]  text-xs font-medium">
+                  From:
                 </h1>
                 <input
                   type="number"
@@ -121,7 +121,7 @@ const CurrentPlans = () => {
                 <span className="absolute right-0 text-[#97979A] pr-2">$</span>
               </div>
               <div className="flex gap-x-5 relative">
-                <h1 className="text-[#595959] text-base font-medium">To :</h1>
+                <h1 className="text-[#595959] text-xs font-medium">To:</h1>
                 <input
                   type="number"
                   name="limitTo"
@@ -132,8 +132,8 @@ const CurrentPlans = () => {
                 <span className="absolute right-0 text-[#97979A] pr-2">$</span>
               </div>
               <div className="flex gap-x-5 relative">
-                <h1 className="text-[#595959] text-base font-medium">
-                  Bonuses :
+                <h1 className="text-[#595959] text-xs font-medium">
+                  Bonuses:
                 </h1>
                 <input
                   type="number"
@@ -147,8 +147,8 @@ const CurrentPlans = () => {
                 <span className="absolute right-0 text-[#97979A] pr-2">%</span>
               </div>
               <div className="flex gap-x-5 relative">
-                <h1 className="text-[#595959] text-base font-medium">
-                  Limit of leverage :
+                <h1 className="text-[#595959] text-xs font-medium">
+                  Limit of leverage:
                 </h1>
                 <select
                   onChange={handleChange}
@@ -167,8 +167,8 @@ const CurrentPlans = () => {
             </div>
             <div className="flex justify-between w-full mb-8 ">
               <div className="flex  gap-x-2">
-                <h1 className="text-[#595959]  text-base font-medium">
-                  Blocked during :
+                <h1 className="text-[#595959]  text-xs font-medium">
+                  Blocked during:
                 </h1>
                 <input
                   type="number"
@@ -178,11 +178,11 @@ const CurrentPlans = () => {
                   className="border-b max-w-[110px]  border-[#97979A]  outline-none "
                   onChange={handleChange}
                 />
-                <p className="text-base text-[#595959]">Months</p>
+                <p className="text-xs text-[#595959]">Months</p>
               </div>
               <div className="flex  gap-x-2 relative">
-                <h1 className="text-[#595959] text-base font-medium">
-                  Minimum of positions :
+                <h1 className="text-[#595959] text-xs font-medium">
+                  Minimum of positions:
                 </h1>
                 <input
                   type="number"
@@ -194,8 +194,8 @@ const CurrentPlans = () => {
                 {/* <span className="absolute right-0 text-[#97979A] pr-2">%</span> */}
               </div>
               <div className="flex gap-x-2 relative">
-                <h1 className="text-[#595959] text-base font-medium">
-                  Warranty :
+                <h1 className="text-[#595959] text-xs font-medium">
+                  Warranty:
                 </h1>
                 <input
                   type="number"
@@ -209,8 +209,8 @@ const CurrentPlans = () => {
                 <span className="absolute right-0 text-[#97979A] pr-2">%</span>
               </div>
               <div className="flex gap-x-2 relative">
-                <h1 className="text-[#595959] text-base font-medium">
-                  Commission :
+                <h1 className="text-[#595959] text-xs font-medium">
+                  Commission:
                 </h1>
                 <input
                   type="number"
@@ -252,6 +252,7 @@ const CurrentPlans = () => {
               <button
                 type="button"
                 className="bg-[#DD9A19] text-white px-8 rounded-lg shadow-md"
+                disabled
               >
                 Delete the Plan
               </button>
