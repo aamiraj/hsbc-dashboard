@@ -28,7 +28,7 @@ const ProfileMenus = () => {
   // };
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="z-[9999] relative flex items-center justify-center">
       {session?.user?.image ? (
         <button
           type="button"

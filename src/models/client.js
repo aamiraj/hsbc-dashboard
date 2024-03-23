@@ -1,5 +1,4 @@
 import mongoose, { Schema, models } from "mongoose";
-import bcrypt from "bcryptjs";
 
 const clientSchema = new Schema(
   {
@@ -54,15 +53,43 @@ const clientSchema = new Schema(
       type: String,
       required: false,
     },
+    address: {
+      type: String,
+      required: false,
+    },
+    city: {
+      type: String,
+      required: false,
+    },
+    postCode: {
+      type: String,
+      required: false,
+    },
+    birthDay: {
+      type: Date,
+      required: false,
+    },
+    bankName: {
+      type: String,
+      required: false,
+    },
+    iban: {
+      type: String,
+      required: false,
+    },
+    swift: {
+      type: String,
+      required: false,
+    },
   },
   { timestamps: true }
 );
 
-clientSchema.pre("save", async function (next) {
-  const hashedPassword = await bcrypt.hash(this.password, 12);
-  this.password = hashedPassword;
-  next();
-});
+// clientSchema.pre("save", async function (next) {
+//   const hashedPassword = await bcrypt.hash(this.password, 12);
+//   this.password = hashedPassword;
+//   next();
+// });
 
 const Client = models.Client || mongoose.model("Client", clientSchema);
 export default Client;

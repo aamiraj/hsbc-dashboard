@@ -4,13 +4,17 @@ import Client from "../../../../models/client";
 import ActivateToken from "../../../../models/activateToken";
 import { randomUUID } from "crypto";
 import sendVerificationEmail from "../../../../lib/sendVerificationEmail";
+import bcrypt from "bcryptjs";
 
 export async function POST(req) {
   try {
     const { fullname, email, psw: password } = await req.json();
-    const client = { fullname, email, password };
     // console.log({ fullname, email, password });
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const client = { fullname, email, password: hashedPassword };
+
     await connectMongoDB();
+    
     const newClient = await Client.create(client);
     const token = `${randomUUID()}${randomUUID()}`.replace(/-/g, "");
 

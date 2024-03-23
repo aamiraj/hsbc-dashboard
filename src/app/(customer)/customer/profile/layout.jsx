@@ -13,16 +13,12 @@ export const metadata = {
 export default function ProfileLayout({ children }) {
   return (
     <section className={poppins.className}>
-      <TopBar/>
+      <TopBar />
       <div className="flex bg-white rounded-md w-[1131px] mx-auto p-8">
         <div className="w-[270px]">
           <Sidebar />
         </div>
         <div>{children}</div>
-      </div>
-      <SendMessage/>
-      <div className=" invisible">
-        <TopBar/>
       </div>
     </section>
   );
