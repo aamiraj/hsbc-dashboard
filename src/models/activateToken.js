@@ -19,5 +19,5 @@ const activateTokenSchema = new Schema(
   { timestamps: true }
 );
 
-const ActivateToken = models.ActivateToken || mongoose.model("ActivateToken", activateTokenSchema);
+const ActivateToken = models?.ActivateToken || mongoose.model("ActivateToken", activateTokenSchema);
 export default ActivateToken;

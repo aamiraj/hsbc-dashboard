@@ -106,5 +106,5 @@ const planSchema = new Schema(
   { timestamps: true }
 );
 
-const Plan = models.Plan || mongoose.model("Plan", planSchema);
+const Plan = models?.Plan || mongoose.model("Plan", planSchema);
 export default Plan;

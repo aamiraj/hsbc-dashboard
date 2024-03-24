@@ -63,7 +63,7 @@ const HeaderNavBar = () => {
         </div>
         <div>
           <Link
-            href="/customer/accounts/situation"
+            href="/customer/accounts"
             className="font-bold flex items-center justify-center gap-2"
           >
             <PiNewspaperClippingLight style={iconSize} />

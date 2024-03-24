@@ -1,27 +1,58 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./OpenAcountModal.module.css";
 import OpenAccountModalSuccess from "../OpenAcountModalSuccess/OpenAcountModalSuccess";
+import { useSession } from "next-auth/react";
 
-const OpenAccountModal = ({ id }) => {
+const OpenAccountModal = ({ id, plan }) => {
+  const [amount, setAmount] = useState(0);
+  const { data } = useSession();
+  const email = data?.user?.email;
+
+  const handleChange = (e) => {
+    setAmount(e.target.value);
+  };
+
   const handleSuccessModalOpen = (successId, id) => {
-    const successModal = document.getElementById(successId);
-    successModal.style.display = "block";
+    const handleSuccess = () => {
+      const successModal = document.getElementById(successId);
+      successModal.style.display = "block";
 
-    const modal = document.getElementById(id);
-    modal.style.display = "none";
+      const modal = document.getElementById(id);
+      modal.style.display = "none";
+    };
+
+    // making an api request to the server to store the details
+    if (email && amount) {
+      fetch("/api/data/money-recieved", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ ...plan, email, amount }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            alert("Error occured on server.");
+            return;
+          }
+          handleSuccess();
+        })
+        .catch((error) => console.log(error));
+    } else {
+      alert("Try again later.");
+    }
   };
 
   const handleCloseModal = (id) => {
     const modal = document.getElementById(id);
     modal.style.display = "none";
   };
+
   return (
     <>
       <div id={id} className={styles.modal}>
         <div className={styles.modal_content}>
-          <div class={styles.modal_header}>
+          <div className={styles.modal_header}>
             <span className={styles.close} onClick={() => handleCloseModal(id)}>
               &times;
             </span>
@@ -45,7 +76,11 @@ const OpenAccountModal = ({ id }) => {
                 <div className="flex items-center gap-2 border px-4 py-2">
                   <input
                     type="number"
-                    className="outline-none focus:outline "
+                    className="outline-none focus:outline"
+                    defaultValue={amount}
+                    min={0}
+                    onChange={handleChange}
+                    required
                   />
                   <span className="border-l">$</span>
                 </div>

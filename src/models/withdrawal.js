@@ -50,5 +50,5 @@ const withdrawalSchema = new Schema(
   { timestamps: true }
 );
 
-const Withdrawal = models.Withdrawal || mongoose.model("Withdrawal", withdrawalSchema);
+const Withdrawal = models?.Withdrawal || mongoose.model("Withdrawal", withdrawalSchema);
 export default Withdrawal;

@@ -31,7 +31,7 @@ export async function GET() {
   try {
     await connectMongoDB();
 
-    const allPlans = await Plan.find();
+    const allPlans = await Plan.find({});
 
     return NextResponse.json(
       { message: "Successfully fetched plan.", data: allPlans },
@@ -39,7 +39,7 @@ export async function GET() {
     );
   } catch (error) {
     return NextResponse.json(
-      { message: "Failed to fetch plans due to server error.", data: error },
+      { message: "Failed to fetch plans due to server error.", error: error },
       { status: 500 }
     );
   }

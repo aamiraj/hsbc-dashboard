@@ -1,10 +1,18 @@
-import React from "react";
+"use client";
+
+import React, { useContext } from "react";
 import Image from "next/image";
 import Adviser from "../_components/Adviser";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { AccountContext } from "../context/AccountProvider";
 
-const SituationPage = () => {
+const SituationPage = ({ searchParams }) => {
+  const { accountName } = searchParams;
+  const { accounts } = useContext(AccountContext);
+  const account = accounts?.find((acc) => acc?.planTitle === accountName);
+
+  console.log(account);
   return (
     <section className="flex items-start gap-10">
       <div className="bg-white w-full mx-auto rounded-xl py-8">
@@ -16,7 +24,7 @@ const SituationPage = () => {
             <div className="flex justify-between">
               <h1 className=" font-bold">Fund Available</h1>
               <h1 className="text-[#FF002E] text-[22px] font-extrabold">
-                $240,399
+                ${account?.fundAvailable}
               </h1>
             </div>
             <div className="bg-[#FB3F6C] rounded flex justify-between mt-4 mb-5">
@@ -30,7 +38,8 @@ const SituationPage = () => {
                   <Image
                     src={"/assets/af8da771f5eb688450c14d598e835ea6.png"}
                     alt="Mastercard-Logo.png"
-                    width={200} height={200}
+                    width={200}
+                    height={200}
                   />
                 </div>
                 <small className=" invisible">invisible</small>
@@ -60,7 +69,9 @@ const SituationPage = () => {
               </svg>
               <div>
                 <h1>Total Amount Invested</h1>
-                <h1 className="text-[24px] font-bold text-[#BDBDBD]">$0</h1>
+                <h1 className="text-[24px] font-bold text-[#BDBDBD]">
+                  ${account?.investedAmount}
+                </h1>
               </div>
             </div>
             <BsThreeDotsVertical
@@ -86,7 +97,9 @@ const SituationPage = () => {
               </svg>
               <div>
                 <h1>Total Performance</h1>
-                <h1 className="text-[24px] font-bold text-[#BDBDBD]">$0</h1>
+                <h1 className="text-[24px] font-bold text-[#BDBDBD]">
+                  ${account?.totalPerformance}
+                </h1>
               </div>
             </div>
             <BsThreeDotsVertical
@@ -98,7 +111,6 @@ const SituationPage = () => {
 
       {/* cart two  */}
       <Adviser />
-      
     </section>
   );
 };

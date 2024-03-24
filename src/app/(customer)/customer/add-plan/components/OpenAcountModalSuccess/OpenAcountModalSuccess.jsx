@@ -12,7 +12,7 @@ const OpenAccountModalSuccess = ({ id }) => {
   return (
     <div id={id} className={styles.modal}>
       <div className={styles.modal_content}>
-        <div class={styles.modal_header}>
+        <div className={styles.modal_header}>
           <span className={styles.close} onClick={() => handleCloseModal(id)}>
             &times;
           </span>
@@ -28,7 +28,7 @@ const OpenAccountModalSuccess = ({ id }) => {
           </p>
           <div className="flex items-center justify-center">
             <Link
-              href={"/payment-page"}
+              href={"/customer/profile/personal-data"}
               className="text-[#f00] text-lg text-center hover:underline underline-offset-4"
             >
               Payment Page

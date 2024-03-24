@@ -91,5 +91,5 @@ const clientSchema = new Schema(
 //   next();
 // });
 
-const Client = models.Client || mongoose.model("Client", clientSchema);
+const Client = models?.Client || mongoose.model("Client", clientSchema);
 export default Client;

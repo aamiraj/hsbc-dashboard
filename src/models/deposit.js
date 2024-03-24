@@ -51,5 +51,5 @@ const depositSchema = new Schema(
   { timestamps: true }
 );
 
-const Deposit = models.Deposit || mongoose.model("Deposit", depositSchema);
+const Deposit = models?.Deposit || mongoose.model("Deposit", depositSchema);
 export default Deposit;

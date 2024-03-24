@@ -10,7 +10,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import { FaTicketAlt } from "react-icons/fa";
 
-const AccountMenus = ({ id, title }) => {
+const AccountMenus = ({ id, info }) => {
   const path = usePathname();
   const parts = path.split("/");
   const situation = parts[parts.length - 1];
@@ -33,10 +33,10 @@ const AccountMenus = ({ id, title }) => {
         className="accordion"
         onClick={() => handleAccordion(id)}
       >
-        {title}
+        {info?.planTitle}
       </button>
       <ul className="panel">
-        <Link href={"/customer/accounts/situation"}>
+        <Link href={`/customer/accounts/situation?accountName=${info?.planTitle}`}>
           <li
             className={`flex gap-x-5 p-4 ${
               situation === "situation" ? "bg-black text-white" : ""
