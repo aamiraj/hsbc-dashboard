@@ -17,7 +17,7 @@ export default function AccountLayout({ children }) {
           <div>
             <Sidebar />
           </div>
-          <div>{children}</div>
+          <div className="w-full">{children}</div>
         </AccountProvider>
       </div>
     </section>

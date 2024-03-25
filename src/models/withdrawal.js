@@ -2,8 +2,8 @@ import mongoose, { Schema, models } from "mongoose";
 
 const withdrawalSchema = new Schema(
   {
-    name: { type: String, required: true },
-    email: {
+    clientName: { type: String, required: true },
+    clientEmail: {
       type: String,
       required: true,
     },
@@ -12,7 +12,7 @@ const withdrawalSchema = new Schema(
       ref: "Client",
       required: true,
     },
-    planName: {
+    planTitle: {
       type: String,
       required: true,
     },
@@ -41,6 +41,7 @@ const withdrawalSchema = new Schema(
         "Advance of SRD Funds",
         "Other",
       ],
+      default: "Bank Transfer",
     },
     reference: {
       type: String,
@@ -50,5 +51,6 @@ const withdrawalSchema = new Schema(
   { timestamps: true }
 );
 
-const Withdrawal = models?.Withdrawal || mongoose.model("Withdrawal", withdrawalSchema);
+const Withdrawal =
+  models?.Withdrawal || mongoose.model("Withdrawal", withdrawalSchema);
 export default Withdrawal;

@@ -2,8 +2,8 @@ import mongoose, { Schema, models } from "mongoose";
 
 const depositSchema = new Schema(
   {
-    name: { type: String, required: true },
-    email: {
+    clientName: { type: String, required: true },
+    clientEmail: {
       type: String,
       required: true,
     },
@@ -12,7 +12,7 @@ const depositSchema = new Schema(
       ref: "Client",
       required: true,
     },
-    planName: {
+    planTitle: {
       type: String,
       required: true,
     },
@@ -41,7 +41,7 @@ const depositSchema = new Schema(
         "Advance of SRD Funds",
         "Other",
       ],
-      default: "Bank Transfer"
+      default: "Bank Transfer",
     },
     reference: {
       type: String,

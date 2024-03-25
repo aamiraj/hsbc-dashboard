@@ -12,7 +12,8 @@ const SituationPage = ({ searchParams }) => {
   const { accounts } = useContext(AccountContext);
   const account = accounts?.find((acc) => acc?.planTitle === accountName);
 
-  console.log(account);
+  const id = account?.planTitle.replace(/ /g, "");
+  // console.log(account);
   return (
     <section className="flex items-start gap-10">
       <div className="bg-white w-full mx-auto rounded-xl py-8">
@@ -110,7 +111,7 @@ const SituationPage = ({ searchParams }) => {
       </div>
 
       {/* cart two  */}
-      <Adviser />
+      <Adviser id={`account-${id}`} account={account} />
     </section>
   );
 };

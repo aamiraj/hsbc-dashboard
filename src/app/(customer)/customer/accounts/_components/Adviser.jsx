@@ -1,8 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import { FaEnvelope, FaMinus, FaPhone, FaPlus } from "react-icons/fa";
+import OpenAddFundModal from "../_components/OpenAddFundModal/OpenAddFundModal";
+import OpenWithdrawModal from "../_components/OpenWithdrawModal/OpenWithdrawModal";
 
-const Adviser = () => {
+const Adviser = ({id, account }) => {
+  const handleOpenModal = (id) => {
+    const modal = document.getElementById(id);
+    modal.style.display = "block";
+  };
   return (
     <div>
       <div className="bg-white w-full mx-auto rounded-xl">
@@ -13,7 +19,8 @@ const Adviser = () => {
           <Image
             src={"/assets/pexels-photo-1133957.webp"}
             alt="image"
-            width={200} height={200}
+            width={200}
+            height={200}
           />
         </div>
 
@@ -46,16 +53,29 @@ const Adviser = () => {
             </h1>
           </div>
           <div className="flex justify-center gap-4 pb-12 pt-6">
-            <button type="button" className="flex justify-center items-center gap-x-2 bg-[#FF002E] rounded w-[121px] text-white h-[35px]">
+            <button
+              type="button"
+              onClick={() => handleOpenModal(id)}
+              className="flex justify-center items-center gap-x-2 bg-[#FF002E] rounded w-[121px] text-white h-[35px]"
+            >
               <FaPlus />
               <span className="text-xs">Add</span>
             </button>
-            <button type="button" className="flex justify-center items-center gap-x-2 bg-[#FF002E] rounded w-[121px] text-white h-[35px]">
+            <button
+              type="button"
+              onClick={() => handleOpenModal(`withdraw-${id}`)}
+              className="flex justify-center items-center gap-x-2 bg-[#FF002E] rounded w-[121px] text-white h-[35px]"
+            >
               <FaMinus />
               <span className="text-xs">Withdraw</span>
             </button>
           </div>
         </div>
+      </div>
+      {/* open modal on click add fund  */}
+      <div>
+        <OpenAddFundModal id={id} account={account} />
+        <OpenWithdrawModal id={`withdraw-${id}`} account={account} />
       </div>
     </div>
   );
