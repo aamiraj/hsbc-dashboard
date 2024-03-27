@@ -14,7 +14,7 @@ export async function POST(req) {
     const client = { fullname, email, password: hashedPassword };
 
     await connectMongoDB();
-    
+
     const newClient = await Client.create(client);
     const token = `${randomUUID()}${randomUUID()}`.replace(/-/g, "");
 
@@ -23,14 +23,14 @@ export async function POST(req) {
       userId: newClient._id,
     });
 
-    await sendVerificationEmail(email, fullname, token);
-
+    const result = await sendVerificationEmail(email, fullname, token);
+    // console.log(result);
     return NextResponse.json(
       { message: "User sign up successful" },
       { status: 201 }
     );
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return NextResponse.json(
       { message: "User sign up failed", error: error },
       { status: 500 }
