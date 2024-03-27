@@ -31,9 +31,9 @@ const getData = async (api) => {
   const res = await fetch(api);
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    // throw new Error('Failed to fetch data')
     // toast.error("Error while fetching data.");
-    // return;
+    return;
   }
 
   const { data } = await res.json();
