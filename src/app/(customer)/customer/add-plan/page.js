@@ -7,6 +7,7 @@ const getPlans = async (api) => {
   if (!res.ok) {
     const { error } = await res.json();
     console.log(error);
+    return;
   }
 
   const { data } = await res.json();

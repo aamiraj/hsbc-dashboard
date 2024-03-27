@@ -17,7 +17,8 @@ async function getData(url) {
   const res = await fetch(url);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    // throw new Error("Failed to fetch data");
+    return;
   }
 
   return res.json();
@@ -65,7 +66,9 @@ const CryptoCurrencyData = () => {
                   <div className="font-bold w-full flex items-center justify-between gap-4">
                     <div>
                       <p className="text-lest">{d?.name}</p>
-                      <p className="text-left text-xs font-normal">{d?.symbol}</p>
+                      <p className="text-left text-xs font-normal">
+                        {d?.symbol}
+                      </p>
                     </div>
                     <div>
                       <p className="text-right flex items-center">
@@ -94,7 +97,9 @@ const CryptoCurrencyData = () => {
           </div>
         </div>
         <div>
-          {allCoinsData?.filter((coin) => coin?.id === singleCoin)?.map((coin, i) => (
+          {allCoinsData
+            ?.filter((coin) => coin?.id === singleCoin)
+            ?.map((coin, i) => (
               <div
                 key={i}
                 className="bg-white rounded-lg shadow-lg w-full px-4 py-2 flex items-center gap-4"

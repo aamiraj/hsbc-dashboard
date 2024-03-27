@@ -60,7 +60,7 @@ const Investments = async () => {
           className="bookletTab"
           style={{ display: "block" }}
         >
-          {savingsFunds.map((booklet, i) => (
+          {savingsFunds?.map((booklet, i) => (
             <InvestmentBooklet key={i} savingsFund={booklet} />
           ))}
         </div>

@@ -33,7 +33,7 @@ const Feedback = ({ id, title, messages, handleClose }) => {
         </div>
         <div className={styles.modal_body}>
           <ul className="list-disc">
-            {messages.map((message, i) => (
+            {messages?.map((message, i) => (
               <li key={`message-${i}`}>
                 <p>{message}</p>
               </li>
