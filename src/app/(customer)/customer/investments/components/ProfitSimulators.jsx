@@ -1,15 +1,21 @@
 "use client";
 
-import React from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import { PiCurrencyDollarFill } from "react-icons/pi";
 import { PiNewspaperClipping } from "react-icons/pi";
 import { PiWallet } from "react-icons/pi";
 import { PiCalendar } from "react-icons/pi";
 import { PiSticker } from "react-icons/pi";
+import { useSession } from "next-auth/react";
 import { iconSize } from "../../sections/HeaderNavBar";
-import Link from "next/link";
 
-const ProfitSimulators = () => {
+const ProfitSimulators = ({ minValue, maxValue }) => {
+  const [accounts, setAccounts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { data } = useSession();
+  const email = data?.user?.email;
+
   const progressScript = (event) => {
     const sliderEl = document.querySelector("#range");
     const sliderValue = document.querySelector("#value");
@@ -17,10 +23,22 @@ const ProfitSimulators = () => {
     const tempSliderValue = event.target.value;
     sliderValue.value = tempSliderValue;
 
-    const progress = (tempSliderValue / sliderEl.max) * 100;
+    const progress =
+      ((tempSliderValue - sliderEl.min) / (sliderEl.max - sliderEl.min)) * 100;
 
     sliderEl.style.background = `linear-gradient(to right, #f00 ${progress}%, #ccc ${progress}%)`;
   };
+
+  useEffect(() => {
+    if (!email) return;
+    setLoading(true);
+    fetch(`/api/data/accounts?email=${email}`)
+      .then((res) => res.json())
+      .then(({ data }) => setAccounts(data))
+      .catch((error) => console.log(error))
+      .finally(setLoading(false));
+  }, [email]);
+
   return (
     <div>
       <div>
@@ -30,13 +48,23 @@ const ProfitSimulators = () => {
             Select the amount to invest:
           </label>
           <div className="flex items-center gap-4">
-            <div className="border-2 rounded px-4 py-2">
+            <div className="">
               <select
                 name="booklet"
                 id="booklet"
-                className="w-full outline-none "
+                className="border-2 rounded px-4 py-2 
+                w-full outline-none "
+                defaultValue={accounts?.[0] || ""}
               >
-                <option value="HSCB Free Booklet">HSCB Free Booklet</option>
+                {loading ? (
+                  <option value="">No account</option>
+                ) : (
+                  accounts?.map((account, i) => (
+                    <option key={i} value={account?.planTitle}>
+                      {account?.planTitle}
+                    </option>
+                  ))
+                )}
               </select>
             </div>
             <div className="flex items-center justify-between gap-2 outline-none border-2 rounded px-4 py-2">
@@ -44,7 +72,7 @@ const ProfitSimulators = () => {
                 type="number"
                 id="value"
                 className="w-full outline-none"
-                defaultValue={2000}
+                defaultValue={minValue}
               />
               <PiCurrencyDollarFill
                 style={{ width: "20px", height: "20px" }}
@@ -56,9 +84,9 @@ const ProfitSimulators = () => {
             <input
               type="range"
               onInput={progressScript}
-              min="0"
-              max="20000"
-              defaultValue="2000"
+              min={minValue}
+              max={maxValue}
+              defaultValue={minValue}
               id="range"
             />
           </div>
@@ -70,7 +98,9 @@ const ProfitSimulators = () => {
           </p>
         </div>
         <div>
-          <p className="font-bold text-center py-4">Number of available spaces: 12</p>
+          <p className="font-bold text-center py-4">
+            Number of available spaces: 12
+          </p>
         </div>
         <div className="w-full my-4 p-2 bg-[#D80027] flex items-center justify-center rounded-lg hover:bg-[#39DE5DAA]">
           <Link

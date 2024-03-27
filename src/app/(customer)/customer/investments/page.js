@@ -1,6 +1,7 @@
 import React from "react";
 import TopHeader from "./components/TopHeader";
 import InvestmentBooklet from "./components/InvestmentBooklet";
+import toast from "react-hot-toast";
 
 const savingFundsBooklet = [
   {
@@ -26,7 +27,21 @@ const carParkBooklet = [
   },
 ];
 
-const Investments = () => {
+const getData = async (api) => {
+  const res = await fetch(api);
+
+  if (!res.ok) {
+    toast.error("Error while fetching data.");
+    return;
+  }
+
+  const { data } = await res.json();
+  return data;
+};
+
+const Investments = async () => {
+  const savingsFunds = await getData(`${process.env.PROD_URL}api/data/savings-funds`)
+
   return (
     <div className="w-[90%] mx-auto py-10">
       <h2 className="text-2xl font-bold py-4">
@@ -44,15 +59,15 @@ const Investments = () => {
           className="bookletTab"
           style={{ display: "block" }}
         >
-          {savingFundsBooklet.map((booklet, i) => (
-            <InvestmentBooklet key={i} image={booklet.image} />
+          {savingsFunds.map((booklet, i) => (
+            <InvestmentBooklet key={i} savingsFund={booklet} />
           ))}
         </div>
         {/* saving funds booklet list  */}
         <div id="car-park" className="bookletTab" style={{ display: "none" }}>
-          {carParkBooklet.map((booklet, i) => (
+          {/* {carParkBooklet.map((booklet, i) => (
             <InvestmentBooklet key={i} image={booklet.image} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

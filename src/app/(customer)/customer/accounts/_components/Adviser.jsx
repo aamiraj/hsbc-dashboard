@@ -3,8 +3,9 @@ import React from "react";
 import { FaEnvelope, FaMinus, FaPhone, FaPlus } from "react-icons/fa";
 import OpenAddFundModal from "../_components/OpenAddFundModal/OpenAddFundModal";
 import OpenWithdrawModal from "../_components/OpenWithdrawModal/OpenWithdrawModal";
+import OpenModalButton from "./OpenModalButton";
 
-const Adviser = ({id, account }) => {
+const Adviser = ({ id, account }) => {
   const handleOpenModal = (id) => {
     const modal = document.getElementById(id);
     modal.style.display = "block";
@@ -53,22 +54,14 @@ const Adviser = ({id, account }) => {
             </h1>
           </div>
           <div className="flex justify-center gap-4 pb-12 pt-6">
-            <button
-              type="button"
-              onClick={() => handleOpenModal(id)}
-              className="flex justify-center items-center gap-x-2 bg-[#FF002E] rounded w-[121px] text-white h-[35px]"
-            >
+            <OpenModalButton id={id}>
               <FaPlus />
               <span className="text-xs">Add</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => handleOpenModal(`withdraw-${id}`)}
-              className="flex justify-center items-center gap-x-2 bg-[#FF002E] rounded w-[121px] text-white h-[35px]"
-            >
+            </OpenModalButton>
+            <OpenModalButton id={`withdraw-${id}`}>
               <FaMinus />
               <span className="text-xs">Withdraw</span>
-            </button>
+            </OpenModalButton>
           </div>
         </div>
       </div>

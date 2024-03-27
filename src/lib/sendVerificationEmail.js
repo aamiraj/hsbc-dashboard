@@ -12,10 +12,10 @@ const sendVerificationEmail = async (toEmail, fullName, token) => {
   async function main() {
     // send mail with defined transport object
     const info = await transporter.sendMail({
-      from: `HSBC <${process.env.AUTH_EMAIL}>`, // sender address
+      from: `HSBC <${process.env.NODEMAILER_EMAIL}>`, // sender address
       to: toEmail, // list of receivers
       subject: "Email verification for HSBC", // Subject line
-      text: `Hello ${fullName}, here is the verification link for your HSBC customer account. Please click the link to verify your email. Link ${process.env.NEXTAUTH_URL}api/authenticate/activate/${token}`, // plain text body
+      text: `Hello ${fullName}, here is the verification link for your HSBC customer account. Please click the link to verify your email. Link ${process.env.PROD_URL}api/authenticate/activate/${token}`, // plain text body
     });
 
     console.log("Message sent: %s", info.messageId);

@@ -3,6 +3,7 @@ import "../../globals.css";
 import HeaderNavBar from "./sections/HeaderNavBar";
 import Footer from "./sections/Footer";
 import AuthProvider from "../../../components/AuthProvider/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
@@ -23,6 +24,9 @@ export default function RootLayout({ children }) {
           <main className=" bg-customer-screen">{children}</main>
           <Footer />
         </AuthProvider>
+        <div>
+          <Toaster position="bottom-center" reverseOrder={false} />
+        </div>
       </body>
     </html>
   );
