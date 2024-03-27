@@ -1,7 +1,7 @@
 import React from "react";
 import TopHeader from "./components/TopHeader";
 import InvestmentBooklet from "./components/InvestmentBooklet";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 const savingFundsBooklet = [
   {
@@ -31,7 +31,8 @@ const getData = async (api) => {
   const res = await fetch(api);
 
   if (!res.ok) {
-    toast.error("Error while fetching data.");
+    alert("Error while fetching data.");
+    // toast.error("Error while fetching data.");
     return;
   }
 

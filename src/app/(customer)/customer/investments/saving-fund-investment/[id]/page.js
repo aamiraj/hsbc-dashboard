@@ -24,7 +24,8 @@ const getData = async (api) => {
   const res = await fetch(api);
 
   if (!res.ok) {
-    toast.error("Error while fetching details.");
+    alert("Error while fetching details.")
+    // toast.error("Error while fetching details.");
     return;
   }
 
