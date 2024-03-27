@@ -107,7 +107,7 @@ const InvestmentBooklet = ({ savingsFund }) => {
 
           <div className="w-full p-2 bg-[#39DE5D] flex items-center justify-center rounded-lg hover:bg-[#39DE5DAA]">
             <Link
-              href={"investments/saving-fund-investment"}
+              href={`investments/saving-fund-investment/${savingsFund?._id}`}
               className="w-full flex items-center justify-center gap-2"
             >
               <PiNewspaperClipping style={iconSize} />
